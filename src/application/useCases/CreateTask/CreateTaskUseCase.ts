@@ -4,7 +4,7 @@ import { ITriggersRepository } from "../../repositories/ITriggersRepository";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 type CreateTaskRequest = {
-    userId: number;
+    userId?: number;
     triggerId: number;
     description: string;
     closed: boolean;
@@ -18,7 +18,7 @@ export class CreateTaskUseCase {
         // private usersRepository: IUsersRepository,
     ) {}
 
-    async execute({ triggerId, userId, description, closed }: CreateTaskRequest) {
+    async execute({ triggerId, description, closed }: CreateTaskRequest) {
         // const user = await this.usersRepository.findById(userId);
         // if(!user)throw new Error('User does not exists.');
 
@@ -26,7 +26,6 @@ export class CreateTaskUseCase {
         if(!trigger)throw new Error('Trigger does not exists.');
 
         const task = new Task({
-            userId,
             triggerId,
             description,
             closed

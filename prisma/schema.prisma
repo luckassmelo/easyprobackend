@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -25,15 +25,15 @@ model TriggerType {
   status Boolean
   unit_of_measurement String
   is_accumulated Boolean
+  id_trigger Int
 
+  trigger Trigger @relation(fields: [id_trigger], references: [id])
   @@map("tbl_trigger_type")
-  Trigger Trigger[]
 }
 
 model Trigger {
   id Int @id @default(autoincrement())
   description String
-  id_trigger_type Int
   value Float
   status Boolean
   group String?
@@ -42,7 +42,7 @@ model Trigger {
   created_at DateTime @default(now())
 
   @@map("tbl_trigger")
-  type TriggerType @relation(fields: [id_trigger_type], references: [id])
+  TriggerType TriggerType[]
   TriggerTask TriggerTask[]
   TriggerCondOption TriggerCondOption[]
 }
@@ -51,7 +51,7 @@ model TriggerTask {
   id Int @id @default(autoincrement())
   id_trigger Int
   description String
-  id_user Int
+  id_user Int?
   closed Boolean
   created_at DateTime @default(now())
 

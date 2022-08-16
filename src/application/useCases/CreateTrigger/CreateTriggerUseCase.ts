@@ -1,17 +1,7 @@
+import { TriggerRequest } from "../../../core/types/TriggerRequest";
 import { Trigger } from "../../../domain/entities/trigger";
 import { ITriggersRepository } from "../../repositories/ITriggersRepository";
 import { ITriggerTypesRepository } from "../../repositories/ITriggersTypesRepository";
-
-type CreateTriggerRequest = {
-    description: string;
-    triggerTypeId: number;
-    value: number;
-    status: boolean;
-    group?: string | null;
-    machine?: string | null;
-    userId: number;
-    createdAt?: Date | null;
-}
 
 export class CreateTriggerUseCase {
  
@@ -20,17 +10,12 @@ export class CreateTriggerUseCase {
         private triggersTypesRepository: ITriggerTypesRepository
     ){}
 
-    async execute({ description, triggerTypeId, 
-                    value,  status, group, 
-                    machine, userId, createdAt}: CreateTriggerRequest) {
-
-        const triggerType = await this.triggersTypesRepository.findById(triggerTypeId);
-        if(!triggerType)throw new Error('Trigger type does not exists.');
+    async execute({ description, value,  status, group, 
+                    machine, userId, createdAt}: TriggerRequest) {
 
         
         const trigger = new Trigger({
                 description: description,
-                triggerTypeId: triggerTypeId,
                 value: value,
                 status: status,
                 group: group,

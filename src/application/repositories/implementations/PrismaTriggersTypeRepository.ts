@@ -1,4 +1,4 @@
-import { prismaClient } from "../../../database/prismaClient";
+import { prismaClient } from "../../../infra/database/prismaClient";
 import { TriggerType } from "../../../domain/entities/triggerType";
 import { ITriggerTypesRepository } from "../ITriggersTypesRepository";
 
@@ -16,7 +16,8 @@ export class PrismaTriggersType implements ITriggerTypesRepository {
             description: triggerTypeResult.description,
             status: triggerTypeResult.status,
             unitOfMeasurement: triggerTypeResult.unitOfMeasurement,
-            isAccumulated: triggerTypeResult.isAccumulated
+            isAccumulated: triggerTypeResult.isAccumulated,
+            triggerId: triggerTypeResult.id_trigger
         }, triggerTypeResult.id);
     }
 }

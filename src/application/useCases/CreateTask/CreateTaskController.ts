@@ -1,4 +1,3 @@
-import {Request, Response} from "express";
 import { CreateTaskUseCase } from "./CreateTaskUseCase";
 
 export class CreateTaskController {
@@ -6,22 +5,21 @@ export class CreateTaskController {
         private createTaskUseCase: CreateTaskUseCase
     ){}
 
-    async handle(request: Request, response: Response): Promise<Response> {
-        const { userId, triggerId, description, closed } = request.body;
+    async handle(body: any): Promise<any> {
+        const { triggerId, description, closed } = body;
 
         try {
             const taskResponse = await this
                                             .createTaskUseCase
                                             .execute({
                                                 triggerId,
-                                                userId,
                                                 description,
                                                 closed
                                             });
 
-            return response.status(201).json(taskResponse);
-        } catch(error) {
-            return response.status(400).json({
+            return (taskResponse);
+        } catch(error: any) {
+            return ({
                 message: error.message || 'Unexpected error.'
             });
         }

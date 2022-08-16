@@ -1,7 +1,7 @@
 import { Entity } from "../../core/domain/Entity";
 
 type TaskProps = {
-    userId: number;
+    userId?: number | null;
     triggerId: number;
     description: string;
     closed: boolean;

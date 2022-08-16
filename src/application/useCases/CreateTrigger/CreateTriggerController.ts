@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import { CreateTriggerUseCase } from "./CreateTriggerUseCase";
 
 export class CreateTriggerController {
@@ -6,14 +5,13 @@ export class CreateTriggerController {
         private createTriggerUseCase: CreateTriggerUseCase
     ){}
 
-    async handle(request: Request, response: Response): Promise<Response> {
+    async handle(body: any): Promise<any> {
         try {
-            const { description, triggerTypeId, value, status, group, machine, userId } = request.body;
+            const { description, value, status, group, machine, userId } = body;
             
             const triggerResponse = await this
                                               .createTriggerUseCase
                                               .execute({ description,
-                                                        triggerTypeId,
                                                         value,
                                                         status,
                                                         group,
@@ -21,10 +19,10 @@ export class CreateTriggerController {
                                                         userId
                                                 });
 
-            return response.status(201).json(triggerResponse);
+            return (triggerResponse);
 
-        } catch (error) {
-            return response.status(400).json({
+        } catch (error: any) {
+            return ({
                 message: error.message || 'Unexpected error.'
             });
         }

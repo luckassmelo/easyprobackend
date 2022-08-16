@@ -12,7 +12,6 @@ describe('Create a task use case', () => {
 
         const trigger = Trigger.create({
                 description: "Description Trigger",
-                triggerTypeId: 1,
                 value: 5,
                 status: true,
                 group: "AMP",

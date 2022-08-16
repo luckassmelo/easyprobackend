@@ -1,4 +1,4 @@
-import { prismaClient } from "../../../database/prismaClient";
+import { prismaClient } from "../../../infra/database/prismaClient";
 import { Trigger } from "../../../domain/entities/trigger";
 import { ITriggersRepository } from "../ITriggersRepository";
 
@@ -16,7 +16,6 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
         return new Trigger(
             {
                 description: triggerResult.description,
-                triggerTypeId: triggerResult.id_trigger_type,
                 value: triggerResult.value,
                 status: triggerResult.status,
                 group: triggerResult.group,
@@ -33,7 +32,6 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
          const triggerSaved = await prismaClient.trigger.create({
             data: {
                 description: trigger.props.description,
-                id_trigger_type: trigger.props.triggerTypeId,
                 value: trigger.props.value,
                 status: trigger.props.status,
                 group: trigger.props.group,
@@ -44,4 +42,15 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
 
         return triggerSaved;
     }
+
+    async allTriggers(): Promise<Trigger | null> {
+        return await prismaClient.trigger.findMany({
+            include: {
+                TriggerTask: true,
+                TriggerCondOption: true,
+                TriggerType: true
+            }
+        });
+    }
+    
 }

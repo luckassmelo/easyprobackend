@@ -5,6 +5,7 @@ type TriggerTypeProps = {
     status: boolean;
     unitOfMeasurement: string;
     isAccumulated: boolean;
+    triggerId: number;
 }
 
 export class TriggerType extends Entity<TriggerTypeProps> {

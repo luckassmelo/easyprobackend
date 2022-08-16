@@ -2,7 +2,6 @@ import { Entity } from "../../core/domain/Entity";
 
 type TriggerProps = {
     description: string;
-    triggerTypeId: number;
     value: number;
     status: boolean;
     group?: string | null;
