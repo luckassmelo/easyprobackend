@@ -1,6 +1,7 @@
 import { createTaskController } from "../../application/useCases/CreateTask/index";
 import { createTriggerController } from "../../application/useCases/CreateTrigger/index";
 import { findTriggerController } from "../../application/useCases/FindTrigger/index";
+import { getAllMachineEventController } from "../../application/useCases/GetAllMachineEvent/index";
 import { getAllTriggerController } from "../../application/useCases/GetAllTrigger/index";
 import { HttpServer } from "./HttpServer";
 
@@ -25,6 +26,10 @@ export default class Router {
 
         this.httpServer.on("post", "/api/task", async (params: any, body: any) => {
             return createTaskController.handle(body);
+        });
+
+        this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {
+           return getAllMachineEventController.handle(); 
         });
     }
 }

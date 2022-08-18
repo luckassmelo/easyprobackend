@@ -1,5 +1,7 @@
 import express, { Request, Response } from "express";
 import { HttpServer } from "./HttpServer";
+import compression from "compression";
+
 
 
 export class ExpressAdapter implements HttpServer{
@@ -7,7 +9,7 @@ export class ExpressAdapter implements HttpServer{
 
     constructor() {
         this.app = express();
-        this.app.use(express.json());
+        this.app.use(compression());
     }
 
     on(method: string, url: string, callback: Function): void {
