@@ -1,7 +1,7 @@
+import { PrismaTriggersRepository } from "../../../infra/repository/PrismaTriggersRepository";
+import { PrismaTriggersType } from "../../../infra/repository/PrismaTriggersTypeRepository";
 import { CreateTriggerController } from "./CreateTriggerController";
-import { PrismaTriggersRepository } from "../../repositories/implementations/PrismaTriggersRepository";
 import { CreateTriggerUseCase } from "./CreateTriggerUseCase";
-import { PrismaTriggersType } from "../../repositories/implementations/PrismaTriggersTypeRepository";
 
 const prismaTriggersRepository = new PrismaTriggersRepository();
 const prismaTriggersTypeRepository = new PrismaTriggersType();

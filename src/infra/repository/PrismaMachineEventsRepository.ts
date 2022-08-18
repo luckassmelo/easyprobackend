@@ -1,6 +1,6 @@
 import { MachineEvent } from "../../domain/entities/machineEvent";
-import { prismaClient } from "../database/prismaClient";
 import { IMachineEventsRepository } from "../../application/repositories/IMachineEventsRepository";
+import { prismaClient } from "../database/prismaClient";
 
 
 export class PrismaMachineEventsRepository implements IMachineEventsRepository {

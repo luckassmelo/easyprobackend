@@ -1,4 +1,4 @@
-import { PrismaTriggersRepository } from "../../repositories/implementations/PrismaTriggersRepository";
+import { PrismaTriggersRepository } from "../../../infra/repository/PrismaTriggersRepository";
 import { GetAllTriggerController } from "./GetAllTriggerController";
 import { GetAllTriggerUseCase } from "./GetAllTriggerUseCase";
 

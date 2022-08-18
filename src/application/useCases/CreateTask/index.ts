@@ -1,5 +1,6 @@
-import { PrismaTasksRepository } from "../../repositories/implementations/PrismaTasksRepository";
-import { PrismaTriggersRepository } from "../../repositories/implementations/PrismaTriggersRepository";
+
+import { PrismaTasksRepository } from "../../../infra/repository/PrismaTasksRepository";
+import { PrismaTriggersRepository } from "../../../infra/repository/PrismaTriggersRepository";
 import { CreateTaskController } from "./CreateTaskController";
 import { CreateTaskUseCase } from "./CreateTaskUseCase";
 

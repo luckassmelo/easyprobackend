@@ -1,6 +1,7 @@
-import { prismaClient } from "../../../infra/database/prismaClient";
-import { TriggerType } from "../../../domain/entities/triggerType";
-import { ITriggerTypesRepository } from "../ITriggersTypesRepository";
+import { ITriggerTypesRepository } from "../../application/repositories/ITriggersTypesRepository";
+import { TriggerType } from "../../domain/entities/triggerType";
+import { prismaClient } from "../database/prismaClient";
+
 
 export class PrismaTriggersType implements ITriggerTypesRepository {
     async findById(id: number): Promise<TriggerType | null> {

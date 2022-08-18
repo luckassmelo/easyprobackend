@@ -1,6 +1,7 @@
-import { prismaClient } from "../../../infra/database/prismaClient";
-import { Task } from "../../../domain/entities/task";
-import { ITasksRepository } from "../ITasksRepository";
+import { ITasksRepository } from "../../application/repositories/ITasksRepository";
+import { Task } from "../../domain/entities/task";
+import { prismaClient } from "../database/prismaClient";
+
 
 export class PrismaTasksRepository implements ITasksRepository {
     async save(task: Task): Promise<Task | void> {

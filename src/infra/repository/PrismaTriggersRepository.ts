@@ -1,6 +1,7 @@
-import { prismaClient } from "../../../infra/database/prismaClient";
-import { Trigger } from "../../../domain/entities/trigger";
-import { ITriggersRepository } from "../ITriggersRepository";
+import { ITriggersRepository } from "../../application/repositories/ITriggersRepository";
+import { Trigger } from "../../domain/entities/trigger";
+import { prismaClient } from "../database/prismaClient";
+
 
 export class PrismaTriggersRepository implements ITriggersRepository  {
 
