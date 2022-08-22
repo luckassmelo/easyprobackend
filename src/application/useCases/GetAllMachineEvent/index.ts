@@ -1,12 +1,12 @@
-import { PrismaMachineEventsRepository } from "../../../infra/repository/PrismaMachineEventsRepository";
+import { connectionMdcPPB } from "../../../infra/database/index";
+import { MachineEventsRepository } from "../../../infra/repository/MachineEventsRepository";
 import { GetAllMachineEventController } from "./GetAllMachineEventController";
 import { GetAllMachineEventUseCase } from "./GetAllMachineEventUseCase";
 
-
-const prismaMachineEventsRepository = new PrismaMachineEventsRepository();
+const machineEventsRepository = new MachineEventsRepository(connectionMdcPPB);
 
 const getAllMachineEventUseCase = new GetAllMachineEventUseCase(
-    prismaMachineEventsRepository
+    machineEventsRepository
 );
 
 const getAllMachineEventController = new GetAllMachineEventController(
