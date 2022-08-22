@@ -1,6 +1,6 @@
 {
   "name": "api-easy-notification",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Api responsible to provide data about Pop-up System",
   "main": "main.js",
   "scripts": {
