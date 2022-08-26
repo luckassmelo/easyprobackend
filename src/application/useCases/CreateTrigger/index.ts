@@ -9,7 +9,9 @@ import { CreateTriggerUseCase } from "./CreateTriggerUseCase";
 const prismaTriggersRepository = new PrismaTriggersRepository(
     connectionProductionManager
 );
-const prismaTriggersTypeRepository = new PrismaTriggersType();
+const prismaTriggersTypeRepository = new PrismaTriggersType(
+    connectionProductionManager
+);
 
 const createTriggerUseCase = new CreateTriggerUseCase(
     prismaTriggersRepository,
