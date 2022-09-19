@@ -9,10 +9,10 @@ export class MachineEventsRepository implements IMachineEventsRepository {
         readonly connection: Connection
     ){}
 
-    async allMachineEvents(): Promise<MachineEvent[] | null> {
-        return await this.connection.query(`
+    async allMachineEvents(): Promise<MachineEvent[]> {
+        return MachineEvent.convertArrayToObject((await this.connection.query(`
                     SELECT  ev.ev_time as eventDate, 
-                            typ.typ_name as eventName,
+                            typ.typ_name as eventName, 
                             pu.pu_no as machine,
                             ord.ord_no as workorder,
                             rs.rs_no as statusCode,
@@ -38,11 +38,11 @@ export class MachineEventsRepository implements IMachineEventsRepository {
 
                     WHERE ev_made_historic is null
 
-                    AND ev_time BETWEEN '2022-08-15 06:44:06' AND '2022-08-19 06:44:06'
+                    AND ev_time >= now() - interval '10 minutes'
 
                     AND typ_name = 'COUNTER_READING' AND vai_name = 'C10130'
 
-                    ORDER BY ev.ev_time DESC, pu.pu_id, typ_id
-        `, []);
+                    ORDER BY ev.ev_time DESC, pu.pu_id, typ_id, machine
+        `, [])).rows);
     }
 }

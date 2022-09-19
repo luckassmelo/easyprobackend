@@ -16,4 +16,14 @@ export class MachineEvent extends Entity<MachineEventProps> {
     ){
         super(props, id);
     }
+
+    static convertArrayToObject(machineEvents: MachineEvent[]) {
+        const machineEventsObject: any = {};
+
+        machineEvents.forEach(machineEvent => {
+            machineEventsObject[machineEvent.machine] = machineEvent;
+        });
+
+        return machineEventsObject;
+    }
 }
