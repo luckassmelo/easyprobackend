@@ -19,4 +19,14 @@ export class Trigger extends Entity<TriggerProps> {
         return new Trigger(props, id);
     }
 
+    static convertArrayToObject(triggers: Trigger[]) {
+        const triggersObject: any = {};
+
+        triggers.forEach(trigger => {
+            triggersObject[trigger.group] = trigger;
+        });
+
+        return triggersObject;
+    }
+
 }

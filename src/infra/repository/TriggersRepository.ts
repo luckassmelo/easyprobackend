@@ -43,7 +43,7 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
        return triggerSaved;
     }
 
-    async allTriggers(): Promise<Trigger | null> {
+    async allTriggers(): Promise<Trigger[] > {
         return (await this.connection.query("SELECT * FROM tbl_trigger", [])).rows;
     }
 }
