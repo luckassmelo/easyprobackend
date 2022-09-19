@@ -2,6 +2,7 @@ import { createTaskController } from "../../application/useCases/CreateTask/inde
 import { createTriggerController } from "../../application/useCases/CreateTrigger/index";
 import { findTriggerController } from "../../application/useCases/FindTrigger/index";
 import { getAllMachineEventController } from "../../application/useCases/GetAllMachineEvent/index";
+import { getAllServiceInformationController } from "../../application/useCases/GetAllServiceInformation/index";
 import { getAllTriggerController } from "../../application/useCases/GetAllTrigger/index";
 import { getAllWorkOrderDetailsController } from "../../application/useCases/GetAllWorkOrderDetails/index";
 import { HttpServer } from "./HttpServer";
@@ -35,6 +36,10 @@ export default class Router {
 
         this.httpServer.on("get", "/api/cronetwork/workOrderDetails", async(params: any, body: any) => {
             return getAllWorkOrderDetailsController.handle();
+        });
+
+        this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {            
+            return getAllServiceInformationController.handle();
         });
     }
 }
