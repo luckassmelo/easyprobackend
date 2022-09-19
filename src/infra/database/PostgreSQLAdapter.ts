@@ -12,6 +12,8 @@ export default class PostgresSQLAdapter implements Connection {
             connection: {
                ...databaseConnection
             },
+            pool: { min: 0, max: 7, },
+            acquireTimeout: 60000 //60 seconds
         });
         
     }
