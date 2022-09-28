@@ -15,7 +15,7 @@ export class GetAllServiceInformationUseCase {
     ){}
 
     async execute() {
-        const triggers = Trigger.convertArrayToObject((await this.triggersRepository.allTriggers()));
+        const triggers = ((await this.triggersRepository.allTriggers()));
         const tasks = await this.tasksRepository.getAll();
         const machineEvents = (await this.machineEventsRepository.allMachineEvents());
         // const workOrderDetailsRepository = await this.workOrderDetailsRepository.allWorkOrderDetails();
