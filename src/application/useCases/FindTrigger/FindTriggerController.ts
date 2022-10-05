@@ -5,9 +5,9 @@ export class FindTriggerController {
         private findTriggerUseCase: FindTriggerUseCase
     ){}
 
-    async handle(params: any): Promise<any> {
+    async handle(body: any): Promise<any> {
         try {
-            const triggerId: number = Number(params.triggerId);
+            const triggerId: number = Number(body.triggerId);
 
             const triggerResponse = await this
                                               .findTriggerUseCase

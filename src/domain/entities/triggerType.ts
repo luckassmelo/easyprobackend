@@ -1,11 +1,9 @@
 import { Entity } from "../../core/domain/Entity";
 
 type TriggerTypeProps = {
-    description: string;
+    name: string;
     status: boolean;
-    unitOfMeasurement: string;
-    isAccumulated: boolean;
-    triggerId: number;
+    isProductiveTime: boolean;
 }
 
 export class TriggerType extends Entity<TriggerTypeProps> {
