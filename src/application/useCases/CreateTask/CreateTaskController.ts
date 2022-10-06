@@ -6,14 +6,14 @@ export class CreateTaskController {
     ){}
 
     async handle(body: any): Promise<any> {
-        const { triggerId, description, closed } = body;
+        const { triggerId, name, closed } = body;
 
         try {
             const taskResponse = await this
                                             .createTaskUseCase
                                             .execute({
                                                 triggerId,
-                                                description,
+                                                name,
                                                 closed
                                             });
 

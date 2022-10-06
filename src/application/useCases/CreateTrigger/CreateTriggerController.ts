@@ -7,16 +7,18 @@ export class CreateTriggerController {
 
     async handle(body: any): Promise<any> {
         try {
-            const { description, value, status, group, machine, userId } = body;
+            const { name, statusValue, piecesValue, status, groupId, oeeId, userId, triggerTypeId } = body;
             
             const triggerResponse = await this
                                               .createTriggerUseCase
-                                              .execute({ description,
-                                                        value,
+                                              .execute({ name,
+                                                        statusValue,
+                                                        piecesValue,
                                                         status,
-                                                        group,
-                                                        machine,
-                                                        userId
+                                                        groupId,
+                                                        oeeId,
+                                                        userId,
+                                                        triggerTypeId
                                                 });
 
             return (triggerResponse);

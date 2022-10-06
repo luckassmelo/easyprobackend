@@ -20,13 +20,15 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
 
         return new Trigger(
             {
-                description: triggerResult[0].description,
-                value: triggerResult[0].value,
-                status: triggerResult[0].status,
-                group: triggerResult[0].group,
-                machine: triggerResult[0].machine,
-                userId: triggerResult[0].id_user,
-                createdAt: triggerResult[0].createdAt
+                name: triggerResult.rows[0].name,
+                statusValue: triggerResult.rows[0].status_value,
+                piecesValue: triggerResult.rows[0].pieces_value,
+                status: triggerResult.rows[0].status,
+                groupId: triggerResult.rows[0].id_group,
+                oeeId: triggerResult.rows[0].id_oee,
+                userId: triggerResult.rows[0].id_user,
+                createdAt: triggerResult.rows[0].created_at,
+                triggerTypeId: triggerResult.rows[0].id_trigger_type
             },
             id         
             
@@ -37,13 +39,15 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
          const triggerSaved = await this
                                     .adapter
                                     .connection
-                                    .insert("tbl_trigger", {
-                                        description:    trigger.props.description, 
-                                        value:          trigger.props.value, 
-                                        status:         trigger.props.status, 
-                                        group:          trigger.props.group, 
-                                        machine:        trigger.props.machine, 
-                                        id_user:        trigger.props.userId 
+                                    .insert("trigger.tbl_trigger", {
+                                        name:           trigger.props.name, 
+                                        status_value:   trigger.props.statusValue,
+                                        pieces_value:   trigger.props.piecesValue,
+                                        status:         trigger.props.status,
+                                        id_group:       trigger.props.groupId,
+                                        id_oee:         trigger.props.oeeId,
+                                        id_user:        trigger.props.userId,
+                                        id_trigger_type: trigger.props.triggerTypeId
                                     });
 
        return triggerSaved;

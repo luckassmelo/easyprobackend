@@ -1,12 +1,14 @@
 import { Entity } from "../../core/domain/Entity";
 
 type TriggerProps = {
-    description: string;
-    value: number;
+    name: string;
+    piecesValue: number | null;
+    statusValue: string | null;
     status: boolean;
-    group?: string | null;
-    machine?: string | null;
+    oeeId?: number | null;
+    groupId?: number | null;
     userId: number;
+    triggerTypeId: number;
     createdAt?: Date;
 }
 

@@ -10,17 +10,21 @@ export class CreateTriggerUseCase {
         private triggersTypesRepository: ITriggerTypesRepository
     ){}
 
-    async execute({ description, value,  status, group, 
-                    machine, userId, createdAt}: TriggerRequest) {
+    async execute(request: TriggerRequest) {
 
+        const triggerType = await this.triggersTypesRepository.findById(request.triggerTypeId);
+
+        if (!triggerType) throw new Error('Trigger type not found.');
         
         const trigger = new Trigger({
-                description: description,
-                value: value,
-                status: status,
-                group: group,
-                machine: machine,
-                userId: userId
+            name: request.name,
+            groupId: request.groupId || null,
+            oeeId: request.oeeId || null,
+            piecesValue: request.piecesValue,
+            status: request.status,
+            statusValue: request.statusValue,
+            triggerTypeId: request.triggerTypeId,
+            userId: request.userId
         });        
 
         const triggerCreated = await this.triggersRepository.save(trigger);

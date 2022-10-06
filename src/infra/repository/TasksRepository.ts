@@ -10,9 +10,9 @@ export class PrismaTasksRepository implements ITasksRepository {
 
     async save(task: Task): Promise<void | Task> {
         const taskResult = await this.connection
-                                     .insert('tbl_trigger_task', {
+                                     .insert('trigger.tbl_trigger_task', {
                                         id_trigger: task.props.triggerId, 
-                                        description: task.props.description, 
+                                        name: task.props.name, 
                                         closed: task.props.closed
                                      });
         
