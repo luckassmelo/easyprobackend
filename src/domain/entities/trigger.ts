@@ -1,12 +1,15 @@
 import { Entity } from "../../core/domain/Entity";
 
 type TriggerProps = {
-    description: string;
-    value: number;
+    name: string;
+    piecesValue: number | null;
+    statusValue: string | null;
     status: boolean;
-    group?: string | null;
-    machine?: string | null;
+    oeeId?: number | null;
+    groupId?: number | null;
     userId: number;
+    triggerTypeId: number;
+    isProductiveTime: boolean;
     createdAt?: Date;
 }
 
@@ -17,6 +20,16 @@ export class Trigger extends Entity<TriggerProps> {
 
     static create(props: TriggerProps, id: number) {
         return new Trigger(props, id);
+    }
+
+    static convertArrayToObject(triggers: Trigger[]) {
+        const triggersObject: any = {};
+
+        triggers.forEach(trigger => {
+            triggersObject[trigger.group] = trigger;
+        });
+
+        return triggersObject;
     }
 
 }

@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import { GetAllTriggerUseCase } from "./GetAllTriggerUseCase";
 
 export class GetAllTriggerController {

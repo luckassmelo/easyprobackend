@@ -1,9 +1,12 @@
 export type TriggerRequest = {
-    description: string;
-    value: number;
+    name: string;
+    piecesValue: number;
+    statusValue: string;
     status: boolean;
-    group?: string | null;
-    machine?: string | null;
+    groupId?: number | null;
+    oeeId?: number | null;
+    triggerTypeId: number;
     userId: number;
     createdAt?: Date | null;
+    isProductiveTime: boolean;
 };
