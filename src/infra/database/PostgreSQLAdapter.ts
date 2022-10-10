@@ -2,7 +2,7 @@ import Connection from "./Connection";
 import Knex from "knex";
 
 
-export default class PostgresSQLAdapter implements Connection {
+export default class PostgresSQLAdapter {
     connection: any;
 
     constructor(databaseConnection: any) {
