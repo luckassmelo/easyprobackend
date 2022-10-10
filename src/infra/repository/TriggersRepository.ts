@@ -41,15 +41,14 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
     async save(trigger: Trigger): Promise<any> {
          const triggerSaved = await this
                                     .adapter
-                                    .connection
-                                    .insert("trigger.tbl_trigger", {
-                                        name:           trigger.props.name, 
-                                        status_value:   trigger.props.statusValue,
-                                        pieces_value:   trigger.props.piecesValue,
-                                        status:         trigger.props.status,
-                                        id_group:       trigger.props.groupId,
-                                        id_oee:         trigger.props.oeeId,
-                                        id_user:        trigger.props.userId,
+                                    .connection("trigger.tbl_trigger").insert({
+                                        name: trigger.props.name,
+                                        pieces_value: trigger.props.piecesValue,
+                                        status_value: trigger.props.statusValue,
+                                        status: trigger.props.status,
+                                        id_group: trigger.props.groupId,
+                                        id_oee: trigger.props.oeeId,
+                                        id_user: trigger.props.userId,
                                         id_trigger_type: trigger.props.triggerTypeId,
                                         is_productive_time: trigger.props.isProductiveTime
                                     });

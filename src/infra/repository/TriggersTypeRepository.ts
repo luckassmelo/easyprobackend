@@ -13,7 +13,7 @@ export class PrismaTriggersType implements ITriggerTypesRepository {
     async findById(id: number): Promise<TriggerType | null> {
         const triggerTypeResult = await this.adapter.connection
         .select("*")
-        .from("tbl_trigger_type")
+        .from("trigger.tbl_trigger_type")
         .where("id", id) 
 
         if(!triggerTypeResult)return null;
