@@ -19,10 +19,10 @@ export class PrismaTriggersType implements ITriggerTypesRepository {
         if(!triggerTypeResult)return null;
         
         return new TriggerType({
-                    name: triggerTypeResult.rows[0].name,
-                    status: triggerTypeResult.rows[0].status,
-                    isProductiveTime: triggerTypeResult.rows[0].is_productive_time,
-                }, triggerTypeResult.rows[0].id);
+                    name: triggerTypeResult[0].name,
+                    status: triggerTypeResult[0].status,
+                    isProductiveTime: triggerTypeResult[0].is_productive_time,
+                }, triggerTypeResult[0].id);
             
     }
 }
