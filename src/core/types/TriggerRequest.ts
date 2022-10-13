@@ -8,5 +8,4 @@ export type TriggerRequest = {
     triggerTypeId: number;
     userId: number;
     createdAt?: Date | null;
-    isProductiveTime: boolean;
 };
