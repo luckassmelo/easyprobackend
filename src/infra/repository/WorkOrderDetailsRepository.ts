@@ -38,6 +38,6 @@ export class WorkOrderDetailsRepository implements IWorkOrderDetailsRepository {
         "RESOURCE_REQUIREMENT_INFO.ORDER_NO"
       )
       .whereLike("RESOURCE_REQUIREMENT_INFO.TEXT", "DMS_COMMENT%")
-      .where("PivotT.ORDER_NO", "6106644060");
+      .where("PivotT.ORDER_NO", "6105096405");
   }
 }
