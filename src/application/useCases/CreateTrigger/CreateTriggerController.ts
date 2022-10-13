@@ -7,7 +7,7 @@ export class CreateTriggerController {
 
     async handle(body: any): Promise<any> {
         try {
-            const { name, statusValue, piecesValue, status, groupId, oeeId, userId, triggerTypeId } = body;
+            const { name, statusValue, piecesValue, status, groupId, oeeId, userId, triggerTypeId, isProductiveTime } = body;
             
             const triggerResponse = await this
                                               .createTriggerUseCase
@@ -18,7 +18,8 @@ export class CreateTriggerController {
                                                         groupId,
                                                         oeeId,
                                                         userId,
-                                                        triggerTypeId
+                                                        triggerTypeId,
+                                                        isProductiveTime
                                                 });
 
             return (triggerResponse);

@@ -24,7 +24,8 @@ export class CreateTriggerUseCase {
             status: request.status,
             statusValue: request.statusValue,
             triggerTypeId: request.triggerTypeId,
-            userId: request.userId
+            userId: request.userId,
+            isProductiveTime: request.isProductiveTime
         });        
 
         const triggerCreated = await this.triggersRepository.save(trigger);

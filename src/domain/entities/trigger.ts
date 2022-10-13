@@ -9,6 +9,7 @@ type TriggerProps = {
     groupId?: number | null;
     userId: number;
     triggerTypeId: number;
+    isProductiveTime: boolean;
     createdAt?: Date;
 }
 
