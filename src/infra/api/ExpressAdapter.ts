@@ -1,7 +1,9 @@
 import express, { Request, Response } from "express";
 import { HttpServer } from "./HttpServer";
 import compression from "compression";
+import swaggerUi from "swagger-ui-express";
 
+import swaggerDocs from "../docs/swagger.json"
 
 
 export class ExpressAdapter implements HttpServer{
@@ -11,6 +13,7 @@ export class ExpressAdapter implements HttpServer{
         this.app = express();
         this.app.use(compression());
         this.app.use(express.json());
+        this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     }
 
     on(method: string, url: string, callback: Function): void {
