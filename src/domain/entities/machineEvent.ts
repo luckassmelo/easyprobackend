@@ -5,8 +5,8 @@ type MachineEventProps = {
     eventName: string;
     machine: string;
     workorder: string;
-    statusCode: string;
-    statusReason: string;
+    statusCode?: string;
+    statusReason?: string;
     value: number;
 }
 
