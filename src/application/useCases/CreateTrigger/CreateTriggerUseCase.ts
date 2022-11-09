@@ -1,4 +1,4 @@
-import { TriggerRequest } from "../../../core/types/TriggerRequest";
+import { TriggerRequest } from "../../../core/types/index";
 import { Trigger } from "../../../domain/entities/trigger";
 import { ITriggersRepository } from "../../repositories/ITriggersRepository";
 import { ITriggerTypesRepository } from "../../repositories/ITriggersTypesRepository";

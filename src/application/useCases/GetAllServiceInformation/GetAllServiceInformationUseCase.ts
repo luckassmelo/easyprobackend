@@ -15,16 +15,23 @@ export class GetAllServiceInformationUseCase {
     ){}
 
     async execute() {
+
         const triggers = ((await this.triggersRepository.allTriggers()));
         const tasks = await this.tasksRepository.getAll();
         const machineEvents = (await this.machineEventsRepository.allMachineEvents());
-        // const workOrderDetailsRepository = await this.workOrderDetailsRepository.allWorkOrderDetails();
+        const workOrders : Array<string> = []; 
+        
+        for(const event of machineEvents) {
+            workOrders.push(event.workorder);
+        }
+        
+        const workOrderDetailsRepository = await this.workOrderDetailsRepository.findMany(workOrders);
 
         return {
             triggers,
             tasks,
             machineEvents,
-            // workOrderDetailsRepository
+            workOrderDetailsRepository
         };
     }
 

@@ -5,6 +5,7 @@ import { getAllMachineEventController } from "../../application/useCases/GetAllM
 import { getAllServiceInformationController } from "../../application/useCases/GetAllServiceInformation/index";
 import { getAllTriggerController } from "../../application/useCases/GetAllTrigger/index";
 import { getAllWorkOrderDetailsController } from "../../application/useCases/GetAllWorkOrderDetails/index";
+import { getWorkOrderDetailsByArrayController } from "../../application/useCases/GetWorkOrderDetailsByArray/index";
 import { HttpServer } from "./HttpServer";
 
 
@@ -36,6 +37,10 @@ export default class Router {
 
         this.httpServer.on("get", "/api/cronetwork/workOrderDetails", async(params: any, body: any) => {
             return getAllWorkOrderDetailsController.handle();
+        });
+
+        this.httpServer.on("post", "/api/cronetwork/workOrderDetails", async(params: any, body: any) => {
+            return getWorkOrderDetailsByArrayController.handle(body);
         });
 
         this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {            
