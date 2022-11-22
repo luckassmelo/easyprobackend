@@ -7,7 +7,7 @@ type TriggerTypeProps = {
 }
 
 export class TriggerType extends Entity<TriggerTypeProps> {
-    constructor(props: TriggerTypeProps, id: number) {
+    constructor(props: TriggerTypeProps, id?: number) {
         super(props, id);
     }
 
