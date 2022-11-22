@@ -5,7 +5,7 @@ type UserProps = {
 }
 
 export class User extends Entity<UserProps>{
-    constructor(props: UserProps, id: number) {
+    constructor(props: UserProps, id?: number) {
         super(props, id);
     }
 

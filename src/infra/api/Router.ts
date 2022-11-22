@@ -6,6 +6,8 @@ import { getAllServiceInformationController } from "../../application/useCases/G
 import { getAllTriggerController } from "../../application/useCases/GetAllTrigger/index";
 import { getAllWorkOrderDetailsController } from "../../application/useCases/GetAllWorkOrderDetails/index";
 import { getWorkOrderDetailsByArrayController } from "../../application/useCases/GetWorkOrderDetailsByArray/index";
+import { getAllTaskController } from "../../application/useCases/GetAllTask/index";
+import { findTaskMachineController } from "../../application/useCases/FindTaskMachine/index";
 import { HttpServer } from "./HttpServer";
 
 
@@ -29,6 +31,14 @@ export default class Router {
 
         this.httpServer.on("post", "/api/task", async (params: any, body: any) => {
             return createTaskController.handle(body);
+        });
+
+        this.httpServer.on("get", "/api/task", async (params: any, body: any) => {
+            return getAllTaskController.handle();
+        });
+
+        this.httpServer.on("get", "/api/task/:type/:paramId", async (params: any, body: any) => { //wc workCenter ou group 
+            return findTaskMachineController.handle(params)
         });
 
         this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {
