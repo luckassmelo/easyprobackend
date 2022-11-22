@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "moduleResolution": "node",
     "preserveConstEnums": true,
     "target": "es2017",                                  
     "sourceMap": true,
@@ -11,7 +10,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": ["cypress", "node"]
+    "types": ["node"]
   },
 
   "include": [
