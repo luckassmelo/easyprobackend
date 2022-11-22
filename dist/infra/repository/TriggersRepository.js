@@ -8,7 +8,7 @@ class PrismaTriggersRepository {
     }
     async findById(id) {
         const triggerResult = await this.adapter.connection
-            .select("description", "pieces_value", "status_value", "status", "id_group", "monitor.id_oee", "id_user", "id_trigger_type", "is_productive_time")
+            .select("name", "pieces_value", "status_value", "status", "id_group", "monitor.id_oee", "id_user", "id_trigger_type", "is_productive_time")
             .from("trigger.tbl_trigger")
             .leftJoin("target.tbl_group_target", "trigger.tbl_trigger.id_group", "tbl_group_target.id_group_target")
             .leftJoin("monitor.tbl_oee_monitor as monitor", "trigger.tbl_trigger.id_oee", "monitor.id_oee")
@@ -16,7 +16,7 @@ class PrismaTriggersRepository {
         if (!triggerResult)
             return null;
         return new trigger_1.Trigger({
-            description: triggerResult[0].description,
+            name: triggerResult[0].name,
             statusValue: triggerResult[0].status_value,
             piecesValue: triggerResult[0].pieces_value,
             status: triggerResult[0].status,
@@ -32,7 +32,7 @@ class PrismaTriggersRepository {
         const triggerSaved = await this
             .adapter
             .connection("trigger.tbl_trigger").insert({
-            name: trigger.props.description,
+            name: trigger.props.name,
             pieces_value: trigger.props.piecesValue,
             status_value: trigger.props.statusValue,
             status: trigger.props.status,

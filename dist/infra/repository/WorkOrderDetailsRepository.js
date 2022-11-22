@@ -27,7 +27,7 @@ class WorkOrderDetailsRepository {
             .leftJoin("CW.OPERATIONS", "PivotT.ORDER_NO", "OPERATIONS.ORDER_NO")
             .leftJoin("CW.RESOURCE_REQUIREMENT_INFO", "PivotT.ORDER_NO", "RESOURCE_REQUIREMENT_INFO.ORDER_NO")
             .whereLike("RESOURCE_REQUIREMENT_INFO.TEXT", "DMS_COMMENT%")
-            .where("PivotT.ORDER_NO", "6106644060");
+            .where("PivotT.ORDER_NO", "6105001332");
     }
     async findMany(workOrders) {
         //isolation level

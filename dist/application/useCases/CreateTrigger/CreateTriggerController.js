@@ -7,10 +7,10 @@ class CreateTriggerController {
     }
     async handle(body) {
         try {
-            const { description, statusValue, piecesValue, status, groupId, oeeId, userId, triggerTypeId, isProductiveTime } = body;
+            const { name, statusValue, piecesValue, status, groupId, oeeId, userId, triggerTypeId, isProductiveTime } = body;
             const triggerResponse = await this
                 .createTriggerUseCase
-                .execute({ description,
+                .execute({ name,
                 statusValue,
                 piecesValue,
                 status,

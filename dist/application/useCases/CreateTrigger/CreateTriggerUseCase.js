@@ -12,7 +12,7 @@ class CreateTriggerUseCase {
         if (!triggerType)
             throw new Error('Trigger type not found.');
         const trigger = new trigger_1.Trigger({
-            description: request.description,
+            name: request.name,
             groupId: request.groupId || null,
             oeeId: request.oeeId || null,
             piecesValue: request.piecesValue,

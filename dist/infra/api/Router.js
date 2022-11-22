@@ -8,6 +8,8 @@ const index_5 = require("../../application/useCases/GetAllServiceInformation/ind
 const index_6 = require("../../application/useCases/GetAllTrigger/index");
 const index_7 = require("../../application/useCases/GetAllWorkOrderDetails/index");
 const index_8 = require("../../application/useCases/GetWorkOrderDetailsByArray/index");
+const index_9 = require("../../application/useCases/GetAllTask/index");
+const index_10 = require("../../application/useCases/FindTaskMachine/index");
 class Router {
     constructor(httpServer) {
         this.httpServer = httpServer;
@@ -24,6 +26,12 @@ class Router {
         });
         this.httpServer.on("post", "/api/task", async (params, body) => {
             return index_1.createTaskController.handle(body);
+        });
+        this.httpServer.on("get", "/api/task", async (params, body) => {
+            return index_9.getAllTaskController.handle();
+        });
+        this.httpServer.on("get", "/api/task/:type/:paramId", async (params, body) => {
+            return index_10.findTaskMachineController.handle(params);
         });
         this.httpServer.on("get", "/api/pass/machineEvent", async (params, body) => {
             return index_4.getAllMachineEventController.handle();
