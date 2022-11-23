@@ -7,7 +7,7 @@
     },
     "servers": [
       {
-        "url": "http://localhost:4000/api",
+        "url": "http://sbripvs0011:4000/api",
         "description": "Test API"
       }
     ],
@@ -70,6 +70,108 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": ["Tasks"],
+          "summary": "Get all Task",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "id_trigger": {
+                        "type": "integer"
+                      },
+                      "id_user": {
+                        "type": "string"
+                      },
+                      "closed": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/task/{type}/{id}": {
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "(WC) or (group)",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID OEE or ID GROUP",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true
+          }
+        ],
+        "get": {
+          "tags": ["Tasks"],
+          "summary": "Get task per machine(wc) or group(group)",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id_trigger": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "id_user": {
+                        "type": "integer"
+                      },
+                      "closed": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "id_oee": {
+                        "type": "integer"
+                      },
+                      "machine": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Task not found",
+              "content": {
+                "application/json": {
+                  "example": "Not Found"
                 }
               }
             }

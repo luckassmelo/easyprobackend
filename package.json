@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/main.ts",
-    "production": "node dist/main.js"
+    "start:production": "node dist/main.js",
+    "genarate:production": "npx tsc"
   },
   "keywords": [
     "express",
