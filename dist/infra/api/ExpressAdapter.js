@@ -33,12 +33,14 @@ require("express-async-errors");
 const ErrorHandler_1 = __importDefault(require("./middlewares/ErrorHandler"));
 const NotFound_1 = __importDefault(require("./middlewares/NotFound"));
 const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const cors_1 = __importDefault(require("cors"));
 const swagger_json_1 = __importDefault(require("../docs/swagger.json"));
 class ExpressAdapter {
     constructor() {
         this.app = (0, express_1.default)();
         this.router = (0, express_1.Router)();
         this.app.use((0, compression_1.default)());
+        this.app.use((0, cors_1.default)());
         this.app.use("/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
         this.app.use('/', this.router);
         this.app.use((err, req, res, next) => {
