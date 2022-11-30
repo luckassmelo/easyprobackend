@@ -5,6 +5,7 @@ import "express-async-errors";
 import ErrorHandler from "./middlewares/ErrorHandler";
 import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
+import cors from "cors";
 
 import swaggerDocs from "../docs/swagger.json"
 export class ExpressAdapter implements HttpServer {
@@ -15,6 +16,7 @@ export class ExpressAdapter implements HttpServer {
 		this.app = express();
 		this.router = Router();
 		this.app.use(compression());
+		this.app.use(cors());
         this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 		this.app.use('/', this.router)
 		this.app.use((err:Error, req: Request, res: Response, next: NextFunction) => {
