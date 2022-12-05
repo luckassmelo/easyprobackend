@@ -1,9 +1,9 @@
 import { connectionProductionManager } from "../../../infra/database";
-import { PrismaClosedRepository } from "../../../infra/repository/ClosedRepository";
+import { PrismaTasksRepository } from "../../../infra/repository/TasksRepository";
 import { ClosedTaskController } from "./ClosedTaskController";
 import { ClosedTaskUseCase } from "./ClosedTaskUseCase";
 
-const prismaClosedRepository = new PrismaClosedRepository(
+const prismaClosedRepository = new PrismaTasksRepository(
 	connectionProductionManager,
 );
 

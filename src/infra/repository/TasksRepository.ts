@@ -58,4 +58,23 @@ export class PrismaTasksRepository implements ITasksRepository {
         .innerJoin("trigger.tbl_trigger", "id_trigger", "trigger.tbl_trigger.id")
         .where("trigger.tbl_trigger_task.closed", false);
     }
+
+    async closedTask(closed: any): Promise<void | any> {    
+        const closedResult = await this.adapter.connection("trigger.tbl_trigger_task")
+        .select("*")
+        .from("users.tbl_users")
+        .where("windows_user", closed.props.windowsUser);
+        if( closedResult.length > 0 ) {
+            const putDescription = await this.adapter.connection("trigger.tbl_trigger_task")
+            .where('id', "=", closed.props.id)
+            .update({
+                description: closed.props.description,
+                closed_at: new Date(),
+                closed: true
+            })
+            return putDescription 
+        } else {
+            console.log("usuario nao encontrado")
+        }
+    }
 }

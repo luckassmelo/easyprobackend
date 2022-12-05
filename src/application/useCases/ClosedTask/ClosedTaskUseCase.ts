@@ -1,5 +1,5 @@
 import { Closed } from "../../../domain/entities/closed";
-import { IClosedRepository } from "../../repositories/IClosedRepository";
+import { ITasksRepository } from "../../repositories/ITasksRepository";
 
 type ClosedTaskRequest = {
     id: number,
@@ -11,7 +11,7 @@ type ClosedTaskRequest = {
 export class ClosedTaskUseCase {
 
     constructor(
-        private closedRepository: IClosedRepository
+        private closedRepository: ITasksRepository
     ) {}
         
 
