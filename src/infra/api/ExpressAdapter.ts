@@ -15,6 +15,7 @@ export class ExpressAdapter implements HttpServer {
 	constructor() {
 		this.app = express();
 		this.router = Router();
+		this.app.use(express.json());
 		this.app.use(compression());
 		this.app.use(cors());
         this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
@@ -23,7 +24,6 @@ export class ExpressAdapter implements HttpServer {
 			new ErrorHandler().handlerError(err,req,res,next)
 		});
 		this.app.use(new NotFound().notFoundHandler)
-		this.app.use(express.json());
 	}
 
 	on(method: string, url: string, callback: Function): void {
