@@ -3,6 +3,7 @@ import { ITasksRepository } from "../../repositories/ITasksRepository";
 type FindTaskMachineRequest = {
     type: string,
     paramId: string;
+    isClosed: boolean;
 }
 
 export class FindTaskMachineUseCase {
@@ -10,9 +11,9 @@ export class FindTaskMachineUseCase {
         private tasksRepository: ITasksRepository
     ){}
 
-    async execute({type, paramId}: FindTaskMachineRequest) {
+    async execute({type, paramId, isClosed}: FindTaskMachineRequest) {
 
-        const task = await this.tasksRepository.findById(type, paramId);
+        const task = await this.tasksRepository.findById(type, paramId, isClosed);
 
         return task;
     }
