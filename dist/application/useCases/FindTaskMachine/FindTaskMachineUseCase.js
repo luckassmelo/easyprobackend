@@ -5,8 +5,8 @@ class FindTaskMachineUseCase {
     constructor(tasksRepository) {
         this.tasksRepository = tasksRepository;
     }
-    async execute({ type, paramId }) {
-        const task = await this.tasksRepository.findById(type, paramId);
+    async execute({ type, paramId, isClosed }) {
+        const task = await this.tasksRepository.findById(type, paramId, isClosed);
         return task;
     }
 }

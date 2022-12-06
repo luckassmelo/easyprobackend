@@ -30,7 +30,7 @@ class Router {
         this.httpServer.on("get", "/api/task", async (params, body) => {
             return index_9.getAllTaskController.handle();
         });
-        this.httpServer.on("get", "/api/task/:type/:paramId", async (params, body) => {
+        this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params, body) => {
             return index_10.findTaskMachineController.handle(params);
         });
         this.httpServer.on("get", "/api/pass/machineEvent", async (params, body) => {

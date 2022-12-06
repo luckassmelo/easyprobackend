@@ -14,7 +14,7 @@ class PrismaTasksRepository {
         });
         return taskResult;
     }
-    async findById(type, id) {
+    async findById(type, id, isClosed) {
         if (type !== "wc" && type !== "group")
             return null;
         const arrayId = id.split(',');
@@ -29,7 +29,7 @@ class PrismaTasksRepository {
                 .innerJoin("trigger.tbl_trigger", "id_trigger", "trigger.tbl_trigger.id")
                 .leftJoin("target.tbl_group_target", "trigger.tbl_trigger.id_group", "target.tbl_group_target.id_group_target")
                 .whereIn("target.tbl_group_target.id_group_target", arrayInt)
-                .where("trigger.tbl_trigger_task.closed", false);
+                .where("trigger.tbl_trigger_task.closed", isClosed);
         }
         //wc
         return await this.adapter.connection
@@ -38,7 +38,7 @@ class PrismaTasksRepository {
             .innerJoin("trigger.tbl_trigger", "id_trigger", "trigger.tbl_trigger.id")
             .leftJoin("monitor.tbl_oee_monitor", "trigger.tbl_trigger.id_oee", "monitor.tbl_oee_monitor.id_oee")
             .whereIn("trigger.tbl_trigger.id_oee", arrayInt)
-            .where("trigger.tbl_trigger_task.closed", false);
+            .where("trigger.tbl_trigger_task.closed", isClosed);
     }
     async getAll() {
         return await this.adapter.connection

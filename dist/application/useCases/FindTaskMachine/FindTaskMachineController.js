@@ -9,9 +9,10 @@ class FindTaskMachineController {
         try {
             const type = String(body.type);
             const paramId = String(body.paramId);
+            const isClosed = body.isClosed === "true" ? true : false;
             const taskResponse = await this
                 .findTaskMachineUseCase
-                .execute({ type, paramId });
+                .execute({ type, paramId, isClosed });
             return (taskResponse);
         }
         catch (error) {
