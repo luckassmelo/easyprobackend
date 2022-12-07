@@ -4,7 +4,8 @@ import { ITasksRepository } from "../../repositories/ITasksRepository";
 type ClosedTaskRequest = {
     id: number,
     windowsUser: string,
-    description: string
+    description: string,
+    token: string
 }
 
 
@@ -15,12 +16,13 @@ export class ClosedTaskUseCase {
     ) {}
         
 
-    async execute ({windowsUser, description, id}: ClosedTaskRequest) {
+    async execute ({windowsUser, description, id, token}: ClosedTaskRequest) {
 
         const closed = new Closed({
             id,
             windowsUser,
-            description
+            description,
+            token
         });
 
         const closedComplet = await this.closedRepository.closedTask(closed);

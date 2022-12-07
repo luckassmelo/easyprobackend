@@ -3,7 +3,8 @@ import { Entity } from "../../core/domain/Entity";
 type ClosedProps = {
     id: number,
     windowsUser: string,
-    description: string
+    description: string,
+    token?: string
 }
 
 export class Closed extends Entity<ClosedProps> {
