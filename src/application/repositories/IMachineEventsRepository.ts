@@ -1,5 +1,5 @@
-import { MachineEvent } from "../../domain/entities/machineEvent";
+import { MachineEventProps } from "../../core/types";
 
 export interface IMachineEventsRepository {
-    allMachineEvents(): Promise<MachineEvent[]>;
+    allMachineEvents(): Promise<MachineEventProps[]>;
 }
