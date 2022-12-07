@@ -2,6 +2,7 @@ import { ITasksRepository } from "../../application/repositories/ITasksRepositor
 import { Task } from "../../domain/entities/task";
 
 export class InMemoryTaskRepository implements ITasksRepository {
+ 
   public tasks: Task[] = [];
 
   async findById(type: string, id: string): Promise<Task | null> {
@@ -18,5 +19,8 @@ export class InMemoryTaskRepository implements ITasksRepository {
 
   async save(task: Task): Promise<void | Task> {
     this.tasks.push(task);
+  }
+  closedTask(closed: any): Promise<any> {
+    throw new Error("Method not implemented.");
   }
 }
