@@ -4,4 +4,5 @@ export interface ITasksRepository {
     findById(type: string, id: string, isClosed: boolean): Promise<Task | null>;
     getAll(): Promise<Task[] | null>;
     save(task: Task): Promise<Task | void>;
+    closedTask(closed: any): Promise<any | void>;
 }
