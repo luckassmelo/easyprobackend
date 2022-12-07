@@ -1,4 +1,3 @@
-import { Closed } from "../../../domain/entities/closed";
 import { ITasksRepository } from "../../repositories/ITasksRepository";
 
 type ClosedTaskRequest = {
@@ -18,7 +17,7 @@ export class ClosedTaskUseCase {
 
     async execute ({windowsUser, description, id, token}: ClosedTaskRequest) {
 
-        const closed = new Closed({
+        const closed = ({
             id,
             windowsUser,
             description,
