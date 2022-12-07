@@ -39,6 +39,7 @@ class ExpressAdapter {
     constructor() {
         this.app = (0, express_1.default)();
         this.router = (0, express_1.Router)();
+        this.app.use(express_1.default.json());
         this.app.use((0, compression_1.default)());
         this.app.use((0, cors_1.default)());
         this.app.use("/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
@@ -47,7 +48,6 @@ class ExpressAdapter {
             new ErrorHandler_1.default().handlerError(err, req, res, next);
         });
         this.app.use(new NotFound_1.default().notFoundHandler);
-        this.app.use(express_1.default.json());
     }
     on(method, url, callback) {
         this.router[method](url, async function (req, res, next) {

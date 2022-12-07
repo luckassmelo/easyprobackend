@@ -10,6 +10,7 @@ const index_7 = require("../../application/useCases/GetAllWorkOrderDetails/index
 const index_8 = require("../../application/useCases/GetWorkOrderDetailsByArray/index");
 const index_9 = require("../../application/useCases/GetAllTask/index");
 const index_10 = require("../../application/useCases/FindTaskMachine/index");
+const index_11 = require("../../application/useCases/ClosedTask/index");
 class Router {
     constructor(httpServer) {
         this.httpServer = httpServer;
@@ -32,6 +33,9 @@ class Router {
         });
         this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params, body) => {
             return index_10.findTaskMachineController.handle(params);
+        });
+        this.httpServer.on("post", "/api/task/closed", async (params, body) => {
+            return index_11.closedTaskController.handle(body);
         });
         this.httpServer.on("get", "/api/pass/machineEvent", async (params, body) => {
             return index_4.getAllMachineEventController.handle();

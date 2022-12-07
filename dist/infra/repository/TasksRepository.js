@@ -47,6 +47,26 @@ class PrismaTasksRepository {
             .innerJoin("trigger.tbl_trigger", "id_trigger", "trigger.tbl_trigger.id")
             .where("trigger.tbl_trigger_task.closed", false);
     }
+    async closedTask(closed) {
+        const closedResult = await this.adapter.connection("trigger.tbl_trigger_task")
+            .select("id_user")
+            .from("users.tbl_users")
+            .where("windows_user", closed.props.windowsUser);
+        if (closedResult.length > 0) {
+            const putDescription = await this.adapter.connection("trigger.tbl_trigger_task")
+                .where('id', "=", closed.props.id)
+                .update({
+                id_user: closedResult[0].id_user,
+                description: closed.props.description,
+                closed_at: new Date(),
+                closed: true
+            });
+            return putDescription;
+        }
+        else {
+            console.log("usuario nao encontrado");
+        }
+    }
 }
 exports.PrismaTasksRepository = PrismaTasksRepository;
 //# sourceMappingURL=TasksRepository.js.map

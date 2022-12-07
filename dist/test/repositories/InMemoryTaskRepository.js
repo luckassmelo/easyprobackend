@@ -17,6 +17,9 @@ class InMemoryTaskRepository {
     async save(task) {
         this.tasks.push(task);
     }
+    closedTask(closed) {
+        throw new Error("Method not implemented.");
+    }
 }
 exports.InMemoryTaskRepository = InMemoryTaskRepository;
 //# sourceMappingURL=InMemoryTaskRepository.js.map
