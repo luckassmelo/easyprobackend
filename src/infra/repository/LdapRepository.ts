@@ -36,7 +36,7 @@ export class ldapLogon implements ILdapRepository {
             }
         })
 
-           return true; 
+        return true;
 
     }
 
