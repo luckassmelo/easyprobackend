@@ -1,6 +1,7 @@
-import { cronetwork, passMdcPPB, productionManager } from "../../config/database";
+import { cronetwork, passMdcPPB, productionManager, credentials } from "../../config/database";
 import MSSQLAdapter from "./MSSQLAdapter";
 import PostgresSQLAdapter from "./PostgreSQLAdapter";
+
 
 
 const connectionMdcPPB = new PostgresSQLAdapter(passMdcPPB);
@@ -9,4 +10,6 @@ const connectionCronetwork = new MSSQLAdapter(cronetwork);
 
 
 
-export { connectionMdcPPB, connectionProductionManager, connectionCronetwork };
+
+
+export { connectionMdcPPB, connectionProductionManager, connectionCronetwork};

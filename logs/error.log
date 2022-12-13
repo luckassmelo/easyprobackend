@@ -917,3 +917,384 @@ time: 01/11/2022 11:38:58 Request Url: /api/trigger Request Type: GET Status Cod
     at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
     at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
     at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:284:15
+[02/12/2022 09:48:24] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 09:51:39] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 09:51:45] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:52:49] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:53:14] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:55:19] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:55:35] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:55:38] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:55:39] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:55:40] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:55:40] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 09:55:41] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:15:39] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:15:41] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:15:41] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:15:42] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:18:43] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:18:45] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:18:45] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:18:57] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:18:58] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:21:53] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:21:57] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:21:58] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:21:59] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:22:00] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:22:01] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:22:25] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:22:27] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:43:07] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:44:13] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:44:27] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:44:38] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:44:38] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:44:51] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:44:53] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 10:47:29] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:01:44] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:06:01] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:06:08] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:07:11] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:07:13] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:07:13] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:07:14] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:07:15] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:07:15] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:07:16] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:25:36] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:25:47] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:26:28] Request Url: /api/trigger/2, Request Type: 'GET' undefined
+[02/12/2022 11:26:32] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:27:09] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:27:48] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:28:24] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:28:50] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:38:14] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:39:03] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:39:38] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:40:39] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:48:47] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:49:30] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:52:46] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:55:20] Request Url: /api/trigger, Request Type: 'GET' undefined
+[02/12/2022 11:57:23] Request Url: /api/trigger, Request Type: 'GET' undefined
+[05/12/2022 08:00:53] Request Url: /api/trigger, Request Type: 'GET' undefined
+[05/12/2022 08:05:05] Request Url: /api/trigger, Request Type: 'GET' undefined
+[05/12/2022 08:06:06] Request Url: /api/trigger, Request Type: 'GET' undefined
+[05/12/2022 08:06:30] Request Url: /api/trigger, Request Type: 'GET' undefined
+[05/12/2022 08:06:35] Request Url: /api/task/wc/4393,4452, Request Type: 'GET' undefined
+[05/12/2022 08:06:41] Request Url: /api/trigger, Request Type: 'POST' undefined
+[05/12/2022 08:12:33] Request Url: /api/trigger, Request Type: 'POST' undefined
+[05/12/2022 13:17:39] Request Url: /api/task, Request Type: 'GET' TypeError: controls must be [Control]
+    at validateControls (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\ldapjs\lib\client\client.js:75:11)
+    at Client.bind (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\ldapjs\lib\client\client.js:279:16)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:32:24
+    at new Promise (<anonymous>)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:22:20)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+[05/12/2022 13:18:51] Request Url: /api/task, Request Type: 'GET' ReferenceError: trim is not defined
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:33:24
+    at new Promise (<anonymous>)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:23:20)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at compression (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\compression\index.js:220:5)
+[05/12/2022 13:42:06] Request Url: /api/task, Request Type: 'POST' TypeError: Cannot destructure property 'triggerId' of 'body' as it is undefined.
+    at CreateTaskController.handle (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\application\useCases\CreateTask\CreateTaskController.ts:9:17)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:33:41
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:32:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:114:3)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:284:15
+[05/12/2022 13:42:24] Request Url: /api/task, Request Type: 'POST' TypeError: Cannot destructure property 'triggerId' of 'body' as it is undefined.
+    at CreateTaskController.handle (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\application\useCases\CreateTask\CreateTaskController.ts:9:17)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:33:41
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:32:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:114:3)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:284:15
+[08/12/2022 13:53:31] Request Url: /api/token, Request Type: 'POST' TypeError: Cannot read properties of undefined (reading 'body')
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:31:33
+    at new Promise (<anonymous>)
+    at Auth.authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:21:20)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:50:31
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:32:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:114:3)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+[08/12/2022 13:54:15] Request Url: /api/token, Request Type: 'POST' TypeError: Cannot read properties of undefined (reading 'body')
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:31:33
+    at new Promise (<anonymous>)
+    at Auth.authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:21:20)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:50:31
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:32:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:114:3)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+[09/12/2022 08:11:34] Request Url: /api/token, Request Type: 'POST' TypeError: Cannot destructure property 'username' of 'body' as it is undefined.
+    at CreateTokenController.handle (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\application\useCases\CreateToken\CreateTokenController.ts:9:17)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:52:42
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:32:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:114:3)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:284:15
+[12/12/2022 09:20:37] Request Url: /api/task, Request Type: 'GET' Error: error:0909006C:PEM routines:get_name:no start line
+    at Sign.sign (node:internal/crypto/sig:131:29)
+    at Object.sign (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jwa\index.js:152:45)
+    at Object.jwsSign [as sign] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jws\lib\sign-stream.js:32:24)
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\sign.js:204:16)
+    at jwtGenerator (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\helpers\jwt.ts:12:27)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+[12/12/2022 10:04:26] Request Url: /api/token, Request Type: 'POST' Error: Method not implemented.
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:10:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\raw-body\index.js:231:16)
+[12/12/2022 10:04:36] Request Url: /api/task, Request Type: 'GET' Error: Method not implemented.
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:10:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\types\json.js:110:7)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+[12/12/2022 10:05:09] Request Url: /api/token, Request Type: 'POST' Error: Method not implemented.
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:10:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\raw-body\index.js:231:16)
+[13/12/2022 08:58:40] Request Url: /api/token, Request Type: 'POST' Error: error:0909006C:PEM routines:get_name:no start line
+    at Sign.sign (node:internal/crypto/sig:131:29)
+    at Object.sign (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jwa\index.js:152:45)
+    at Object.jwsSign [as sign] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jws\lib\sign-stream.js:32:24)
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\sign.js:204:16)
+    at jwtGenerator (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\helpers\jwt.ts:9:27)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:52:32
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:33:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+[13/12/2022 09:00:41] Request Url: /api/token, Request Type: 'POST' Error: error:0909006C:PEM routines:get_name:no start line
+    at Sign.sign (node:internal/crypto/sig:131:29)
+    at Object.sign (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jwa\index.js:152:45)
+    at Object.jwsSign [as sign] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jws\lib\sign-stream.js:32:24)
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\sign.js:204:16)
+    at jwtGenerator (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\helpers\jwt.ts:9:27)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:52:32
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:33:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+[13/12/2022 09:02:09] Request Url: /api/token, Request Type: 'POST' Error: error:0909006C:PEM routines:get_name:no start line
+    at Sign.sign (node:internal/crypto/sig:131:29)
+    at Object.sign (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jwa\index.js:152:45)
+    at Object.jwsSign [as sign] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jws\lib\sign-stream.js:32:24)
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\sign.js:204:16)
+    at jwtGenerator (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\helpers\jwt.ts:9:27)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:52:32
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:33:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+[13/12/2022 09:13:11] Request Url: /api/token, Request Type: 'POST' Error: error:0909006C:PEM routines:get_name:no start line
+    at Sign.sign (node:internal/crypto/sig:131:29)
+    at Object.sign (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jwa\index.js:173:45)
+    at Object.jwsSign [as sign] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\node_modules\jws\lib\sign-stream.js:32:24)
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\sign.js:204:16)
+    at jwtGenerator (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\helpers\jwt.ts:9:27)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\Router.ts:52:32
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:33:26
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\route.js:144:13)
+[13/12/2022 09:29:14] Request Url: /api/token, Request Type: 'POST' TypeError: Class constructor Auth cannot be invoked without 'new'
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\raw-body\index.js:231:16)
+    at done (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\raw-body\index.js:220:7)
+[13/12/2022 09:35:04] Request Url: /api/token, Request Type: 'POST' TypeError: Class constructor Auth cannot be invoked without 'new'
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+    at invokeCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\raw-body\index.js:231:16)
+    at done (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\raw-body\index.js:220:7)
+[13/12/2022 09:46:00] Request Url: /api/token, Request Type: 'POST' JsonWebTokenError: jwt must be a string
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\verify.js:57:17)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:14:27)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+[13/12/2022 09:47:30] Request Url: /api/token, Request Type: 'POST' JsonWebTokenError: jwt must be a string
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\verify.js:57:17)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:14:27)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+[13/12/2022 09:48:05] Request Url: /api/token, Request Type: 'POST' JsonWebTokenError: jwt malformed
+    at Object.module.exports (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\jsonwebtoken\verify.js:63:17)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:14:27)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:280:10)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:203:9)
+[13/12/2022 09:51:08] Request Url: /api/token, Request Type: 'POST' TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:1150:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:271:14)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:162:21)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:26:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+[13/12/2022 09:59:05] Request Url: /api/token, Request Type: 'POST' TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:1150:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:271:14)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:162:21)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:26:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+[13/12/2022 10:03:02] Request Url: /api/token, Request Type: 'POST' TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:1150:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:271:14)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:162:21)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:26:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+[13/12/2022 10:03:03] Request Url: /api/token, Request Type: 'POST' TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:1150:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:271:14)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:162:21)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:26:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+[13/12/2022 10:03:04] Request Url: /api/token, Request Type: 'POST' TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:1150:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:271:14)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:162:21)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:26:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)
+[13/12/2022 10:04:18] Request Url: /api/token, Request Type: 'POST' TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property '_writableState' -> object with constructor 'WritableState'
+    |     property 'afterWriteTickInfo' -> object with constructor 'Object'
+    --- property 'stream' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:1150:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:271:14)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:162:21)
+    at authmiddleware (C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\middlewares\Authentication.ts:26:9)
+    at newFn (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express-async-errors\index.js:16:20)
+    at Layer.handle [as handle_request] (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:328:13)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\router\index.js:346:12)

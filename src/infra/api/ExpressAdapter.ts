@@ -5,8 +5,9 @@ import "express-async-errors";
 import ErrorHandler from "./middlewares/ErrorHandler";
 import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
-
+import Auth from "./middlewares/Authentication";
 import swaggerDocs from "../docs/swagger.json"
+
 export class ExpressAdapter implements HttpServer {
 	app: Express;
 	router: Router | any;
@@ -15,13 +16,15 @@ export class ExpressAdapter implements HttpServer {
 		this.app = express();
 		this.router = Router();
 		this.app.use(compression());
+		this.app.use(express.json());
+		this.app.use(new Auth().authmiddleware);
         this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 		this.app.use('/', this.router)
 		this.app.use((err:Error, req: Request, res: Response, next: NextFunction) => {
 			new ErrorHandler().handlerError(err,req,res,next)
 		});
-		this.app.use(new NotFound().notFoundHandler)
-		this.app.use(express.json());
+		this.app.use(new NotFound().notFoundHandler);
+		
 	}
 
 	on(method: string, url: string, callback: Function): void {
@@ -36,7 +39,9 @@ export class ExpressAdapter implements HttpServer {
 
 	listen(port: number): void {
 		console.log(`[SERVER] listening on port ${port}`);
-
+		
+		
 		this.app.listen(port);
+		
 	}
 }

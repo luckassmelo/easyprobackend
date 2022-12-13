@@ -27,3 +27,10 @@ export const cronetwork = {
         instanceName: process.env.CRONETWORK_INSTANCE,
     }
 };
+
+export const credentials = {
+    host: process.env.HOST,
+    user: process.env.DN,
+    password: process.env.PASSWORD,
+    secret: process.env.SECRET
+};
