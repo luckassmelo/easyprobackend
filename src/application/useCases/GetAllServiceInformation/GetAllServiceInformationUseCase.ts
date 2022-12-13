@@ -1,5 +1,3 @@
-import { MachineEvent } from "../../../domain/entities/machineEvent";
-import { Trigger } from "../../../domain/entities/trigger";
 import { IMachineEventsRepository } from "../../repositories/IMachineEventsRepository";
 import { ITasksRepository } from "../../repositories/ITasksRepository";
 import { ITriggersRepository } from "../../repositories/ITriggersRepository";
