@@ -9,6 +9,7 @@ import { getWorkOrderDetailsByArrayController } from "../../application/useCases
 import { getAllTaskController } from "../../application/useCases/GetAllTask/index";
 import { findTaskMachineController } from "../../application/useCases/FindTaskMachine/index";
 import { createTokenController } from "../../application/useCases/CreateToken/index";
+import { closedTaskController } from "../../application/useCases/ClosedTask/index";
 import { HttpServer } from "./HttpServer";
 
 
@@ -40,6 +41,10 @@ export default class Router {
 
         this.httpServer.on("get", "/api/task/:type/:paramId", async (params: any, body: any) => { //wc workCenter ou group 
             return findTaskMachineController.handle(params)
+        });
+
+        this.httpServer.on("post", "/api/task/closed", async (params: any, body: any) => {
+            return closedTaskController.handle(body);
         });
 
         this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {

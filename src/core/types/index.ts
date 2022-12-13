@@ -35,5 +35,15 @@ export type WorkOrderDetailsProps = {
     SCHEDAREA : string;
     TOOL : string;
     
-} 
+}
 
+export type MachineEventResponse = {
+    eventDate: Date;
+    eventName: string;
+    machine: string;
+    workorder: string;
+    statusCode?: string;
+    statusReason?: string;
+    name?: string;
+    value?: number;
+}

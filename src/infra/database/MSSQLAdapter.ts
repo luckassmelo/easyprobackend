@@ -12,7 +12,7 @@ export default class MSSQLAdapter implements Connection {
                 ...databaseConnection
             },
             pool: { min: 0, max: 7, },
-            acquireTimeout: 60000 //60 seconds
+            // acquireTimeout: 60000 //60 seconds
 
         });
     }

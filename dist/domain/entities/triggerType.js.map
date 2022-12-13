@@ -1,0 +1,1 @@
+{"version":3,"file":"triggerType.js","sourceRoot":"","sources":["../../../src/domain/entities/triggerType.ts"],"names":[],"mappings":";;;AAAA,qDAAkD;AAQlD,MAAa,WAAY,SAAQ,eAAwB;IACrD,YAAY,KAAuB,EAAE,EAAW;QAC5C,KAAK,CAAC,KAAK,EAAE,EAAE,CAAC,CAAC;IACrB,CAAC;IAED,MAAM,CAAC,MAAM,CAAC,KAAuB,EAAE,EAAS;QAC5C,OAAO,IAAI,WAAW,CAAC,KAAK,EAAE,EAAE,CAAC,CAAC;IACtC,CAAC;CACJ;AARD,kCAQC"}

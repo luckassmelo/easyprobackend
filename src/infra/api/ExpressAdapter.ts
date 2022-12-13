@@ -6,6 +6,8 @@ import ErrorHandler from "./middlewares/ErrorHandler";
 import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
 import Auth from "./middlewares/Authentication";
+import cors from "cors";
+
 import swaggerDocs from "../docs/swagger.json"
 
 export class ExpressAdapter implements HttpServer {
@@ -15,9 +17,11 @@ export class ExpressAdapter implements HttpServer {
 	constructor() {
 		this.app = express();
 		this.router = Router();
+		this.app.use(express.json());
 		this.app.use(compression());
 		this.app.use(express.json());
 		// this.app.use(new Auth().authmiddleware);
+		this.app.use(cors());
         this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 		this.app.use('/', this.router)
 		this.app.use((err:Error, req: Request, res: Response, next: NextFunction) => {
@@ -25,6 +29,7 @@ export class ExpressAdapter implements HttpServer {
 		});
 		this.app.use(new NotFound().notFoundHandler);
 		
+		this.app.use(new NotFound().notFoundHandler)
 	}
 
 	on(method: string, url: string, callback: Function): void {
