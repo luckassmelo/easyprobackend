@@ -4,6 +4,7 @@ type UserProps = {
     username: string,
     password: string;
     token?: string; 
+    
 }
 
 export class User extends Entity<UserProps>{

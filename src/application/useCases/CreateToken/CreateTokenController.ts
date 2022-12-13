@@ -7,9 +7,9 @@ export class CreateTokenController {
         
         
     async handle(body: any): Promise<any | void> {
-        const { username, password, token} = body;
+        const { username, password} = body;
 
-        console.log('TESTE',username, password);
+       
         
         try {
             const tokenResponse = await this
@@ -17,12 +17,11 @@ export class CreateTokenController {
                                             .execute({
                                              username,
                                              password,
-                                             token
                                             });
 
             
 
-            return (tokenResponse);
+            return tokenResponse;
             
         } catch(error: any) {
             return ({

@@ -5,7 +5,8 @@ import {jwtGenerator} from "../../../infra/api/helpers/jwt"
 type CreateToken = {
     username: string;
     password: string;
-    token?: string;
+   
+    // return: boolean;
 
 }
 
@@ -15,19 +16,23 @@ export class CreateTokenUseCase{
         private ILdapRepository : ILdapRepository
     ){}
     
-    async execute({username, password, token} : CreateToken){
+    async execute({username, password} : CreateToken){
         
         const loginLdap = new User({
             username,
-            password,
-            token
-        }); 
-
-        console.log(loginLdap);
+            password
         
+        }); 
+    
         const logged = await this.ILdapRepository.login(loginLdap);
 
-        return logged;
+        if (logged) {
+            return jwtGenerator(loginLdap);
+        }else{
+            console.log('deu errado');
+            return false;
+        }
+        
     }
 
   

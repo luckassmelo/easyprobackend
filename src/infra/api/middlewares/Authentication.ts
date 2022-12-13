@@ -10,8 +10,10 @@ export default class Auth {
     next: NextFunction
   ):
     Promise<any> {
-
-    const retorno = jwt.verify(JSON.stringify(req.body), process.env.SECRET as string, (err, decoded) => {
+    const teste = req.header()
+    console.log(teste);
+    
+     jwt.verify('teste', process.env.SECRET as string, (err: any , decoded: any )=> {
       if (err) {
         return res.json({
           success: false,
@@ -20,9 +22,10 @@ export default class Auth {
       }
 
       res.send(decoded);
+      next();
+      
     });
 
-    console.log(retorno);
-    res.send(retorno);
+
   }
 }

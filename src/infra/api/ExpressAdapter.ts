@@ -17,7 +17,7 @@ export class ExpressAdapter implements HttpServer {
 		this.router = Router();
 		this.app.use(compression());
 		this.app.use(express.json());
-		this.app.use(new Auth().authmiddleware);
+		// this.app.use(new Auth().authmiddleware);
         this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 		this.app.use('/', this.router)
 		this.app.use((err:Error, req: Request, res: Response, next: NextFunction) => {
