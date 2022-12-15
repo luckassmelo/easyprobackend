@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { token } from "../../../config/database";
 import * as jwt from "jsonwebtoken";
 
 type JwtResponse = {
@@ -6,7 +6,7 @@ type JwtResponse = {
 }
 
 export function jwtGenerator(payload: any): JwtResponse {
-    return {token: jwt.sign({payload}, process.env.SECRET as string, {expiresIn: 2500, algorithm: 'HS512'})};
+    return {token: jwt.sign({payload}, token.secret!, {expiresIn: 2500, algorithm: 'HS512'})};
 }
 
 

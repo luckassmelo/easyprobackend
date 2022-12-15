@@ -35,3 +35,7 @@ export const ldap = {
     reconnect: process.env.LDAP_RECONNECT
     // secret: process.env.SECRET!
 };
+
+export const token = {
+    secret: process.env.SECRET
+}
