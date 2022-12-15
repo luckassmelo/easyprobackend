@@ -1,8 +1,8 @@
-import { CreateTokenUseCase } from "./CreateTokenUseCase";
+import { LoginUseCase } from "./LoginUseCase";
 
-export class CreateTokenController {
+export class LoginController {
     constructor(
-        private createTokenUseCase: CreateTokenUseCase
+        private LoginUseCase: LoginUseCase
     ){}
         
         
@@ -13,7 +13,7 @@ export class CreateTokenController {
         
         try {
             const tokenResponse = await this
-                                            .createTokenUseCase
+                                            .LoginUseCase
                                             .execute({
                                              username,
                                              password,

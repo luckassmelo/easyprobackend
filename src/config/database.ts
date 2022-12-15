@@ -28,9 +28,10 @@ export const cronetwork = {
     }
 };
 
-export const credentials = {
-    host: process.env.HOST,
-    user: process.env.DN,
-    password: process.env.PASSWORD,
-    secret: process.env.SECRET
+export const ldap = {
+    url: `ldap://${process.env.LDAP_URL}`,
+    timeout: process.env.LDAP_TIMEOUT,
+    connectTimeout: process.env.LDAP_CONNECT_TIMEOUT,
+    reconnect: process.env.LDAP_RECONNECT
+    // secret: process.env.SECRET!
 };

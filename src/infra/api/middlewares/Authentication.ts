@@ -1,4 +1,4 @@
-import { credentials } from "../../../config/database";
+import { ldap } from "../../../config/database";
 import * as jwt from "jsonwebtoken"
 import { Request, Response, NextFunction } from "express";
 
@@ -9,19 +9,18 @@ export default class Auth {
     res: Response,
     next: NextFunction
   ):
-    Promise<any> {
-    const teste = req.header()
-    console.log(teste);
+    Promise<any> {    
     
-     jwt.verify('teste', process.env.SECRET as string, (err: any , decoded: any )=> {
+     jwt.verify('req.headers.authorization', 'ldap.secret' , (err: any , decoded: any )=> {
       if (err) {
         return res.json({
           success: false,
-          message: "Failed to authenticate token.",  err
+          message: "Failed to authenticate token.", 
+           err
         });
       }
 
-      res.send(decoded);
+      // res.send(decoded);
       next();
       
     });

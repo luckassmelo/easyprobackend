@@ -2,37 +2,29 @@ import { ILdapRepository } from "../../repositories/ILdapRepository";
 import { User } from "../../../domain/entities/user";
 import {jwtGenerator} from "../../../infra/api/helpers/jwt"
 
-type CreateToken = {
+type LoginTyped = {
     username: string;
     password: string;
-   
-    // return: boolean;
-
 }
 
-export class CreateTokenUseCase{
+export class LoginUseCase{
 
     constructor(
         private ILdapRepository : ILdapRepository
     ){}
     
-    async execute({username, password} : CreateToken){
+    async execute({username, password} : LoginTyped){
         
         const loginLdap = new User({
             username,
-            password
-        
+            password        
         }); 
     
-        const logged = await this.ILdapRepository.login(loginLdap);
+        const response = await this.ILdapRepository.login(loginLdap);
 
-        if (logged) {
-            return jwtGenerator(loginLdap);
-        }else{
-            console.log('deu errado');
-            return false;
-        }
+        if (!response) return false;
         
+        return jwtGenerator(loginLdap);
     }
 
   

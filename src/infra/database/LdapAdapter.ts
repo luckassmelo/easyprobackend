@@ -1,23 +1,23 @@
-// import ldap from 'ldapjs'
-
-// export default class ldapClient{
-//     connection: any
-
-
-//     constructor(){
-//      this.connection = ldap.createClient({
-//         url: 'ldap://SBRIPVS0018',
-//         timeout: 5000,
-//         connectTimeout: 6000,
-//         reconnect: false
-//      })
+import ldap from 'ldapjs'
+import {Client} from 'ldapjs'
+import {ConnectionLdap} from './ConnectionLdap';
 
 
-//      return this.connection
-//   }
+export default class LdapAdapter implements ConnectionLdap {
+    connection: any;
 
-// }
+    constructor(private ldapConnection: any) {}
 
+    async open(): Promise<Client> { 
+        this.connection = ldap.createClient(this.ldapConnection);
+        return this.connection;
+    }
+    
+
+    async close(): Promise<boolean> {
+        return this.connection.destroy();
+    }
+}
 
 
 

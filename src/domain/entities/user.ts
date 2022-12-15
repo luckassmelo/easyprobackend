@@ -3,7 +3,6 @@ import { Entity } from "../../core/domain/Entity";
 type UserProps = {
     username: string,
     password: string;
-    token?: string; 
     
 }
 

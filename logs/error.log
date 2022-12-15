@@ -1345,3 +1345,25 @@ time: 01/11/2022 11:38:58 Request Url: /api/trigger Request Type: GET Status Cod
     at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
     at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:35:9
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[13/12/2022 14:25:33] Request Url: /api/token, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:153:15)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at cors (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:187:7)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:214:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:199:9)
+[13/12/2022 15:02:53] Request Url: /api/token, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:153:15)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at cors (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:187:7)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:214:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:199:9)

@@ -4,7 +4,6 @@ type ClosedTaskRequest = {
     id: number,
     windowsUser: string,
     description: string,
-    token: string
 }
 
 
@@ -15,13 +14,12 @@ export class ClosedTaskUseCase {
     ) {}
         
 
-    async execute ({windowsUser, description, id, token}: ClosedTaskRequest) {
+    async execute ({windowsUser, description, id}: ClosedTaskRequest) {
 
         const closed = ({
             id,
             windowsUser,
             description,
-            token
         });
 
         const closedComplet = await this.closedRepository.closedTask(closed);

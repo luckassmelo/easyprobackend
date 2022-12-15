@@ -8,7 +8,7 @@ import { getAllWorkOrderDetailsController } from "../../application/useCases/Get
 import { getWorkOrderDetailsByArrayController } from "../../application/useCases/GetWorkOrderDetailsByArray/index";
 import { getAllTaskController } from "../../application/useCases/GetAllTask/index";
 import { findTaskMachineController } from "../../application/useCases/FindTaskMachine/index";
-import { createTokenController } from "../../application/useCases/CreateToken/index";
+import { loginController } from "../../application/useCases/Login/index";
 import { closedTaskController } from "../../application/useCases/ClosedTask/index";
 import { HttpServer } from "./HttpServer";
 
@@ -52,8 +52,7 @@ export default class Router {
         });
         
         this.httpServer.on("post", "/api/token", async (params: any, body: any) => { 
-            return createTokenController.handle(body)
-            // return jwtGenerator(body)
+            return loginController.handle(body)
         });
 
         this.httpServer.on("get", "/api/cronetwork/workOrderDetails", async(params: any, body: any) => {
