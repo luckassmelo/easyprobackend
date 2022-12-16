@@ -6,14 +6,14 @@ export class ClosedTaskController {
     ) {}
 
     async handle(body: any): Promise<any> {
-        const { id, windowsUser, description} = body;      
+        const { id, windowsuser, description} = body;      
 
         try {
             const closeResponse = await this
                                             .closedTaskUseCase
                                             .execute({
                                                 id,
-                                                windowsUser,
+                                                windowsuser,
                                                 description
                                             });
             return (closeResponse);

@@ -1367,3 +1367,159 @@ time: 01/11/2022 11:38:58 Request Url: /api/trigger Request Type: GET Status Cod
     at originCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:214:15)
     at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:219:13
     at optionsCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:199:9)
+[15/12/2022 10:18:14] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:153:15)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at cors (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:187:7)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:214:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:199:9)
+[15/12/2022 10:18:57] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:153:15)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at cors (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:187:7)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:214:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:199:9)
+[15/12/2022 10:19:41] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:153:15)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at cors (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:187:7)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:214:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:199:9)
+[15/12/2022 10:27:29] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:153:15)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at applyHeaders (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:149:11)
+    at cors (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:187:7)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:214:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\cors\lib\index.js:199:9)
+[15/12/2022 12:52:06] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[15/12/2022 13:24:01] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 10:31:29] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 10:35:16] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 10:50:04] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 10:51:48] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 10:55:51] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 11:02:03] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 11:09:34] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 11:10:46] Request Url: /api/token, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 11:11:01] Request Url: /api/token, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 11:11:09] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 11:13:29] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[16/12/2022 11:14:33] Request Url: /api/task/closed, Request Type: 'POST' Error: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:387:5)
+    at ServerResponse.setHeader (node:_http_outgoing:603:11)
+    at ServerResponse.header (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (C:\WebServer\Apache24\htdocs\EasyVueAPI\node_modules\express\lib\response.js:278:15)
+    at C:\WebServer\Apache24\htdocs\EasyVueAPI\src\infra\api\ExpressAdapter.ts:39:16
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)

@@ -7,7 +7,7 @@ export class LoginController {
         
         
     async handle(body: any): Promise<any | void> {
-        const { username, password} = body;
+        const { windowsuser, password} = body;
 
        
         
@@ -15,7 +15,7 @@ export class LoginController {
             const tokenResponse = await this
                                             .LoginUseCase
                                             .execute({
-                                             username,
+                                             windowsuser,
                                              password,
                                             });
 

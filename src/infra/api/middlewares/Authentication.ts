@@ -9,22 +9,18 @@ export default class Auth {
     res: Response,
     next: NextFunction
   ):
-    Promise<any> {    
-    
-     jwt.verify(req.headers.authorization!, token.secret! , (err: any , decoded: any )=> {
-      if (err) {
-        return res.json({
-          success: false,
-          message: "Failed to authenticate token.", 
-           err
-        });
-      }
-
-      // res.send(decoded);
-      next();
-      
-    });
+    Promise<any> {
 
 
+    jwt.verify(req.headers.authorization as string, token.secret!, (err: any) => {
+      if (err) return res.status(401)
+
+
+      res.status(200)
+    })
+    next();
   }
+
 }
+
+
