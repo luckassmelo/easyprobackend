@@ -8,8 +8,10 @@ import { getAllWorkOrderDetailsController } from "../../application/useCases/Get
 import { getWorkOrderDetailsByArrayController } from "../../application/useCases/GetWorkOrderDetailsByArray/index";
 import { getAllTaskController } from "../../application/useCases/GetAllTask/index";
 import { findTaskMachineController } from "../../application/useCases/FindTaskMachine/index";
+import { loginController } from "../../application/useCases/Login/index";
 import { closedTaskController } from "../../application/useCases/ClosedTask/index";
 import { HttpServer } from "./HttpServer";
+import Auth from "./middlewares/Authentication";
 
 
 export default class Router {
@@ -18,7 +20,7 @@ export default class Router {
     ){}
 
     async init() {
-        this.httpServer.on("post", "/api/trigger", async (params: any, body: any) => {
+        this.httpServer.on("post", "/api/trigger",  async (params: any, body: any) => {
             return createTriggerController.handle(body);
         }); 
         
@@ -48,6 +50,10 @@ export default class Router {
 
         this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {
            return getAllMachineEventController.handle(); 
+        });
+        
+        this.httpServer.on("post", "/api/token", async (params: any, body: any) => { 
+            return loginController.handle(body)
         });
 
         this.httpServer.on("get", "/api/cronetwork/workOrderDetails", async(params: any, body: any) => {
