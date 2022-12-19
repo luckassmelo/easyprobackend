@@ -27,3 +27,15 @@ export const cronetwork = {
         instanceName: process.env.CRONETWORK_INSTANCE,
     }
 };
+
+export const ldap = {
+    url: `ldap://${process.env.LDAP_URL}`,
+    timeout: process.env.LDAP_TIMEOUT,
+    connectTimeout: process.env.LDAP_CONNECT_TIMEOUT,
+    reconnect: process.env.LDAP_RECONNECT
+    // secret: process.env.SECRET!
+};
+
+export const token = {
+    secret: process.env.SECRET
+}
