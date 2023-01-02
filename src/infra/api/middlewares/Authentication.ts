@@ -13,14 +13,12 @@ export default class Auth {
 
 
     jwt.verify(req.headers.authorization as string, token.secret!, (err: any) => {
-      if (err) return res.status(401)
+     if (err) return res.status(401).json({'Authenticated': false});   
+     
 
-
-      res.status(200)
-    })
-    next();
+      next();
+      res.status(200).send({'Authenticated': true})
+    });
   }
 
 }
-
-
