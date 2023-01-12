@@ -62,6 +62,7 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                    this.adapter.connection.raw(`
                         trigger.tbl_trigger.id,
                         trigger.tbl_trigger.name,
+                        trigger.tbl_trigger.id_site,
                         pieces_value, 
                         status_value,
                         grp_target.group_name,
@@ -86,6 +87,7 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                 .leftJoin("trigger.tbl_trigger_type as ttriger_type", "trigger.tbl_trigger.id_trigger_type", "ttriger_type.id")
                 .leftJoin("trigger.tbl_trigger_cond as ttriger_cond", "ttriger_option.id_trigger_cond", "ttriger_cond.id")
                 .where("trigger.tbl_trigger.status", true)
+                .whereIn("trigger.tbl_trigger.id", [5])
                 .groupBy("trigger.tbl_trigger.id", "pieces_value", "status_value", "grp_target.group_name", "grp_target.area", "monitor.machine", "ttriger_type.name");
      
     }
