@@ -20,7 +20,7 @@ export class GetAllServiceInformationUseCase {
         const tasks = await this.tasksRepository.getAll();
         const machineEvents = (await this.machineEventsRepository.allMachineEvents());
         const workOrders : Array<string> = []; 
-        const workCenters = await this.workCentersRepository.allWorkCenters(1);
+        const machineGroup = await this.workCentersRepository.allWorkCenters();
         
         for(const event of machineEvents) {
             workOrders.push(event.workorder);
@@ -33,7 +33,7 @@ export class GetAllServiceInformationUseCase {
             tasks,
             machineEvents,
             workOrderDetailsRepository,
-            workCenters
+            machineGroup
         };
     }
 

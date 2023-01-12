@@ -1,26 +1,45 @@
 import { IWorkCentersRepository } from "../../application/repositories/IWorkCentersRepository";
 import PostgresSQLAdapter from "../database/PostgreSQLAdapter";
 
+type WorkCenterProp = {
+    area: string;
+    machine: string;
+    id_oee: number;
+    id_site: number;
+}
+
 export class WorkCentersRepository implements IWorkCentersRepository {
 
     constructor(
         readonly adapter: PostgresSQLAdapter
     ){}
 
-    async allWorkCenters(site: number): Promise<Array<Object> | null> {
+    async allWorkCenters(): Promise<Object | null> {
         const result = await this.adapter
                                  .connection
-                                 .select(this.adapter.connection.raw(`
-                                        monitor.tbl_oee_monitor.area, 
-                                        jsonb_agg(json_build_object('machine', rtrim(monitor.tbl_oee_monitor.machine), 'id_oee', monitor.tbl_oee_monitor.id_oee)) as machines 
-                                    `)
+                                 .select(
+                                    "area",
+                                    "machine",
+                                    "id_oee",
+                                    "id_site"
                                  )
-                                 .fromRaw("monitor.tbl_oee_monitor ")
-                                 .where('monitor.tbl_oee_monitor.id_site', site)
-                                 .whereIn('monitor.tbl_oee_monitor.area', ['FRA', 'CAR', 'AMP'])
-                                 .groupBy('monitor.tbl_oee_monitor.area');
+                                 .fromRaw("monitor.tbl_oee_monitor")
+                                 
+        const workCenters: {[index: string]: any} = {};
 
-        return result;
+        result.forEach((workCenter: WorkCenterProp) => { 
+            let site: string = String(workCenter.id_site);
+            let area: string = workCenter.area.replace(/\s/g, '');
+            let machine: string = workCenter.machine.replace(/\s/g, '');
+
+            if(!(site in workCenters)) workCenters[site] = {};
+            if(!(area in workCenters[site])) workCenters[site][area] = {};
+
+            workCenters[site][area][machine] = workCenter.id_oee;
+
+        });
+        
+        return workCenters;
     }
 
 }
