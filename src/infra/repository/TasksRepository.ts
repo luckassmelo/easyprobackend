@@ -53,10 +53,11 @@ export class PrismaTasksRepository implements ITasksRepository {
 
     async getAll(): Promise<Task[] | null> {
         return await this.adapter.connection
-        .select("*")
+        .select("trigger.tbl_trigger_task.id", "id_trigger", "trigger.tbl_trigger_task.name", "closed", "trigger.tbl_trigger_task.created_at", "closed_at", "description", "trigger.tbl_trigger.id", "trigger.tbl_trigger.name", "pieces_value", "status", "id_group", "trigger.tbl_trigger.id_user", "id_trigger_type", "is_productive_time", "trigger_priority", "id_site", "description_trigger")
         .from("trigger.tbl_trigger_task")
         .innerJoin("trigger.tbl_trigger", "id_trigger", "trigger.tbl_trigger.id")
-        .where("trigger.tbl_trigger_task.closed", false);
+        .where("trigger.tbl_trigger_task.closed", false)
+        .orderBy("trigger.tbl_trigger_task.created_at");
     }
 
     async closedTask(closed: any): Promise<void | any> {    
