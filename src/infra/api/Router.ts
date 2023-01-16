@@ -11,7 +11,6 @@ import { findTaskMachineController } from "../../application/useCases/FindTaskMa
 import { loginController } from "../../application/useCases/Login/index";
 import { closedTaskController } from "../../application/useCases/ClosedTask/index";
 import { HttpServer } from "./HttpServer";
-import Auth from "./middlewares/Authentication";
 
 
 export default class Router {
