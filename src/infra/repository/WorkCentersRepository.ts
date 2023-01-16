@@ -17,17 +17,28 @@ export class WorkCentersRepository implements IWorkCentersRepository {
     async allWorkCenters(): Promise<Object | null> {
         const result = await this.adapter
                                  .connection
-                                 .select(
-                                    "area",
-                                    "machine",
-                                    "id_oee",
-                                    "id_site"
-                                 )
-                                 .fromRaw("monitor.tbl_oee_monitor")
-                                 
+                                 .raw(` SELECT
+                                            area,
+                                            machine,
+                                            id_oee,
+                                            id_site
+                                            
+                                        FROM monitor.tbl_oee_monitor
+                                        UNION ALL
+                                        SELECT
+                                            group_target.group_name as area,
+                                            monitor.machine,
+                                            monitor.id_oee,
+                                            group_target.id_site
+
+                                        FROM target.tbl_machine_group as machine_group
+                                        INNER JOIN target.tbl_group_target as group_target ON group_target.id_group_target = machine_group.id_group_target 
+                                        INNER JOIN monitor.tbl_oee_monitor as monitor ON monitor.id_oee = machine_group.id_machine
+                                 `);
+                                    
         const workCenters: {[index: string]: any} = {};
 
-        result.forEach((workCenter: WorkCenterProp) => { 
+        result.rows.forEach((workCenter: WorkCenterProp) => { 
             let site: string = String(workCenter.id_site);
             let area: string = workCenter.area.replace(/\s/g, '');
             let machine: string = workCenter.machine.replace(/\s/g, '');
