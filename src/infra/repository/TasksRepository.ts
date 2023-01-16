@@ -14,7 +14,8 @@ export class PrismaTasksRepository implements ITasksRepository {
                                      .insert({
                                         id_trigger: task.props.triggerId, 
                                         name: task.props.name, 
-                                        closed: task.props.closed
+                                        closed: task.props.closed,
+                                        id_oee: task.props.idOee
                                      });
         
         return taskResult;
