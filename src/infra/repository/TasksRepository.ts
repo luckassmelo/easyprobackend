@@ -15,7 +15,8 @@ export class PrismaTasksRepository implements ITasksRepository {
                                         id_trigger: task.props.triggerId, 
                                         name: task.props.name, 
                                         closed: task.props.closed,
-                                        id_oee: task.props.idOee
+                                        id_oee: task.props.idOee,
+                                        id_site: task.props.idSite
                                      });
         
         return taskResult;
