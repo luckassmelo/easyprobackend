@@ -39,3 +39,11 @@ export const ldap = {
 export const token = {
     secret: process.env.SECRET
 }
+
+export const pgConfig = {
+  user: process.env.EASYPRO_USER,
+  password: process.env.EASYPRO_PASS,
+  host: `${process.env.EASYPRO_HOST}:${process.env.EASYPRO_PORT}`,
+  db: process.env.EASYPRO_DATABASE,
+  table: process.env.PG_EVENT_LISTENER_TABLE,
+};
