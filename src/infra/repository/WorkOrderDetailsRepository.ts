@@ -3,7 +3,7 @@ import { WorkOrderDetails } from "../../domain/entities/WorkOrderDetails";
 import Connection from "../database/Connection";
 import PostgresSQLAdapter from "../database/PostgreSQLAdapter";
 import MSSQLAdapter from "../database/MSSQLAdapter";
-import { WorkOrderDetailsProps } from "../../core/types/index";
+import { WorkOrderDetailsProps, WorkOrderMap } from "../../core/types/index";
 
 export class WorkOrderDetailsRepository implements IWorkOrderDetailsRepository {
   constructor(readonly adapter: MSSQLAdapter) {}
@@ -42,13 +42,10 @@ export class WorkOrderDetailsRepository implements IWorkOrderDetailsRepository {
       .where("PivotT.ORDER_NO", "6105001332");
   }
 
-  async findMany(workOrders: Array<string>): Promise<WorkOrderDetailsProps[] | null> {
-    //isolation level
-    // await this.adapter.connection.raw("SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED");
-
-    const workOrderDetails: WorkOrderDetailsProps[] = await this.adapter.connection(
+  async findMany(workOrders: Array<string>): Promise<WorkOrderMap | null> {
+    const workOrderDetails: WorkOrderDetailsProps[] = await this.adapter.connection.select(
           this.adapter.connection.raw(
-            "PivotT.*, OPERATIONS.SCHEDAREA, replace(RESOURCE_REQUIREMENT_INFO.TEXT, 'DMS_COMMENT','') as TOOL "
+            "PivotT.*, OPERATIONS.SCHEDAREA, ltrim(replace(RESOURCE_REQUIREMENT_INFO.TEXT, 'DMS_COMMENT','')) as TOOL "
           )
         )
         .fromRaw(

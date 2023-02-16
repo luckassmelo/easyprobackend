@@ -1,16 +1,13 @@
 import { Entity } from "../../core/domain/Entity";
-import { WorkOrderDetailsProps } from "../../core/types/index";
+import { WorkOrderDetailsProps, WorkOrderMap } from "../../core/types/index";
 
-interface WorkOrderMap {
-    [key: string]: Object;
-}
 
 export class WorkOrderDetails extends Entity<WorkOrderDetailsProps> {
     constructor(props: WorkOrderDetailsProps, id?: number) {
         super(props, id);
     }
 
-    static convertArrayToObject(workOrders: Array<WorkOrderDetailsProps>): any {
+    static convertArrayToObject(workOrders: Array<WorkOrderDetailsProps>): WorkOrderMap {
         const workOrdersObject: WorkOrderMap = {};
 
         for(const workOrder of workOrders){

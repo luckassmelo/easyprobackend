@@ -1,5 +1,5 @@
 import { IWorkOrderDetailsRepository } from "../../application/repositories/IWorkOrderDetailsRepository";
-import { WorkOrderDetailsProps } from "../../core/types";
+import { WorkOrderDetailsProps, WorkOrderMap } from "../../core/types";
 import { WorkOrderDetails } from "../../domain/entities/WorkOrderDetails";
 
 export class InMemoryWorkOrderDetails implements IWorkOrderDetailsRepository {
@@ -11,7 +11,7 @@ export class InMemoryWorkOrderDetails implements IWorkOrderDetailsRepository {
     return workOrderDetails;
   }
 
-  async findMany(workOrders: Array<string>): Promise<WorkOrderDetailsProps[] | null> {
+  async findMany(workOrders: Array<string>): Promise<WorkOrderMap | null> {
     return null;
   }
   

@@ -2,6 +2,7 @@ import { connectionCronetwork, connectionMdcPPB, connectionProductionManager } f
 import { MachineEventsRepository } from "../../../infra/repository/MachineEventsRepository";
 import { PrismaTasksRepository } from "../../../infra/repository/TasksRepository";
 import { PrismaTriggersRepository } from "../../../infra/repository/TriggersRepository";
+import { WorkCentersRepository } from "../../../infra/repository/WorkCentersRepository";
 import { WorkOrderDetailsRepository } from "../../../infra/repository/WorkOrderDetailsRepository";
 import { GetAllServiceInformationController } from "./GetAllServiceInformationController";
 import { GetAllServiceInformationUseCase } from "./GetAllServiceInformationUseCase";
@@ -23,11 +24,16 @@ const workOrderDetailsRepository = new WorkOrderDetailsRepository(
     connectionCronetwork
 )
 
+const workCentersRepository = new WorkCentersRepository(
+    connectionProductionManager
+);
+
 const getAllServiceInformationUseCase = new GetAllServiceInformationUseCase(
     triggersRepository,
     tasksRepository,
     machineEventsRepository,
-    workOrderDetailsRepository
+    workOrderDetailsRepository,
+    workCentersRepository
 );
 
 const getAllServiceInformationController = new GetAllServiceInformationController(

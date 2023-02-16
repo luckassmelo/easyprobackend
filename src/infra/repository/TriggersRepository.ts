@@ -62,16 +62,18 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                    this.adapter.connection.raw(`
                         trigger.tbl_trigger.id,
                         trigger.tbl_trigger.name,
+                        trigger.tbl_trigger.id_site,
                         pieces_value, 
                         status_value,
                         grp_target.group_name,
-                        grp_target.area,
+                        monitor.area,
                         TRIM(monitor.machine) as machine,
-                        string_agg(ttriger_option.value::text, ',') AS entered_value, 
-                        string_agg(ttriger_value.value::text, ',') AS conditional_values,
-                        string_agg(ttriger_option.logical_operator, ',') AS logical_operators,
-                        string_agg(DISTINCT concat_ws(' ', concat_ws('', ttriger_option.value, ttriger_value.value) , ttriger_option.logical_operator), ',') AS logical_expression,
-                        string_agg(ttriger_cond.formated_name, ',') as conditional_types,
+                        array_agg(json_build_object(
+							'conditional_type', ttriger_cond.formated_name,
+							'selected_conditional_value', ttriger_value.value,
+							'entered_conditional_value', ttriger_option.value,
+							'logical_operator', ttriger_option.logical_operator
+						) ) as conditionals,
                         trigger.tbl_trigger.id_trigger_type,
                         ttriger_type."name" AS trigger_type,
                         is_productive_time,
@@ -86,7 +88,9 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                 .leftJoin("trigger.tbl_trigger_type as ttriger_type", "trigger.tbl_trigger.id_trigger_type", "ttriger_type.id")
                 .leftJoin("trigger.tbl_trigger_cond as ttriger_cond", "ttriger_option.id_trigger_cond", "ttriger_cond.id")
                 .where("trigger.tbl_trigger.status", true)
-                .groupBy("trigger.tbl_trigger.id", "pieces_value", "status_value", "grp_target.group_name", "grp_target.area", "monitor.machine", "ttriger_type.name");
+                // .whereIn("trigger.tbl_trigger.id", [4, 5, 104, 105, 106, 107])
+                // .whereIn("trigger.tbl_trigger.id", [108, 110, 5])
+                .groupBy("trigger.tbl_trigger.id", "pieces_value", "status_value", "grp_target.group_name", "monitor.area", "monitor.machine", "ttriger_type.name");
      
     }
 }

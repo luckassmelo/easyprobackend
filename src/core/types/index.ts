@@ -47,3 +47,7 @@ export type MachineEventResponse = {
     name?: string;
     value?: number;
 }
+
+export interface WorkOrderMap {
+    [key: string]: WorkOrderDetailsProps;
+}

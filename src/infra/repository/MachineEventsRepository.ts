@@ -47,7 +47,7 @@ export class MachineEventsRepository implements IMachineEventsRepository {
               { column: "typ_id" },
               { column: "machine" },
             ])
-            .timeout(60000));
+            );
   }
 
   async downtimesMachineEvents(): Promise<MachineEventProps[]> {

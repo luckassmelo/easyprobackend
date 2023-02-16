@@ -11,12 +11,16 @@ import { findTaskMachineController } from "../../application/useCases/FindTaskMa
 import { loginController } from "../../application/useCases/Login/index";
 import { closedTaskController } from "../../application/useCases/ClosedTask/index";
 import { HttpServer } from "./HttpServer";
-import Auth from "./middlewares/Authentication";
+import { SocketAdapter } from "./SocketAdapter";
+import { Socket } from "socket.io";
+import { getTasksByIdOeeController } from "../../application/useCases/GetTasksByIdOee";
+import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
 
 
 export default class Router {
     constructor(
-        private httpServer: HttpServer
+        private httpServer: HttpServer,
+        private socketServer: SocketAdapter
     ){}
 
     async init() {
@@ -40,7 +44,7 @@ export default class Router {
             return getAllTaskController.handle();
         });
 
-        this.httpServer.on("get", "/api/task/:type/:paramId", async (params: any, body: any) => { //wc workCenter ou group 
+        this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params: any, body: any) => { //wc workCenter ou group 
             return findTaskMachineController.handle(params)
         });
 
@@ -67,5 +71,9 @@ export default class Router {
         this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {            
             return getAllServiceInformationController.handle();
         });
+
+        this.socketServer.appSocket.on("connection", (socket: Socket) => {
+          getTasksEvent.execute(socket);
+      });
     }
 }
