@@ -15,6 +15,7 @@ import { SocketAdapter } from "./SocketAdapter";
 import { Socket } from "socket.io";
 import { getTasksByIdOeeController } from "../../application/useCases/GetTasksByIdOee";
 import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
+import { getMachineEventByDateAndMachineController } from "../../application/useCases/GetMachineEventByDateAndMachine";
 
 
 export default class Router {
@@ -70,6 +71,10 @@ export default class Router {
 
         this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {            
             return getAllServiceInformationController.handle();
+        });
+
+        this.httpServer.on("get", "/api/getMachineEventByDateAndMachine", async(params: any, body: any) => {
+          return getMachineEventByDateAndMachineController.handle(params);
         });
 
         this.socketServer.appSocket.on("connection", (socket: Socket) => {
