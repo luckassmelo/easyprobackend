@@ -1,7 +1,7 @@
 import { IMachineEventsRepository } from "../../application/repositories/IMachineEventsRepository";
 import Connection from "../database/Connection";
 import PostgresSQLAdapter from "../database/PostgreSQLAdapter";
-import { MachineEventProps } from "../../core/types/index";
+import { MachineEventProps, MachineEventResponse } from "../../core/types/index";
 
 export class MachineEventsRepository implements IMachineEventsRepository {
   constructor(readonly adapter: PostgresSQLAdapter) {}
@@ -123,10 +123,12 @@ export class MachineEventsRepository implements IMachineEventsRepository {
             .where({ ev_made_historic: null })
             .whereRaw(`ev.ev_time >= cast('${date}' as date)`)
             .where("pu.pu_no", machine)
-            .where("typ_name", 'MACHINE_STATE_CHANGE')
+            .whereRaw(`((typ_name = 'COUNTER_READING' and
+                        (vai_name = 'C10110' OR vai_name = 'C10120'))  OR
+                        typ_name = 'MACHINE_STATE_CHANGE')`)
 
             .orderBy([
-              { column: "ev.ev_time", order: "desc" },
+              { column: "ev.ev_time", order: "asc" },
               { column: "pu.pu_id" },
               { column: "typ_id" },
               { column: "machine" },

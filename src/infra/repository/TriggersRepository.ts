@@ -16,7 +16,7 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
         .from("trigger.tbl_trigger")
         .leftJoin("target.tbl_group_target", "trigger.tbl_trigger.id_group", "tbl_group_target.id_group_target")
         .leftJoin("monitor.tbl_oee_monitor as monitor", "trigger.tbl_trigger.id_oee", "monitor.id_oee")
-        .where("id", id)   
+        .where("id", id)
 
         if(!triggerResult) return null;
 
@@ -33,11 +33,11 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                 triggerTypeId: triggerResult[0].id_trigger_type,
                 isProductiveTime: triggerResult[0].is_productive_time
             },
-            id         
-            
+            id
+
         );
     }
-    
+
     async save(trigger: Trigger): Promise<any> {
          const triggerSaved = await this
                                     .adapter
@@ -63,7 +63,7 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                         trigger.tbl_trigger.id,
                         trigger.tbl_trigger.name,
                         trigger.tbl_trigger.id_site,
-                        pieces_value, 
+                        pieces_value,
                         status_value,
                         grp_target.group_name,
                         monitor.area,
@@ -77,7 +77,8 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                         trigger.tbl_trigger.id_trigger_type,
                         ttriger_type."name" AS trigger_type,
                         is_productive_time,
-                        trigger.tbl_trigger.status
+                        trigger.tbl_trigger.status,
+                        trigger.tbl_trigger.created_at
                    `)
                 )
                 .from("trigger.tbl_trigger")
@@ -88,9 +89,9 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                 .leftJoin("trigger.tbl_trigger_type as ttriger_type", "trigger.tbl_trigger.id_trigger_type", "ttriger_type.id")
                 .leftJoin("trigger.tbl_trigger_cond as ttriger_cond", "ttriger_option.id_trigger_cond", "ttriger_cond.id")
                 .where("trigger.tbl_trigger.status", true)
-                // .whereIn("trigger.tbl_trigger.id", [4, 5, 104, 105, 106, 107])
-                // .whereIn("trigger.tbl_trigger.id", [108, 110, 5])
+                .whereIn("trigger.tbl_trigger.id", [110])
+                // .whereIn("trigger.tbl_trigger.id", [108])
                 .groupBy("trigger.tbl_trigger.id", "pieces_value", "status_value", "grp_target.group_name", "monitor.area", "monitor.machine", "ttriger_type.name");
-     
+
     }
 }
