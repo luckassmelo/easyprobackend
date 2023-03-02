@@ -4,7 +4,7 @@
   "description": "Api responsible to provide data about Pop-up System",
   "main": "main.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --silent --noStackTrace",
     "dev": "tsnd --respawn --ignore-watch node_modules src/main.ts",
     "start:production": "node dist/main.js",
     "generate:production": "npx tsc"
@@ -28,20 +28,19 @@
     "@types/swagger-ui-express": "^4.1.3",
     "jest": "^28.1.3",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "ts-jest": "^29.0.3"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/ldapjs": "^2.2.5",
-    "@types/ldapjs-client": "^0.1.2",
-    "apollo-server": "^3.11.1",
+    "@types/ldapjs-client": "^0.1.2", 
     "class-validator": "^0.14.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-errors": "^3.1.1",
-    "graphql": "^15.8.0",
     "jose": "^4.11.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^2.2.0",
@@ -49,7 +48,6 @@
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.6.0",
-    "tedious": "^15.0.1",
-    "type-graphql": "^1.1.1"
+    "tedious": "^15.0.1"
   }
 }

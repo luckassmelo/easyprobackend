@@ -11,8 +11,8 @@ import { findTaskMachineController } from "../../application/useCases/FindTaskMa
 import { loginController } from "../../application/useCases/Login/index";
 import { closedTaskController } from "../../application/useCases/ClosedTask/index";
 import { HttpServer } from "./HttpServer";
-import Auth from "./middlewares/Authentication";
-
+import { registerInkController } from "../../../_src/modules/screensAndInks/inks/use-cases/register-ink-use-case/index"
+import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
 
 export default class Router {
     constructor(
@@ -67,5 +67,14 @@ export default class Router {
         this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {            
             return getAllServiceInformationController.handle();
         });
+
+        this.httpServer.on("post", "/api/registerInks", async(params: any, body: any) => {
+            return registerInkController.handle(body);
+        });
+
+        this.httpServer.on("get", "/api/getAllInks", async(params: any, body: any) => {
+            return getAllInksController.handle();
+        });
+     
     }
 }

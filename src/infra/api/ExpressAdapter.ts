@@ -7,8 +7,8 @@ import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
 import Auth from "./middlewares/Authentication";
 import cors from "cors";
-
 import swaggerDocs from "../docs/swagger.json"
+
 
 export class ExpressAdapter implements HttpServer {
 	app: Express;
@@ -17,6 +17,7 @@ export class ExpressAdapter implements HttpServer {
 	constructor() {
 		this.app = express();
 		this.router = Router();
+		
 		this.app.use(express.json());
 		this.app.use(compression());
 		this.app.use(cors());
@@ -37,6 +38,12 @@ export class ExpressAdapter implements HttpServer {
 				return res.json(output);
 			},
 		);
+	}
+	use(method: string, url: string, route: string): void {
+		this.router[method](
+			url,
+			route
+		)
 	}
 
 	listen(port: number): void {

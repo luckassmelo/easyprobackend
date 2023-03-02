@@ -1,12 +1,10 @@
-import { Entity } from "../../../../domain/Entity/entitiy"
 export enum useType {
     GRA = 'GRA',
     VIB = 'VIB',
     ANI = 'ANI',
     OPC = 'OPC'
 }
-
-type InkProps = {
+export type InkProps = {
     preparationDate: Date | string,
     batchNumberSchott: string,
     initialCodeInk: string, 
@@ -28,20 +26,3 @@ type InkProps = {
     id_site?: number,
     id_user?: string
 }
-
-export class InkEntity extends Entity<InkProps> {
-
-    constructor(props: InkProps){
-
-
-        super(props);
-    }
-
-    
-    static create(props: InkProps){
-        return new InkEntity({
-            ...props
-        });
-    }
-}
-
