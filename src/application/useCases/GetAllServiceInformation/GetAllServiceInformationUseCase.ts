@@ -19,13 +19,10 @@ export class GetAllServiceInformationUseCase {
         const triggers = ((await this.triggersRepository.allTriggers()));
         const tasks = await this.tasksRepository.getAll();
         const machineEvents = (await this.machineEventsRepository.allMachineEvents());
-        const workOrders : Array<string> = []; 
         const machineGroup = await this.workCentersRepository.allWorkCenters();
-        
-        for(const event of machineEvents) {
-            workOrders.push(event.workorder);
-        }
-        
+
+        const workOrders: string[] = machineEvents.map(event => event.workorder);
+
         const workOrderDetailsRepository = await this.workOrderDetailsRepository.findMany(workOrders);
 
         return {
