@@ -7,6 +7,7 @@ type TaskProps = {
     closed: boolean;
     createdAt?: Date;
     idOee: number;
+    idSite: number;
 }
 
 export class Task extends Entity<TaskProps> {

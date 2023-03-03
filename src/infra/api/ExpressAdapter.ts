@@ -33,7 +33,13 @@ export class ExpressAdapter implements HttpServer {
 		this.router[method](
 			url,
 			async function (req: Request, res: Response, next: NextFunction) {
-				const output = await callback(req.params, req.body);
+
+        const requestCustom = {
+          ...req.params,
+          ...req.query
+        };
+
+				const output = await callback(requestCustom, req.body);
 				return res.json(output);
 			},
 		);

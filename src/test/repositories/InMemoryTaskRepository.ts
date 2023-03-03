@@ -23,4 +23,8 @@ export class InMemoryTaskRepository implements ITasksRepository {
   closedTask(closed: any): Promise<any> {
     throw new Error("Method not implemented.");
   }
+
+  findTaskByIdOee(id: number): Promise<any> {
+    throw new Error("Method not implemented.");
+  }
 }

@@ -11,18 +11,24 @@ import { findTaskMachineController } from "../../application/useCases/FindTaskMa
 import { loginController } from "../../application/useCases/Login/index";
 import { closedTaskController } from "../../application/useCases/ClosedTask/index";
 import { HttpServer } from "./HttpServer";
+import { SocketAdapter } from "./SocketAdapter";
+import { Socket } from "socket.io";
+import { getTasksByIdOeeController } from "../../application/useCases/GetTasksByIdOee";
+import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
+import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from "../../application/useCases/GetMachineEventByDateAndMachineWithWorkOrderDetails";
 
 
 export default class Router {
     constructor(
-        private httpServer: HttpServer
+        private httpServer: HttpServer,
+        private socketServer: SocketAdapter
     ){}
 
     async init() {
         this.httpServer.on("post", "/api/trigger",  async (params: any, body: any) => {
             return createTriggerController.handle(body);
-        }); 
-        
+        });
+
         this.httpServer.on("get", "/api/trigger/:triggerId", async (params: any, body: any) => {
             return findTriggerController.handle(params)
         });
@@ -39,7 +45,7 @@ export default class Router {
             return getAllTaskController.handle();
         });
 
-        this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params: any, body: any) => { //wc workCenter ou group 
+        this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params: any, body: any) => { //wc workCenter ou group
             return findTaskMachineController.handle(params)
         });
 
@@ -48,10 +54,10 @@ export default class Router {
         });
 
         this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {
-           return getAllMachineEventController.handle(); 
+           return getAllMachineEventController.handle();
         });
-        
-        this.httpServer.on("post", "/api/token", async (params: any, body: any) => { 
+
+        this.httpServer.on("post", "/api/token", async (params: any, body: any) => {
             return loginController.handle(body)
         });
 
@@ -63,8 +69,16 @@ export default class Router {
             return getWorkOrderDetailsByArrayController.handle(body);
         });
 
-        this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {            
+        this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {
             return getAllServiceInformationController.handle();
         });
+
+        this.httpServer.on("get", "/api/getMachineEventByDateAndMachine", async(params: any, body: any) => {
+          return getMachineEventByDateAndMachineWithWorkOrderDetailsController.handle(params);
+        });
+
+        this.socketServer.appSocket.on("connection", (socket: Socket) => {
+          getTasksEvent.execute(socket);
+      });
     }
 }

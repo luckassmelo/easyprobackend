@@ -34,7 +34,7 @@ export type WorkOrderDetailsProps = {
     NECK_DIAMETER : string;
     SCHEDAREA : string;
     TOOL : string;
-    
+
 }
 
 export type MachineEventResponse = {
