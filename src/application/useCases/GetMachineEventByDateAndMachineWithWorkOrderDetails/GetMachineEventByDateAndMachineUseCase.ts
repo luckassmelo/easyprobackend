@@ -13,7 +13,13 @@ export class GetMachineEventByDateAndMachineUseCase {
 
   async execute(date: Date, machine: String): Promise<MachineEventsAndWorkOrderDetailsResponse> {
     const machineEventsResponse = await this.machineEventsRepository.getMachineEventsByDateAndMachine(date, machine);
-    const workOrders = machineEventsResponse.map(event => event.workorder);
+
+    const workOrders: string[] = [];
+    machineEventsResponse.forEach((event) => {
+      if(!workOrders.includes(event.workorder) && event.workorder)
+         workOrders.push(event.workorder);
+    });
+
     const workOrderDetailsResponse = await this.workOrderDetailsRepository.findMany(workOrders);
 
     return {
