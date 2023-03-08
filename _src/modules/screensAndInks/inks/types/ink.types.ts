@@ -12,7 +12,7 @@ export type InkProps = {
     colorInk: string,
     finalCodeInk: string,
     validationDateInk:  string,
-    typeToUse: useType,
+    typeToUse: string,
     weightInk: number,
     batchNumberMedium: number,
     fabricationDateMedium: string,
@@ -27,3 +27,6 @@ export type InkProps = {
     id_site?: number,
     id_user?: number
 }
+
+
+

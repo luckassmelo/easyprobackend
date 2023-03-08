@@ -14,7 +14,7 @@ type InkProps = {
     colorInk: string,
     finalCodeInk: string,
     validationDateInk:  string,
-    typeToUse: useType,
+    typeToUse: string,
     weightInk: number,
     batchNumberMedium: number,
     fabricationDateMedium: string,
