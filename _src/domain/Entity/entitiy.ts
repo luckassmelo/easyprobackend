@@ -1,11 +1,13 @@
 export abstract class Entity<T> {
-  
+    protected _id: number | string;
     public props: T;
 
-
-    constructor(props: T, ) {
-        this.props = props;
-       
+    get id() {
+        return this._id;
     }
 
+    constructor(props: T, id?: number | string) {
+        this.props = props;
+        this._id = id ?? 0;
+    }
 }

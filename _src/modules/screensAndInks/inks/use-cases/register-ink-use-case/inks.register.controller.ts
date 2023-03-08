@@ -1,10 +1,11 @@
 import { InksRegisterUseCase } from "./ink.register.usecase";
 import { InkProps } from "../../types/ink.types";
-import {HttpResponse} from "../../../../../domain/Entity/types/http"
+import {HttpResponse} from "../../../../../presentation/protocols/http"
+import {Controller} from '../../../../../presentation/protocols/controller'
 
 
 
-export class InksRegisterController {
+export class InksRegisterController implements Controller{
     constructor(
         private inksRegisterUseCase: InksRegisterUseCase
     ){}
@@ -15,12 +16,16 @@ export class InksRegisterController {
              ...body
             })
         
+            console.log(body);
+
         return{
             statusCode: 201,
             body: true
         }
+        
         //Create a type for this catch
         }catch (err: any) {
+            console.log(err);
             
             return {
                 statusCode: 500,

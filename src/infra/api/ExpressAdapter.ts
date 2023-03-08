@@ -17,7 +17,6 @@ export class ExpressAdapter implements HttpServer {
 	constructor() {
 		this.app = express();
 		this.router = Router();
-		
 		this.app.use(express.json());
 		this.app.use(compression());
 		this.app.use(cors());
@@ -39,12 +38,7 @@ export class ExpressAdapter implements HttpServer {
 			},
 		);
 	}
-	use(method: string, url: string, route: string): void {
-		this.router[method](
-			url,
-			route
-		)
-	}
+
 
 	listen(port: number): void {
 		console.log(`[SERVER] listening on port ${port}`);

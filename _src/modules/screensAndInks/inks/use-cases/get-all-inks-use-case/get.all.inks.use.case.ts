@@ -9,11 +9,6 @@ export class GetAllInksUseCase {
     async execute(){
         const getInks = await this.getAllInksRepository.getAll();
 
-
-        if (!getInks){
-            throw new Error();
-        }
-
         return getInks
     }
 }

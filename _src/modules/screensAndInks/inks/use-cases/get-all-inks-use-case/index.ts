@@ -1,4 +1,4 @@
-import {connectionProductionManager} from "../../../../../../src/infra/database/index";
+import { connectionProductionManager } from "../../../../../../src/infra/database/index";
 import { getAllInksRepository } from "../../../../../infra/database/respositories/ink.database";
 import { GetAllInksUseCase } from "./get.all.inks.use.case";
 import { GetAllInksController } from "./get.all.inks.controller";

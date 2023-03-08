@@ -1,4 +1,4 @@
-import {connectionProductionManager} from "../../../../../../src/infra/database/index"
+import { connectionProductionManager } from "../../../../../../src/infra/database/index"
 import { InksRegisterUseCase }from "./ink.register.usecase"
 import { InksRegisterController } from "./inks.register.controller"
 import { inksRepository } from "../../../../../infra/database/respositories/ink.database"

@@ -1,9 +1,10 @@
 import Connection from "./Connection";
 import Knex from "knex";
+import type {Knex as KnexApplication}  from "knex";
 
 
 export default class PostgresSQLAdapter {
-    connection: any;
+    connection: KnexApplication;
 
     constructor(databaseConnection: any) {
         

@@ -9,7 +9,7 @@ export class PrismaTasksRepository implements ITasksRepository {
         readonly adapter: PostgresSQLAdapter
     ){}
 
-    async save(task: Task): Promise<void | Task> {
+    async save(task: Task): Promise<Task | any> {
         const taskResult = await this.adapter.connection("trigger.tbl_trigger_task")
                                      .insert({
                                         id_trigger: task.props.triggerId, 
@@ -17,10 +17,10 @@ export class PrismaTasksRepository implements ITasksRepository {
                                         closed: task.props.closed
                                      });
         
-        return taskResult;
+        return taskResult
     }
 
-    async findById( type: string, id: string): Promise<Task | null> {
+    async findById( type: string, id: string): Promise<Task | null | any> {
 
         if (type !== "wc" && type !== "group") return null;
 

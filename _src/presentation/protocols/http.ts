@@ -1,8 +1,8 @@
-export type HttpResponse<T = any> = {
+export type HttpResponse = {
     statusCode: number;
     message?: string;
     totalItems?: number;
-    items?: T;
-    body?: T;
+    items?: any;
+    body?: any;
   };
   

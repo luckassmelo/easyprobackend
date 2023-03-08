@@ -7,26 +7,27 @@ export enum useType {
 }
 
 type InkProps = {
-    preparationDate: Date | string,
+    idProcess: number
+    preparationDate: string,
     batchNumberSchott: string,
     initialCodeInk: string, 
     colorInk: string,
     finalCodeInk: string,
-    validationDateInk: Date | string,
+    validationDateInk:  string,
     typeToUse: useType,
-    weigthInk: number,
+    weightInk: number,
     batchNumberMedium: number,
-    fabricationDateMedium: Date | string,
-    mediumCode: string,
-    weigthMedium: number,
-    fabricationDateInk: Date | string,
-    batchNumberInk: string,
-    analysiDesinty?: number,
-    analysiViscosity?: number,
+    fabricationDateMedium: string,
+    codeMedium: string,
+    weightMedium: number,
+    fabricationDateInk:string,
+    batchNumberInk: number,
+    analysisDesinty?: number,
+    analysisViscosity?: number,
     aditionalEnamel?: number,
     aditionalMedium?: number,
     id_site?: number,
-    id_user?: string
+    id_user?: number
 }
 
 export class InkEntity extends Entity<InkProps> {
