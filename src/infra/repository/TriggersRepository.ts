@@ -78,7 +78,8 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                         ttriger_type."name" AS trigger_type,
                         is_productive_time,
                         trigger.tbl_trigger.status,
-                        trigger.tbl_trigger.created_at
+                        trigger.tbl_trigger.created_at,
+                        trigger.tbl_trigger.modified_at
                    `)
                 )
                 .from("trigger.tbl_trigger")
