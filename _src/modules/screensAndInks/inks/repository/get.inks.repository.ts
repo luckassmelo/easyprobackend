@@ -1,5 +1,6 @@
-import {InkEntity} from "../entity/ink.entity"
+
+import { InkGetProcess } from "../entity/ink.get.process.entity";
 
 export interface IGetInksRepository {
-    getAll(): Promise<InkEntity[]>;
+    getAll(): Promise<InkGetProcess[]>;
 }

@@ -1,14 +1,12 @@
 import { InkEntity } from "../entity/ink.entity";
-import { InkProps } from "../types/ink.types";
 import {InkDatabase} from "../types/ink.type.database"
 
-export abstract class InkSearch{
-    static fromJson(obj: InkDatabase){
-        console.log(obj);
-        
+export abstract class InkSearchAdapter{
+    static insertData(obj: InkDatabase){
+
         return new InkEntity({
             idProcess: obj.id_process,
-            preparationDate: obj.manufacture_date_schott,
+            preparationDate: new Date(obj.manufacture_date_schott).toLocaleDateString(),
             batchNumberSchott: obj.batch_number_schott,
             initialCodeInk: obj.initial_code, 
             colorInk: obj.color_ink,

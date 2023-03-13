@@ -1,8 +1,7 @@
 import { IfindByIdProcess } from "../../../modules/screensAndInks/inks/repository/find.by.id.process.respository";
 import PostgresSQLAdapter from "../../../../src/infra/database/PostgreSQLAdapter";
 import {InkEntity} from "../../../modules/screensAndInks/inks/entity/ink.entity"
-import { InkSearch } from "../../../modules/screensAndInks/inks/adapters/ink.search.adapter";
-import { InkProps } from "../../../modules/screensAndInks/inks/types/ink.types";
+import {InkSearchAdapter } from "../../../modules/screensAndInks/inks/adapters/ink.search.adapter";
 
 
 export class FindByIdProcessInk implements IfindByIdProcess{
@@ -17,7 +16,7 @@ export class FindByIdProcessInk implements IfindByIdProcess{
         .from('paint.tbl_paints')
         .where('id_process',id)
         
-        return InkSearch.fromJson(result[0]);
+        return InkSearchAdapter.insertData(result[0]);
     }
 }
 

@@ -26,8 +26,8 @@ type InkProps = {
     analysisViscosity?: number,
     aditionalEnamel?: number,
     aditionalMedium?: number,
-    id_site?: number,
-    id_user?: number
+    idSite?: number,
+    idUser?: number
 }
 
 export class InkEntity extends Entity<InkProps> {

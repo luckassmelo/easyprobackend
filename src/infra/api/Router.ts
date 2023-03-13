@@ -79,8 +79,6 @@ export default class Router {
 
 
         this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
-            console.log(params);
-            
             return findByIdController.handle(params)
         })
      

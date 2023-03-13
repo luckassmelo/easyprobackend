@@ -2,6 +2,8 @@ import { IinkRepository } from "../../../modules/screensAndInks/inks/repository/
 import {IGetInksRepository} from "../../../modules/screensAndInks/inks/repository/get.inks.repository"
 import PostgresSQLAdapter from "../../../../src/infra/database/PostgreSQLAdapter";
 import { InkEntity } from "../../../modules/screensAndInks/inks/entity/ink.entity";
+import {InkDataToTableAdapter} from "../../../modules/screensAndInks/inks/adapters/ink.get.data.from.table"
+import { InkGetProcess } from "../../../modules/screensAndInks/inks/entity/ink.get.process.entity";
 
 
 export class inksRepository implements IinkRepository {
@@ -10,6 +12,7 @@ export class inksRepository implements IinkRepository {
     ){}
 
     async save(inksRepo: InkEntity): Promise<void> {
+  
         await this.adapter.connection("paint.tbl_paints")
                                      .insert({
                                         initial_code: inksRepo.props.initialCodeInk,
@@ -30,8 +33,8 @@ export class inksRepository implements IinkRepository {
                                         manufacture_date_medium: inksRepo.props.fabricationDateMedium,
                                         manufacture_date_ink_vendor: inksRepo.props.fabricationDateInk,
                                         final_code_ink: inksRepo.props.finalCodeInk,
-                                        id_site: inksRepo.props.id_site,
-                                        id_user: inksRepo.props.id_user
+                                        id_site: inksRepo.props.idSite,
+                                        id_user: inksRepo.props.idUser
                                      });
                                     
     }
@@ -43,13 +46,13 @@ export class getAllInksRepository implements IGetInksRepository{
         readonly adapter: PostgresSQLAdapter
     ){}
 
-    async getAll(): Promise<InkEntity[]> {
+    async getAll(): Promise<InkGetProcess[]> {
         const getAllInksRegister = await
-        this.adapter.connection.select("*")
-         .from<InkEntity>("paint.tbl_paints")
+        this.adapter.connection.select("manufacture_date_schott","batch_number_schott","initial_code", "final_code_ink", "color_ink", "type_use", "id_process")
+         .from<InkGetProcess>("paint.tbl_paints")
                                                         
-        return getAllInksRegister;
+        return getAllInksRegister.map(items =>
+            InkDataToTableAdapter.returnData(items)
+        );
     }
 }
-
-

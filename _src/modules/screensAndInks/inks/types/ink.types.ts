@@ -28,5 +28,3 @@ export type InkProps = {
     id_user?: number
 }
 
-
-

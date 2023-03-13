@@ -21,3 +21,13 @@ export type InkDatabase= {
     id_user: number
     expiration_date_schott: string
 }
+
+export type InkDataFromTable = {
+    manufacture_date_schott: string
+    batch_number_schott: string
+    initial_code: string
+    final_code_ink: string
+    color_ink: string
+    type_use: string
+    id_process: number
+}

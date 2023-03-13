@@ -8,7 +8,6 @@ export class GetAllInksUseCase {
 
     async execute(){
         const getInks = await this.getAllInksRepository.getAll();
-
         return getInks
     }
 }
