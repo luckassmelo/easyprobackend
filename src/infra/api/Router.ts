@@ -17,6 +17,9 @@ import { getTasksByIdOeeController } from "../../application/useCases/GetTasksBy
 import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
 import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from "../../application/useCases/GetMachineEventByDateAndMachineWithWorkOrderDetails";
 
+import {findByIdController} from "../../../_src/modules/screensAndInks/inks/use-cases/find-by-id-process-use-case/index"
+import { registerInkController } from "../../../_src/modules/screensAndInks/inks/use-cases/register-ink-use-case/index"
+import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
 
 export default class Router {
     constructor(
@@ -80,5 +83,19 @@ export default class Router {
         this.socketServer.appSocket.on("connection", (socket: Socket) => {
           getTasksEvent.execute(socket);
       });
+
+        this.httpServer.on("post", "/api/registerInks", async(params: any, body: any) => {
+            return registerInkController.handle(body);
+        });
+
+        this.httpServer.on("get", "/api/getAllInks", async(params: any, body: any) => {
+            return getAllInksController.handle();
+        });
+
+
+        this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
+            return findByIdController.handle(params)
+        })
+     
     }
 }

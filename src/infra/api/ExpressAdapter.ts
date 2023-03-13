@@ -7,8 +7,8 @@ import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
 import Auth from "./middlewares/Authentication";
 import cors from "cors";
-
 import swaggerDocs from "../docs/swagger.json"
+
 
 export class ExpressAdapter implements HttpServer {
 	app: Express;
@@ -44,6 +44,7 @@ export class ExpressAdapter implements HttpServer {
 			},
 		);
 	}
+
 
 	listen(port: number): void {
 		console.log(`[SERVER] listening on port ${port}`);

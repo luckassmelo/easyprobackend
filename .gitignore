@@ -5,3 +5,4 @@ process.json
 ecosystem.config.js
 logs
 dist
+logs/error.log
