@@ -1,6 +1,7 @@
 import { IMachineEventsRepository } from "../../repositories/IMachineEventsRepository";
 import { ITasksRepository } from "../../repositories/ITasksRepository";
 import { ITriggersRepository } from "../../repositories/ITriggersRepository";
+import { IWorkCentersRepository } from "../../repositories/IWorkCentersRepository";
 import { IWorkOrderDetailsRepository } from "../../repositories/IWorkOrderDetailsRepository";
 
 
@@ -9,7 +10,8 @@ export class GetAllServiceInformationUseCase {
         private triggersRepository: ITriggersRepository,
         private tasksRepository: ITasksRepository,
         private machineEventsRepository: IMachineEventsRepository,
-        private workOrderDetailsRepository: IWorkOrderDetailsRepository
+        private workOrderDetailsRepository: IWorkOrderDetailsRepository,
+        private workCentersRepository: IWorkCentersRepository
     ){}
 
     async execute() {
@@ -18,6 +20,7 @@ export class GetAllServiceInformationUseCase {
         const tasks = await this.tasksRepository.getAll();
         const machineEvents = (await this.machineEventsRepository.allMachineEvents());
         const workOrders : Array<string> = []; 
+        const machineGroup = await this.workCentersRepository.allWorkCenters();
         
         for(const event of machineEvents) {
             workOrders.push(event.workorder);
@@ -29,7 +32,8 @@ export class GetAllServiceInformationUseCase {
             triggers,
             tasks,
             machineEvents,
-            workOrderDetailsRepository
+            workOrderDetailsRepository,
+            machineGroup
         };
     }
 

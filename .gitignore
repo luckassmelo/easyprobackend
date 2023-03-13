@@ -2,4 +2,7 @@ node_modules
 .env
 .vscode
 process.json
+ecosystem.config.js
+logs
+dist
 logs/error.log
