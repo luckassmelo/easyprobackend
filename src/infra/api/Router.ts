@@ -20,6 +20,7 @@ import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from ".
 import {findByIdController} from "../../../_src/modules/screensAndInks/inks/use-cases/find-by-id-process-use-case/index"
 import { registerInkController } from "../../../_src/modules/screensAndInks/inks/use-cases/register-ink-use-case/index"
 import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
+import { printRegisterController} from "../../../_src/modules/screensAndInks/inks/use-cases/printing-register-use-case/index"
 
 export default class Router {
     constructor(
@@ -96,6 +97,9 @@ export default class Router {
         this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
             return findByIdController.handle(params)
         })
-     
+        
+        this.httpServer.on('get', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
+            return printRegisterController.handle(body, params)
+        })
     }
 }
