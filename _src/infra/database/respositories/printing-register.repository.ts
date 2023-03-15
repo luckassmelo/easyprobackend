@@ -2,7 +2,7 @@ import { IPrintingRepository } from "../../../modules/screensAndInks/inks/reposi
 import PostgresSQLAdapter from "../../../../src/infra/database/PostgreSQLAdapter";
 import { PrintingEntity } from "../../../modules/screensAndInks/inks/entity/printing.entity";
 
-export class printingRegisterRepository implements IPrintingRepository{
+export class PrintingRegisterRepository implements IPrintingRepository{
     constructor(
         readonly adapter: PostgresSQLAdapter
     ){}
