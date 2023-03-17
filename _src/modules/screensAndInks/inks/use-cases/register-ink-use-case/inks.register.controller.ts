@@ -14,9 +14,7 @@ export class InksRegisterController implements Controller{
         try {
             await this.inksRegisterUseCase.execute({
              ...body
-            })
-        
-            console.log(body);
+            });
 
         return{
             statusCode: 201,
