@@ -22,8 +22,6 @@ export class ClosedTaskUseCase {
             description,
         });
          
-
-        console.log(closed);
         
         const closedComplet = await this.closedRepository.closedTask(closed);
         

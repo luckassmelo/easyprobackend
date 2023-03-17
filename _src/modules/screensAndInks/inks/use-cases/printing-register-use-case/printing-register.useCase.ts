@@ -12,7 +12,7 @@ export class PrintingRegisterUseCase{
 
     async execute(body: PrintingEntity, id: number) {
 
-      const printingRegister = body['arrayObjetos'].map((obj)=>{
+      const printingRegister = body['ArrayWithLabelInfos'].map((obj)=>{
             return new PrintingEntity({
                 ...obj
             }, id)

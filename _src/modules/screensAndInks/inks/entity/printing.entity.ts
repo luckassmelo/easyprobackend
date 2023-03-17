@@ -4,7 +4,7 @@ import { PrintingProp } from "../types/printing.types";
 
 
 type PrintingProps = {
-  arrayObjetos: Array<PrintingProp>
+    ArrayWithLabelInfos: Array<PrintingProp>
 }
 
 
