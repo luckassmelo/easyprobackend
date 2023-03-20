@@ -8,14 +8,14 @@ type PrintingProps = {
 }
 
 
-export class PrintingEntity extends Entity<PrintingProps> {
+export class PrintingRegisterEntity extends Entity<PrintingProps> {
 
     constructor(props: PrintingProps, id?: number){
         super(props, id);
     }
 
     static create(props: PrintingProps, id?: number){
-        return new PrintingEntity({
+        return new PrintingRegisterEntity({
             ...props
         }, id);
     }

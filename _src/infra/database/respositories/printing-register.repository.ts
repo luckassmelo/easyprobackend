@@ -1,13 +1,13 @@
 import { IPrintingRepository } from "../../../modules/screensAndInks/inks/repository/printing-label.repository";
 import PostgresSQLAdapter from "../../../../src/infra/database/PostgreSQLAdapter";
-import { PrintingEntity } from "../../../modules/screensAndInks/inks/entity/printing.entity";
+import { PrintingRegisterEntity } from "../../../modules/screensAndInks/inks/entity/printing-register.entity";
 
 export class PrintingRegisterRepository implements IPrintingRepository{
     constructor(
         readonly adapter: PostgresSQLAdapter
     ){}
 
-    async printing(printRepo: PrintingEntity[]): Promise<any>{
+    async printing(printRepo: PrintingRegisterEntity[]): Promise<any>{
         
          let searchLabelId = await this.adapter.connection
          .orderBy('label_id', 'desc')
