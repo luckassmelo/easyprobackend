@@ -1,5 +1,5 @@
-import { PrintingEntity } from "../entity/printing.entity";
+import { PrintingRegisterEntity } from "../entity/printing-register.entity";
 //Do a type for this method
 export interface IPrintingRepository {
-    printing(printingProps: PrintingEntity[]): Promise<any>
+    printing(printingProps: PrintingRegisterEntity[]): Promise<any>
 }

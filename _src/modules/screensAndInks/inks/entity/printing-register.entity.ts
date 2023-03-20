@@ -4,18 +4,18 @@ import { PrintingProp } from "../types/printing.types";
 
 
 type PrintingProps = {
-  arrayObjetos: Array<PrintingProp>
+    ArrayWithLabelInfos: Array<PrintingProp>
 }
 
 
-export class PrintingEntity extends Entity<PrintingProps> {
+export class PrintingRegisterEntity extends Entity<PrintingProps> {
 
     constructor(props: PrintingProps, id?: number){
         super(props, id);
     }
 
     static create(props: PrintingProps, id?: number){
-        return new PrintingEntity({
+        return new PrintingRegisterEntity({
             ...props
         }, id);
     }

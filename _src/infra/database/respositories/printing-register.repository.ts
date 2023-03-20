@@ -1,13 +1,14 @@
 import { IPrintingRepository } from "../../../modules/screensAndInks/inks/repository/printing-label.repository";
 import PostgresSQLAdapter from "../../../../src/infra/database/PostgreSQLAdapter";
-import { PrintingEntity } from "../../../modules/screensAndInks/inks/entity/printing.entity";
+import { PrintingRegisterEntity } from "../../../modules/screensAndInks/inks/entity/printing-register.entity";
 
 export class PrintingRegisterRepository implements IPrintingRepository{
     constructor(
         readonly adapter: PostgresSQLAdapter
     ){}
 
-    async printing(printRepo: PrintingEntity[]): Promise<any>{
+    async printing(printRepo: PrintingRegisterEntity[]): Promise<any>{
+        
          let searchLabelId = await this.adapter.connection
          .orderBy('label_id', 'desc')
          .select('label_id')
@@ -21,7 +22,7 @@ export class PrintingRegisterRepository implements IPrintingRepository{
             id_process:Number(obj.id['idProcess']),
             label_id: searchLabelId + 1 + index,
             id_site: obj.props['idSite'],
-            user_printing: obj.props['userPrinting'],
+            user_printing: obj.props['idUser'],
             status: obj.props['status']
         }));
 
@@ -34,7 +35,7 @@ export class PrintingRegisterRepository implements IPrintingRepository{
                 id_process:Number(obj.id['idProcess']),
                 label_id: searchLabelId['label_id'] + 1 + index,
                 id_site: obj.props['idSite'],
-                user_printing: obj.props['userPrinting'],
+                user_printing: obj.props['idUser'],
                 status: obj.props['status']
             }));
 

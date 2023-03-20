@@ -96,10 +96,10 @@ export default class Router {
 
         this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
             return findByIdController.handle(params)
-        })
+        });
         
-        this.httpServer.on('get', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
+        this.httpServer.on('post', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
             return printRegisterController.handle(body, params)
-        })
+        });
     }
 }

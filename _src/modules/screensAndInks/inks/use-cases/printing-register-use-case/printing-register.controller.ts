@@ -8,7 +8,7 @@ export class PrintingRegisterController implements Controller{
     ){}
      
     async handle(body: any, id:number): Promise<HttpResponse>{        
-        console.log(body);
+        
         
         try {
             await this.printingRegisterUseCase.execute(body, id);
@@ -19,7 +19,6 @@ export class PrintingRegisterController implements Controller{
         }
         
         }catch (err: any) {
-            console.log(err);
             
             return {
                 statusCode: 500,
