@@ -7,7 +7,7 @@ export class PrintingRegisterRepository implements IPrintingRepository{
         readonly adapter: PostgresSQLAdapter
     ){}
 
-    async printing(printRepo: PrintingRegisterEntity[]): Promise<any>{
+    async register(printRepo: PrintingRegisterEntity[]): Promise<any>{
         
          let searchLabelId = await this.adapter.connection
          .orderBy('label_id', 'desc')
