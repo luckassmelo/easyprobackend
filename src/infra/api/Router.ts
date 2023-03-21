@@ -21,6 +21,7 @@ import {findByIdController} from "../../../_src/modules/screensAndInks/inks/use-
 import { registerInkController } from "../../../_src/modules/screensAndInks/inks/use-cases/register-ink-use-case/index"
 import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
 import { printRegisterController} from "../../../_src/modules/screensAndInks/inks/use-cases/printing-register-use-case/index"
+import {zebraPrintingController} from "../../../_src/modules/screensAndInks/inks/use-cases/zebra-printing-label-use-case/index"
 
 export default class Router {
     constructor(
@@ -101,5 +102,10 @@ export default class Router {
         this.httpServer.on('post', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
             return printRegisterController.handle(body, params)
         });
+
+
+        this.httpServer.on('post','/api/zebraPrinting',async (params: any, body:any) => {
+            return zebraPrintingController.handle(body)
+        })
     }
 }
