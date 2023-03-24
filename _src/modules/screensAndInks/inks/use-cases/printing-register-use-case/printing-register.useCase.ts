@@ -17,6 +17,6 @@ export class PrintingRegisterUseCase{
                 ...obj
             }, id)
         });
-        return await this.printingRepository.printing(printingRegister);
+        return await this.printingRepository.register(printingRegister);
     }
 }

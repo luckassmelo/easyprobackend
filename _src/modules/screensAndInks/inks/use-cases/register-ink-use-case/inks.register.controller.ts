@@ -20,15 +20,9 @@ export class InksRegisterController implements Controller{
             statusCode: 201,
             body: true
         }
-        
         //Create a type for this catch
-        }catch (err: any) {
-            console.log(err);
-            
-            return {
-                statusCode: 500,
-                body: err.message,
-            }
+        }catch (err) {
+            throw new Error(err);
         }
     }
 }
