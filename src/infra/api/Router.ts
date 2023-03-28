@@ -15,7 +15,13 @@ import { SocketAdapter } from "./SocketAdapter";
 import { Socket } from "socket.io";
 import { getTasksByIdOeeController } from "../../application/useCases/GetTasksByIdOee";
 import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
+import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from "../../application/useCases/GetMachineEventByDateAndMachineWithWorkOrderDetails";
 
+import {findByIdController} from "../../../_src/modules/screensAndInks/inks/use-cases/find-by-id-process-use-case/index"
+import { registerInkController } from "../../../_src/modules/screensAndInks/inks/use-cases/register-ink-use-case/index"
+import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
+import { printRegisterController} from "../../../_src/modules/screensAndInks/inks/use-cases/printing-register-use-case/index"
+import {zebraPrintingController} from "../../../_src/modules/screensAndInks/inks/use-cases/zebra-printing-label-use-case/index"
 
 export default class Router {
     constructor(
@@ -26,8 +32,8 @@ export default class Router {
     async init() {
         this.httpServer.on("post", "/api/trigger",  async (params: any, body: any) => {
             return createTriggerController.handle(body);
-        }); 
-        
+        });
+
         this.httpServer.on("get", "/api/trigger/:triggerId", async (params: any, body: any) => {
             return findTriggerController.handle(params)
         });
@@ -44,7 +50,7 @@ export default class Router {
             return getAllTaskController.handle();
         });
 
-        this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params: any, body: any) => { //wc workCenter ou group 
+        this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params: any, body: any) => { //wc workCenter ou group
             return findTaskMachineController.handle(params)
         });
 
@@ -53,10 +59,10 @@ export default class Router {
         });
 
         this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {
-           return getAllMachineEventController.handle(); 
+           return getAllMachineEventController.handle();
         });
-        
-        this.httpServer.on("post", "/api/token", async (params: any, body: any) => { 
+
+        this.httpServer.on("post", "/api/token", async (params: any, body: any) => {
             return loginController.handle(body)
         });
 
@@ -68,12 +74,38 @@ export default class Router {
             return getWorkOrderDetailsByArrayController.handle(body);
         });
 
-        this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {            
+        this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {
             return getAllServiceInformationController.handle();
+        });
+
+        this.httpServer.on("get", "/api/getMachineEventByDateAndMachine", async(params: any, body: any) => {
+          return getMachineEventByDateAndMachineWithWorkOrderDetailsController.handle(params);
         });
 
         this.socketServer.appSocket.on("connection", (socket: Socket) => {
           getTasksEvent.execute(socket);
       });
+
+        this.httpServer.on("post", "/api/registerInks", async(params: any, body: any) => {
+            return registerInkController.handle(body);
+        });
+
+        this.httpServer.on("get", "/api/getAllInks", async(params: any, body: any) => {
+            return getAllInksController.handle();
+        });
+
+
+        this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
+            return findByIdController.handle(params)
+        });
+        
+        this.httpServer.on('post', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
+            return printRegisterController.handle(body, params)
+        });
+
+
+        this.httpServer.on('post','/api/zebraPrinting',async (params: any, body:any) => {
+            return zebraPrintingController.handle(body)
+        })
     }
 }

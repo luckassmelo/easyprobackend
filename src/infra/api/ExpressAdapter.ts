@@ -7,8 +7,8 @@ import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
 import Auth from "./middlewares/Authentication";
 import cors from "cors";
-
 import swaggerDocs from "../docs/swagger.json"
+
 
 export class ExpressAdapter implements HttpServer {
 	app: Express;
@@ -33,11 +33,18 @@ export class ExpressAdapter implements HttpServer {
 		this.router[method](
 			url,
 			async function (req: Request, res: Response, next: NextFunction) {
-				const output = await callback(req.params, req.body);
+
+        const requestCustom = {
+          ...req.params,
+          ...req.query
+        };
+
+				const output = await callback(requestCustom, req.body);
 				return res.json(output);
 			},
 		);
 	}
+
 
 	listen(port: number): void {
 		console.log(`[SERVER] listening on port ${port}`);
