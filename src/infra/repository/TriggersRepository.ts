@@ -65,6 +65,7 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                         trigger.tbl_trigger.id_site,
                         pieces_value,
                         status_value,
+                        initial_value,
                         grp_target.group_name,
                         monitor.area,
                         TRIM(monitor.machine) as machine,
@@ -90,8 +91,6 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                 .leftJoin("trigger.tbl_trigger_type as ttriger_type", "trigger.tbl_trigger.id_trigger_type", "ttriger_type.id")
                 .leftJoin("trigger.tbl_trigger_cond as ttriger_cond", "ttriger_option.id_trigger_cond", "ttriger_cond.id")
                 .where("trigger.tbl_trigger.status", true)
-                // .whereIn("trigger.tbl_trigger.id", [110])
-                // .whereIn("trigger.tbl_trigger.id", [108])
                 .groupBy("trigger.tbl_trigger.id", "pieces_value", "status_value", "grp_target.group_name", "monitor.area", "monitor.machine", "ttriger_type.name");
 
     }
