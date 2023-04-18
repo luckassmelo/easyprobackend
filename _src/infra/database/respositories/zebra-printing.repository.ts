@@ -20,7 +20,13 @@ export class ZebraPrintingRepository implements IZebraPrintingRepository{
         .where('id_process', labelProps.props.idProcess)
         .from('paint.tbl_paint_printing') 
 
-        for (let i = 1; i < labelProps.props.labelIndex + 1; i++) {  
+        for (let i = 1; i < labelProps.props.labelIndex + 1; i++) {
+            if (!labelId) {
+                let labelId = 0
+                fs.writeFile(`\\\\${zebraPrinter.ip}\\${zebraPrinter.printer}`, zplFormatHelper(labelProps.props, labelId + i));
+                continue;
+            }      
+
             fs.writeFile(`\\\\${zebraPrinter.ip}\\${zebraPrinter.printer}`, zplFormatHelper(labelProps.props, labelId[0]['label_id'] + i));
         }        
     }
