@@ -22,6 +22,8 @@ import { registerInkController } from "../../../_src/modules/screensAndInks/inks
 import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
 import { printRegisterController} from "../../../_src/modules/screensAndInks/inks/use-cases/printing-register-use-case/index"
 import {zebraPrintingController} from "../../../_src/modules/screensAndInks/inks/use-cases/zebra-printing-label-use-case/index"
+import { ParameterDTO } from '../../../_src/modules/common/GetEasyProParameter/types/param.types';
+import { getEasyROParameterController } from '../../../_src/modules/common/GetEasyProParameter/implementation/get-easypro-parameter.impl';
 
 export default class Router {
     constructor(
@@ -106,6 +108,10 @@ export default class Router {
 
         this.httpServer.on('post','/api/zebraPrinting',async (params: any, body:any) => {
             return zebraPrintingController.handle(body)
-        })
+        });
+
+        this.httpServer.on("get", "/api/common/get-easypro-parameter/:name/:filter/:idSite", (params: ParameterDTO) => {
+          return getEasyROParameterController.handle(params);
+        });
     }
 }
