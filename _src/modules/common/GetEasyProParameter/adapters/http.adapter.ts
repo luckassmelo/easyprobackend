@@ -12,14 +12,12 @@ export class HttpAdapter {
         });
 
         res.on('end', () => {
-          if (contentType && contentType.indexOf('application/json') !== -1) {
-            try {
-              const parsedResponse = JSON.parse(responseData);
-              resolve(parsedResponse);
-            } catch (err) {
-              resolve({ error: 'Error parsing response data as JSON.' });
-            }
-          } else {
+          try {
+            if (contentType === 'application/pdf') throw new Error('PDF');
+
+            const parsedResponse = JSON.parse(responseData.trim());
+            resolve(parsedResponse);
+          } catch (err) {
             resolve(responseData);
           }
         });

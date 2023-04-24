@@ -10,13 +10,14 @@ export class GetEasyPROParameterUseCase {
   async execute(parameter: Parameter): Promise<ParameterResponseDTO> {
     const response = await this.repository.getParameter(parameter.props.idSite, parameter.props.name);
     let paramResponse = {} as ParameterResponseDTO;
+    paramResponse.value = null;
+    paramResponse.url = null;
 
     if (response.length === 0) return paramResponse;
 
 
     const parameterResponse = ParameterResponse.create(response[0]);
     paramResponse.url = parameterResponse.getResource(parameter.props.filter);
-    paramResponse.value = null;
 
     if (response[0].descResource === "Variables" ||
       response[0].descResource === "SAP") {
@@ -25,7 +26,8 @@ export class GetEasyPROParameterUseCase {
     else if (response[0].descResource === "MDC" ||
       response[0].descResource === "Api Rest" ||
       response[0].descResource === "Maintenance" ||
-      response[0].descResource === "BD Local"
+      response[0].descResource === "BD Local" ||
+      response[0].descResource === "Cronetwork"
     ) {
       paramResponse.value = await HttpAdapter.request("GET", paramResponse.url);
     }
