@@ -116,11 +116,12 @@ export class PrismaTasksRepository implements ITasksRepository {
 
   async closedTask(closed: any): Promise<void | any> {
     const closedResult = await this.adapter
-      .connection("trigger.tbl_trigger_task")
-      .select("id_user")
-      .from("users.tbl_users")
-      .where("windows_user", closed.windowsuser);
-    if (closedResult.length > 0) {
+    .connection("trigger.tbl_trigger_task")
+    .select("id_user")
+    .from("users.tbl_users")
+    .whereRaw("UPPER(windows_user) = ?", [closed.windowsuser.toUpperCase()]);
+
+    if (closedResult.length) {
       const putDescription = await this.adapter
         .connection("trigger.tbl_trigger_task")
         .where("id", "=", closed.id)
