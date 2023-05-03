@@ -21,7 +21,7 @@ export class ZebraPrintingRepository implements IZebraPrintingRepository{
         .from('paint.tbl_paint_printing') 
 
         for (let i = 1; i < labelProps.props.labelIndex + 1; i++) {
-            if (!labelId) {
+            if (labelId) {
                 let labelId = 0
                 fs.writeFile(`\\\\${zebraPrinter.ip}\\${zebraPrinter.printer}`, zplFormatHelper(labelProps.props, labelId + i));
                 continue;
