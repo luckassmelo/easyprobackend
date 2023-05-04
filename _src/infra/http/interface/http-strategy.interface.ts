@@ -6,6 +6,7 @@ export interface IHttpStrategy {
     method: string,
     data?: any,
     headers?: Record<string, string>,
-    auth?: SSLAuth
+    auth?: SSLAuth,
+    params?: Record<string, string>
   ): Promise<any>;
 }
