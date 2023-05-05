@@ -9,8 +9,8 @@ export class InksRegisterController implements Controller{
     constructor(
         private inksRegisterUseCase: InksRegisterUseCase
     ){}
-    //Create a type for return HTTP request    
-    async handle(body: InkProps): Promise<HttpResponse>{        
+    //Create a type for return HTTP request
+    async handle(body: InkProps): Promise<HttpResponse>{
         try {
             await this.inksRegisterUseCase.execute({
              ...body
@@ -18,7 +18,7 @@ export class InksRegisterController implements Controller{
 
         return{
             statusCode: 201,
-            body: true
+            response: true
         }
         //Create a type for this catch
         }catch (err) {
