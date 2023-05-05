@@ -111,7 +111,7 @@ import { getStockInformationController } from "../../../_src/modules/common/sap/
             return zebraPrintingController.handle(body)
         });
 
-        this.httpServer.on("get", "/api/common/get-easypro-parameter/:name/:filter/:idSite", (params: ParameterDTO) => {
+        this.httpServer.on("get", "/api/common/get-easypro-parameter", (params: ParameterDTO) => {
           return getEasyROParameterController.handle(params);
         });
 
