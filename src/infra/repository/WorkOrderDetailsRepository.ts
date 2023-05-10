@@ -43,7 +43,19 @@ export class WorkOrderDetailsRepository implements IWorkOrderDetailsRepository {
   async findMany(workOrders: Array<string>): Promise<WorkOrderMap | null> {
     const workOrderDetails: WorkOrderDetailsProps[] = await this.adapter.connection.select(
           this.adapter.connection.raw(
-            "PivotT.*, OPERATIONS.SCHEDAREA, ltrim(replace(RESOURCE_REQUIREMENT_INFO.TEXT, 'DMS_COMMENT','')) as TOOL, UPPER(FACTORYORDERS.UVAR4) AS CUSTOMER"
+            `
+            PivotT.ORDER_NO,
+            PivotT.CAPACITY_PP,
+            ISNULL(UPPER(PivotT.MATERIAL_TYPE), null) as MATERIAL_TYPE, 
+            ISNULL(UPPER(PivotT.BREAKABILITY_PP), null) as BREAKABILITY_PP, 
+            PivotT.NUMBER_OF_RINGS, 
+            ISNULL(UPPER(PivotT.GLISSE_DEVICE), null) as GLISSE_DEVICE, 
+            ISNULL(UPPER(PivotT.AMMONIUM_SULFATE_DEV), null) as AMMONIUM_SULFATE_DEV, 
+            PivotT.OUTER_DIAMETER_BODY,
+            UPPER(REPLACE(PivotT.PRINTING_PP, '_', ' ')) AS PRINTING_PP,
+            PivotT.NECK_DIAMETER, 
+            OPERATIONS.SCHEDAREA, ltrim(replace(RESOURCE_REQUIREMENT_INFO.TEXT, 'DMS_COMMENT','')) as TOOL,
+            UPPER(FACTORYORDERS.UVAR4) AS CUSTOMER`
           )
         )
         .fromRaw(
