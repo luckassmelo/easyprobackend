@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --silent --noStackTrace",
     "dev": "tsnd --respawn --ignore-watch node_modules src/main.ts",
-    "start": "node dist/main.js",
+    "start": "node dist/src/main.js",
     "build": "npx tsc"
   },
   "keywords": [

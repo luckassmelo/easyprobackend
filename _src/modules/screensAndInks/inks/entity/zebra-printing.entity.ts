@@ -5,7 +5,8 @@ import { Entity } from "../../../../domain/Entity/entitiy"
 type ZebraPrintingProps = {
     inkCode: string;
     colorInk: string;
-    batchSchott:string
+    batchSchott:string;
+    idProcess:number;
     labelIndex:number;
 }
 
