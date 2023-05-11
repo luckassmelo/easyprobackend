@@ -71,8 +71,8 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                         TRIM(monitor.machine) as machine,
                         array_agg(json_build_object(
 							'conditional_type', ttriger_cond.formated_name,
-							'selected_conditional_value', ttriger_value.value,
-							'entered_conditional_value', ttriger_option.value,
+							'selected_conditional_value', UPPER(ttriger_value.value),
+							'entered_conditional_value', UPPER(ttriger_option.value),
 							'logical_operator', ttriger_option.logical_operator
 						) ) as conditionals,
                         trigger.tbl_trigger.id_trigger_type,
