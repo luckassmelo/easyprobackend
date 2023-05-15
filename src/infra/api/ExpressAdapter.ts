@@ -25,8 +25,8 @@ export class ExpressAdapter implements HttpServer {
 		this.app.use((err:Error, req: Request, res: Response, next: NextFunction) => {
 			new ErrorHandler().handlerError(err,req,res,next)
 		});
+		this.app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));		
 		this.app.use(new NotFound().notFoundHandler);
-		this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));		
 	}
 
 	on(method: string, url: string, callback: Function): void {
