@@ -1,4 +1,4 @@
-import { Entity } from "../../../../domain/Entity/entitiy"
+import { Entity } from "../../../../domain/Entity/entity"
 export enum useType {
     GRA = 'GRA',
     VIB = 'VIB',
