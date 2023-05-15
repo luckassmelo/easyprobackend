@@ -15,5 +15,5 @@ export abstract class CustomError<T> extends Error {
     Object.setPrototypeOf(this, CustomError.prototype);
   }
 
-  abstract get errorInfo(): T;
+  abstract errorInfo(): T;
 }

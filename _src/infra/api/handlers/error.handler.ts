@@ -12,7 +12,7 @@ export class CustomErrorHandler {
         name: error.name,
         message: message,
         statusCode: statusCode,
-        errorInfo: error.errorInfo
+        info: error.errorProps
       }
     });
   }
