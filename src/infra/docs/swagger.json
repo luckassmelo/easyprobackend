@@ -1,37 +1,287 @@
 {
-    "openapi": "3.0.3",
-    "info": {
-      "title": "Trigger API",
-      "description": "API Controller Trigger.",
-      "version": "0.0.1"
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Trigger API",
+    "description": "API Controller Trigger.",
+    "version": "0.0.2"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:4000/api",
+      "description": "EASYVUE API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tasks",
+      "description": "Add task"
     },
-    "servers": [
-      {
-        "url": "http://localhost:4000/api",
-        "description": "Test API"
+    {
+      "name": "Events Machine",
+      "description": "Get the services, work order and events"
+    },
+    {
+      "name": "Triggers",
+      "description": "Add trigger, find trigger"
+    },
+    {
+      "name": "Users",
+      "description": "Token for users"
+    }
+  ],
+
+  "paths": {
+    "/task": {
+      "post": {
+        "tags": ["Tasks"],
+        "summary": "Create a new Task",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "triggerId": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "closed": {
+                    "type": "boolean"
+                  },
+                  "idOee": {
+                    "type:": "integer"
+                  },
+                  "idSite": {
+                    "type:": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "triggerId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "closed": {
+                      "type": "boolean"
+                    },
+                    "idOee": {
+                      "type:": "integer"
+                    },
+                    "idSite": {
+                      "type:": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-    ],
-    "tags": [
-      {
-        "name": "Tasks",
-        "description": "Add task"
-      },
-      {
-        "name": "Events Machine",
-        "description": "Get the services, work order and events"
-      },
-      {
-        "name": "Triggers",
-        "description": "Add trigger, find trigger"
+    },
+    "/task ": {
+      "get": {
+        "tags": ["Tasks"],
+        "summary": "Get all tasks",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "id_trigger": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "closed": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "closed_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "pieces_value": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "id_group": {
+                      "type": "integer"
+                    },
+                    "id_user": {
+                      "type": "integer"
+                    },
+                    "id_trigger_type": {
+                      "type": "integer"
+                    },
+                    "is_productive_time": {
+                      "type": "boolean"
+                    },
+                    "trigger_priority": {
+                      "type": "string"
+                    },
+                    "id_site": {
+                      "type": "integer"
+                    },
+                    "description_trigger": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-    ],
-    
-    "paths": {
-      "/task": {
-        "post": {
-          "tags": ["Tasks"],
-          "summary": "Create a new Task",
-          "requestBody": {
+    },
+    "/task/{type}/{paramId}/{isClosed}  ": {
+      "parameters": [
+        {
+          "name": "type",
+          "in": "path",
+          "schema": {
+            "type": "string",
+            "enum": ["wc", "group"]
+          },
+          "required": true
+        },
+        {
+          "name": "paramId",
+          "in": "path",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true
+        },
+        {
+          "name": "isClosed",
+          "in": "path",
+          "schema": {
+            "type": "boolean"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "tags": ["Tasks"],
+        "summary": "Get specific tasks",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "id_trigger": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "id_user": {
+                      "type": "integer"
+                    },
+                    "closed": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "id_oee": {
+                      "type": "integer"
+                    },
+                    "machine": {
+                      "type": "string"
+                    },
+                    "description_trigger": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/task/closed ": {
+      "post": {
+        "tags": ["Tasks"],
+        "summary": "Create new Trigger",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "piecesValue": {
+                    "type": "number"
+                  },
+                  "statusValue": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "boolean"
+                  },
+                  "groupId": {
+                    "type": "integer"
+                  },
+                  "oeeId": {
+                    "type": "number"
+                  },
+                  "userId": {
+                    "type": "integer"
+                  },
+                  "triggerTypeId": {
+                    "type": "integer"
+                  },
+                  "isProductiveTime": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
@@ -50,23 +300,195 @@
                 }
               }
             }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "triggerId": {
-                        "type": "integer"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Triggers"],
+        "summary": "Get all Triggers",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "piecesValue": {
+                      "type": "number"
+                    },
+                    "statusValue": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "id_group": {
+                      "type": "integer"
+                    },
+                    "machine": {
+                      "type": "string"
+                    },
+                    "group_name": {
+                      "type": "string"
+                    },
+                    "id_oee": {
+                      "type": "integer"
+                    },
+                    "id_user": {
+                      "type": "integer"
+                    },
+                    "id_trigger_type": {
+                      "type": "integer"
+                    },
+                    "is_productive_time": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/allServiceInformation": {
+      "get": {
+        "tags": ["Events Machine"],
+        "summary": "Get all services information",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "triggers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/AllTriggers"
+                      }
+                    },
+                    "machineGroup": {
+                      "type": "object",
+                      "properties": {
+                        "1": {
+                          "type": "object"
+                        },
+                        "2": {
+                          "type": "object"
+                        }
                       },
-                      "name": {
-                        "type": "string"
-                      },
-                      "closed": {
-                        "type": "boolean"
+                      "required": ["property1", "property2"]
+                    }
+                  },
+                  "required": ["myArray", "myOtherObject"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cronetwork/workOrderDetails": {
+      "get": {
+        "tags": ["Events Machine"],
+        "summary": "Get all work order Details",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ORDER_NO": {
+                      "type": "string"
+                    },
+                    "CAPACITY_PP": {
+                      "type": "string"
+                    },
+                    "MATERIAL_TYPE": {
+                      "type": "string"
+                    },
+                    "BREAKABILITY_PP": {
+                      "type": "string"
+                    },
+                    "NUMBER_OF_RINGS": {
+                      "type": "string"
+                    },
+                    "GLISSE_DEVICE": {
+                      "type": "string"
+                    },
+                    "AMMONIUM_SULFATE_DEV": {
+                      "type": "string"
+                    },
+                    "OUTER_DIAMETER_BODY": {
+                      "type": "string"
+                    },
+                    "PRINTING_PP": {
+                      "type": "string"
+                    },
+                    "NECK_DIAMETER": {
+                      "type": "string"
+                    },
+                    "SCHEDAREA": {
+                      "type": "string"
+                    },
+                    "TOOL": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pass/machineEvent": {
+      "get": {
+        "tags": ["Events Machine"],
+        "summary": "Get all Machine Events",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "A01": {
+                      "type": "object",
+                      "properties": {
+                        "eventDate": {
+                          "type": "string"
+                        },
+                        "eventName": {
+                          "type": "string"
+                        },
+                        "machine": {
+                          "type": "string"
+                        },
+                        "workorder": {
+                          "type": "string"
+                        },
+                        "statusCode": {
+                          "type": "string"
+                        },
+                        "statusReason": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
                       }
                     }
                   }
@@ -75,133 +497,28 @@
             }
           }
         }
-      },
-      "/allServiceInformation": {
-        "get": {
-          "tags": ["Events Machine"],
-          "summary": "Get all services information",
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "pieces_value": {
-                        "type": "number"
-                      },
-                      "status_value": {
-                        "type": "string"
-                      },
-                      "status": {
-                        "type": "boolean"
-                      },
-                      "id_group": {
-                        "type": "integer"
-                      },
-                      "machine": {
-                        "type": "string"
-                      },
-                      "group_name": {
-                        "type": "string"
-                      },
-                      "id_oee": {
-                        "type": "integer"
-                      },
-                      "id_user": {
-                        "type": "integer"
-                      },
-                      "id_trigger_type": {
-                        "type": "integer"
-                      },
-                      "is_productive_time": {
-                        "type": "boolean"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/cronetwork/workOrderDetails": {
-        "get": {
-          "tags": ["Events Machine"],
-          "summary": "Get all work order Details",
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "ORDER_NO": {
-                        "type": "string"
-                      },
-                      "CAPACITY_PP": {
-                        "type": "string"
-                      },
-                      "MATERIAL_TYPE": {
-                        "type": "string"
-                      },
-                      "BREAKABILITY_PP": {
-                        "type": "string"
-                      },
-                      "NUMBER_OF_RINGS": {
-                        "type": "string"
-                      },
-                      "GLISSE_DEVICE": {
-                        "type": "string"
-                      },
-                      "AMMONIUM_SULFATE_DEV": {
-                        "type": "string"
-                      },
-                      "OUTER_DIAMETER_BODY": {
-                        "type": "string"
-                      },
-                      "PRINTING_PP": {
-                        "type": "string"
-                      },
-                      "NECK_DIAMETER": {
-                        "type": "string"
-                      },
-                      "SCHEDAREA": {
-                        "type": "string"
-                      },
-                      "TOOL": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "/pass/machineEvent": {
-        "get": {
-          "tags": ["Events Machine"],
-          "summary": "Get all Machine Events",
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "A01": {
+      }
+    },
+    "/getMachineEventByDateAndMachine": {
+      "get": {
+        "tags": ["Events Machine"],
+        "summary": "Get all Machine Events",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "machineEvents": {
+                      "type": "array",
+                      "items": {
                         "type": "object",
                         "properties": {
                           "eventDate": {
-                            "type": "string"
+                            "type": "string",
+                            "format": "date"
                           },
                           "eventName": {
                             "type": "string"
@@ -223,6 +540,9 @@
                           },
                           "value": {
                             "type": "string"
+                          },
+                          "sort_order": {
+                            "type": "integer"
                           }
                         }
                       }
@@ -233,117 +553,66 @@
             }
           }
         }
-      },
-      "/trigger": {
-        "post": {
-          "tags": ["Triggers"],
-          "summary": "Create new Trigger",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "piecesValue": {
-                      "type": "number"
-                    },
-                    "statusValue": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "boolean"
-                    },
-                    "groupId": {
-                      "type": "integer"
-                    },
-                    "oeeId": {
-                      "type": "number"
-                    },
-                    "userId": {
-                      "type": "integer"
-                    },
-                    "triggerTypeId": {
-                      "type": "integer"
-                    },
-                    "isProductiveTime": {
-                      "type": "boolean"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "triggerId": {
-                        "type": "integer"
-                      },
-                      "name": {
-                        "type": "string"
-                      },
-                      "closed": {
-                        "type": "boolean"
-                      }
-                    }
+      }
+    },
+    "/trigger": {
+      "post": {
+        "tags": ["Triggers"],
+        "summary": "Create new Trigger",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "piecesValue": {
+                    "type": "number"
+                  },
+                  "statusValue": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "boolean"
+                  },
+                  "groupId": {
+                    "type": "integer"
+                  },
+                  "oeeId": {
+                    "type": "number"
+                  },
+                  "userId": {
+                    "type": "integer"
+                  },
+                  "triggerTypeId": {
+                    "type": "integer"
+                  },
+                  "isProductiveTime": {
+                    "type": "boolean"
                   }
                 }
               }
             }
           }
         },
-        "get": {
-          "tags": ["Triggers"],
-          "summary": "Get all Triggers",
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "piecesValue": {
-                        "type": "number"
-                      },
-                      "statusValue": {
-                        "type": "string"
-                      },
-                      "status": {
-                        "type": "boolean"
-                      },
-                      "id_group": {
-                        "type": "integer"
-                      },
-                      "machine": {
-                        "type": "string"
-                      },
-                      "group_name": {
-                        "type": "string"
-                      },
-                      "id_oee": {
-                        "type": "integer"
-                      },
-                      "id_user": {
-                        "type": "integer"
-                      },
-                      "id_trigger_type": {
-                        "type": "integer"
-                      },
-                      "is_productive_time": {
-                        "type": "boolean"
-                      }
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "triggerId": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "closed": {
+                      "type": "boolean"
                     }
                   }
                 }
@@ -352,36 +621,16 @@
           }
         }
       },
-      "/trigger/{id}": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "schema": {
-              "type": "integer"
-            },
-            "required": true
-          }
-        ],
-        "get": {
-          "tags": ["Triggers"],
-          "summary": "Get one trigger",
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/TriggerID"
-                  }
-                }
-              }
-            },
-            "404": {
-              "description": "Trigger not found",
-              "content": {
-                "application/json": {
-                  "example": "Not Found"
+      "get": {
+        "tags": ["Triggers"],
+        "summary": "Get all Triggers",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllTriggers"
                 }
               }
             }
@@ -389,54 +638,218 @@
         }
       }
     },
-    "security": [
-      {
-        "auth": []
-      }
-    ],
-    "components": {
-      "schemas": {
-        "TriggerID": {
-          "type": "object",
-          "properties": {
-            "props": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "statusValue": {
-                  "type": "string"
-                },
-                "piecesValue": {
-                  "type": "number"
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "groupId": {
-                  "type": "integer"
-                },
-                "oeeId": {
-                  "type": "integer"
-                },
-                "userId": {
-                  "type": "integer"
-                },
-                "triggerTypeId": {
-                  "type": "integer"
-                },
-                "isProductiveTime": {
-                  "type": "boolean"
+    "/trigger/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "tags": ["Triggers"],
+        "summary": "Get one trigger",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriggerID"
                 }
               }
-            },
-            "_id": {
-              "type": "integer"
+            }
+          },
+          "404": {
+            "description": "Trigger not found",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/token": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Return token for user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "windowsuser": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
             }
           }
         }
       }
     }
+  },
+  "security": [
+    {
+      "auth": []
+    }
+  ],
+  "components": {
+    "schemas": {
+      "TriggerID": {
+        "type": "object",
+        "properties": {
+          "props": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "statusValue": {
+                "type": "string"
+              },
+              "piecesValue": {
+                "type": "number"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "groupId": {
+                "type": "integer"
+              },
+              "oeeId": {
+                "type": "integer"
+              },
+              "userId": {
+                "type": "integer"
+              },
+              "triggerTypeId": {
+                "type": "integer"
+              },
+              "isProductiveTime": {
+                "type": "boolean"
+              }
+            }
+          },
+          "_id": {
+            "type": "integer"
+          }
+        }
+      },
+      "AllTriggers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "id_site": {
+            "type": "integer"
+          },
+          "pieces_value": {
+            "type": "number"
+          },
+          "status_value": {
+            "type": "string"
+          },
+          "initial_value": {
+            "type": "number"
+          },
+          "group_name": {
+            "type": "string"
+          },
+          "area": {
+            "type": "string"
+          },
+          "machine": {
+            "type": "string"
+          },
+          "conditionals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "conditional_type": {
+                  "type": "string"
+                },
+                "selected_conditional_value": {
+                  "type": "string"
+                },
+                "entered_conditional_value": {
+                  "type": "string"
+                },
+                "logical_operator": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "id_trigger_type": {
+            "type": "integer"
+          },
+          "trigger_type": {
+            "type": "string"
+          },
+          "is_productive_time": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "modified_at": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    }
   }
-  
+}
