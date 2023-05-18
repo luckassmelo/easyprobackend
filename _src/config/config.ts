@@ -14,3 +14,15 @@ export const sapConnectionConfiguration = {
   sapUser: process.env.SAP_USER_ODATA,
   sapPassword: process.env.SAP_PASSWORD_ODATA,
 }
+
+export const sapConnectionConfigurationRfc = {
+  'mshost': process.env.SAP_HOST,
+  'sysnr': process.env.SAP_SYSNR,
+  'client': process.env.SAP_CLIENT,
+  'user': process.env.SAP_USER,
+  'passwd': process.env.SAP_PASSWORD,
+  'r3name': process.env.SAP_R3NAME,
+  'group': process.env.SAP_GROUP,
+  'saprouter': process.env.SAP_SAPROUTER,
+  'lang': 'EN',
+}
