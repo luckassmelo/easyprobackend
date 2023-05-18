@@ -10,8 +10,6 @@ export class GetMachineEventByDateAndMachineWithWorkOrderDetailsController {
     private getMachineEventByDateAndMachineUseCase: GetMachineEventByDateAndMachineUseCase
   ) {}
   async handle(body: EventProps) {
-
-    try {
       const date = body.date;
       const machine = body.machine;
 
@@ -19,8 +17,5 @@ export class GetMachineEventByDateAndMachineWithWorkOrderDetailsController {
         date,
         machine
       );
-    }catch(error: any) {
-      return error;
-    }
   }
 }
