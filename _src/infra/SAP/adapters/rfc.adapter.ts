@@ -1,7 +1,7 @@
 import * as rfc from 'node-rfc';
 import { PostMaterialSAPWM } from '../../../modules/common/sap/post-material-im/models/post-material-sap-wm.model';
 import { PostMaterialSAPIM } from '../../../modules/common/sap/post-material-im/models/post-material-sap-im.model';
-import { ResponseMaterialIM, ResponseMaterialWM } from '../../../modules/common/sap/post-material-im/models/response-material-im.model';
+import { ResponseMaterialIM, ResponseMaterialWM } from '../models/response-material.model';
 import { GenericError } from '../../../infra/api/errors/generic.error';
 import { getNowDateToPostMaterial } from '../helpers/getNowDateToPostMaterial/getNowDateToPostMaterial';
 import { SapPostError } from '../errors/sap-post.error';
@@ -135,7 +135,7 @@ export class RfcAdapter {
     } else {
       await this.invoke('BAPI_TRANSACTION_ROLLBACK', {});
 
-      return new SapPostError('SapPostIM', output['RETURN'][0].MESSAGE, {
+      return new SapPostError(output['RETURN'][0].MESSAGE, '', {
         data: input,
       });
     }
