@@ -1,5 +1,5 @@
 import * as rfc from 'node-rfc';
-import { PostMaterialSAPWM } from '../../../modules/common/sap/post-material-im/models/post-material-sap-wm.model';
+import { PostMaterialSAPWM } from '../../../modules/common/sap/post-material-wm/models/post-material-sap-wm.model';
 import { PostMaterialSAPIM } from '../../../modules/common/sap/post-material-im/models/post-material-sap-im.model';
 import { ResponseMaterialIM, ResponseMaterialWM } from '../models/response-material.model';
 import { GenericError } from '../../../infra/api/errors/generic.error';
@@ -22,6 +22,7 @@ type OutputIM = {
 
 type OutputWM = {
   E_TANUM: string;
+  I_MATNR: string;
 }
 
 export class RfcAdapter {
@@ -63,34 +64,41 @@ export class RfcAdapter {
   }
 
   async postMaterialWM(material: PostMaterialSAPWM): Promise<ResponseMaterialWM | SapPostError> {
-    const input = {
-      'I_LGNUM': material.props.warehouseNumber,
-      'I_BWLVS': '999',
-      'I_MATNR': material.props.materialNumber.padStart(18, '0'),
-      'I_WERKS': material.props.plantCode,
-      'I_LGORT': material.props.warehouseCode,
-      'I_ANFME': material.props.quantity,
-      'I_ALTME': material.props.unitOfMeasure,
-      'I_VLTYP': material.props.storageLocationOrigin,
-      'I_VLBER': material.props.storageLocationTypeOrigin,
-      'I_VLPLA': material.props.positionOrigin,
-      'I_VLENR': material.props.UDOrigin.padStart(20, '0'),
-      'I_NLTYP': material.props.storageLocationDestination,
-      'I_NLBER': material.props.storageLocationTypeDestination,
-      'I_NLPLA': material.props.positionDestination,
-      'I_NLENR': material.props.UDDestination,
-      'I_COMMIT_WORK': 'X',
-    };
+    try {
+      const input = {
+        'I_LGNUM': material.props.warehouseNumber,
+        'I_BWLVS': '999',
+        'I_MATNR': material.props.materialNumber.padStart(18, '0'),
+        'I_WERKS': material.props.plantCode,
+        'I_LGORT': material.props.warehouseCode,
+        'I_ANFME': material.props.quantity,
+        'I_ALTME': material.props.unitOfMeasure,
+        'I_VLTYP': material.props.storageLocationOrigin,
+        'I_VLBER': material.props.storageLocationTypeOrigin,
+        'I_VLPLA': material.props.positionOrigin,
+        'I_VLENR': material.props.UDOrigin.padStart(20, '0'),
+        'I_NLTYP': material.props.storageLocationDestination,
+        'I_NLBER': material.props.storageLocationTypeDestination,
+        'I_NLPLA': material.props.positionDestination,
+        'I_NLENR': material.props.UDDestination,
+        'I_COMMIT_WORK': 'X',
+      };
 
-    const output: OutputWM = await this.invoke('L_TO_CREATE_SINGLE', input) as OutputWM;
+      const output: OutputWM = await this.invoke('L_TO_CREATE_SINGLE', input) as OutputWM;
 
-    if (output.E_TANUM !== '') {
-      return {
-        document: `${output.E_TANUM.trim()}`,
+      if (output.E_TANUM !== '') {
+        return {
+          document: `${output.E_TANUM.trim()}`,
+          materialNumber: output.I_MATNR,
+          year: new Date().getFullYear().toString()
+        }
+      }
+      else {
+        throw new SapPostError('SapPostWM', 'Error during the posting material WM.', 404);
       }
     }
-    else {
-      throw new SapPostError('SapPostWM', 'Error during the posting material WM.', 404);
+    catch (err: any) {
+      return new GenericError('SapPostWM', 'Error during the posting material WM.', 404, err);
     }
   }
 
