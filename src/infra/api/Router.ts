@@ -26,6 +26,7 @@ import { ParameterDTO } from '../../../_src/modules/common/get-easypro-parameter
 import { getEasyROParameterController } from '../../../_src/modules/common/get-easypro-parameter/implementation/get-easypro-parameter.impl';
 import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
 import { postMaterialIMController } from "../../../_src/modules/common/sap/post-material-im/implementations/post-material-im.impl";
+import { postMaterialWMController } from "../../../_src/modules/common/sap/post-material-wm/implementation/post-material-wm.impl";
 ;export default class Router {
     constructor(
         private httpServer: HttpServer,
@@ -121,6 +122,10 @@ import { postMaterialIMController } from "../../../_src/modules/common/sap/post-
 
         this.httpServer.on("post", "/api/common/sap/post-material-im", (params: any, body: any) => {          
           return postMaterialIMController.handle(body);
+        })
+
+        this.httpServer.on("post", "/api/common/sap/post-material-wm", (params: any, body: any) => {          
+          return postMaterialWMController.handle(body);
         })
     }
 }
