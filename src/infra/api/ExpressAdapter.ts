@@ -2,7 +2,6 @@ import express, { NextFunction, Express, Request, Response, Router } from "expre
 import { HttpServer } from "./HttpServer";
 import compression from "compression";
 import "express-async-errors";
-import ErrorHandler from "./middlewares/ErrorHandler";
 import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
 import Auth from "./middlewares/Authentication";
