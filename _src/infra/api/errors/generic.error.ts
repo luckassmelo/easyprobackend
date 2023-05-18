@@ -1,6 +1,6 @@
 import { CustomError } from '../../../domain/errors/custom.error';
 
-type ErrorProps = {
+export type ErrorProps = {
   data?: any | null;
 }
 
@@ -8,7 +8,7 @@ type ErrorProps = {
 export class GenericError extends CustomError<ErrorProps> {
 
   constructor(name: string, message: string, statusCode?: number, props?: ErrorProps) {
-    super(name, message, statusCode ?? 500, props ?? {});
+    super(name, message ?? "Internal Server Error", statusCode ?? 500, props ?? {});
   }
 
   errorInfo(): ErrorProps {
