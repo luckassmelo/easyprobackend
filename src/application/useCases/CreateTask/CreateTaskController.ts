@@ -7,23 +7,16 @@ export class CreateTaskController {
 
     async handle(body: any): Promise<any> {
         const { triggerId, name, closed, idOee, idSite } = body;
+        const taskResponse = await this
+                                        .createTaskUseCase
+                                        .execute({
+                                            triggerId,
+                                            name,
+                                            closed,
+                                            idOee,
+                                            idSite
+                                        });
 
-        try {
-            const taskResponse = await this
-                                            .createTaskUseCase
-                                            .execute({
-                                                triggerId,
-                                                name,
-                                                closed,
-                                                idOee,
-                                                idSite
-                                            });
-
-            return (taskResponse);
-        } catch(error: any) {
-            return ({
-                message: error.message || 'Unexpected error.'
-            });
-        }
+        return (taskResponse);
     }
 }

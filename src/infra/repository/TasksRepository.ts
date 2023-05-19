@@ -71,7 +71,7 @@ export class PrismaTasksRepository implements ITasksRepository {
         "trigger.tbl_trigger_task.id_user",
         "closed",
         "trigger.tbl_trigger_task.created_at",
-        "trigger.tbl_trigger.id_oee",
+        "trigger.tbl_trigger_task.id_oee",
         "machine",
         "description_trigger"
       )
@@ -79,10 +79,10 @@ export class PrismaTasksRepository implements ITasksRepository {
       .innerJoin("trigger.tbl_trigger", "id_trigger", "trigger.tbl_trigger.id")
       .leftJoin(
         "monitor.tbl_oee_monitor",
-        "trigger.tbl_trigger.id_oee",
+        "trigger.tbl_trigger_task.id_oee",
         "monitor.tbl_oee_monitor.id_oee"
       )
-      .whereIn("trigger.tbl_trigger.id_oee", arrayInt)
+      .whereIn("trigger.tbl_trigger_task.id_oee", arrayInt)
       .where("trigger.tbl_trigger_task.closed", isClosed);
   }
 
@@ -116,11 +116,12 @@ export class PrismaTasksRepository implements ITasksRepository {
 
   async closedTask(closed: any): Promise<void | any> {
     const closedResult = await this.adapter
-      .connection("trigger.tbl_trigger_task")
-      .select("id_user")
-      .from("users.tbl_users")
-      .where("windows_user", closed.windowsuser);
-    if (closedResult.length > 0) {
+    .connection("trigger.tbl_trigger_task")
+    .select("id_user")
+    .from("users.tbl_users")
+    .whereRaw("UPPER(windows_user) = ?", [closed.windowsuser.toUpperCase()]);
+
+    if (closedResult.length) {
       const putDescription = await this.adapter
         .connection("trigger.tbl_trigger_task")
         .where("id", "=", closed.id)

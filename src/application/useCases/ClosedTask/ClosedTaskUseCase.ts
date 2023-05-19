@@ -1,4 +1,5 @@
 import { ITasksRepository } from "../../repositories/ITasksRepository";
+import { BadRequestError } from "../../../../_src/infra/api/errors/bad-request-error";
 
 type ClosedTaskRequest = {
     id: number,
@@ -15,7 +16,10 @@ export class ClosedTaskUseCase {
     ) {}
         
 
-    async execute ({windowsuser, description, id}: ClosedTaskRequest) {    
+    async execute ({windowsuser, description, id}: ClosedTaskRequest) { 
+
+        if (!windowsuser || !description || !id) throw new BadRequestError
+
         const closed = ({
             id,
             windowsuser,

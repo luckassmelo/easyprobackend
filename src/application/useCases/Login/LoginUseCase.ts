@@ -1,6 +1,7 @@
 import { ILdapRepository } from "../../repositories/ILdapRepository";
 import { User } from "../../../domain/entities/user";
 import {jwtGenerator} from "../../../infra/api/helpers/jwt"
+import { UnauthorizedError } from "../../../../_src/infra/api/errors/unauthorized-error";
 
 type LoginTyped = {
     windowsuser: string;
@@ -24,7 +25,9 @@ export class LoginUseCase{
     
         const response = await this.ILdapRepository.login(loginLdap);
 
-        if (!response) return Error;
+        if (response === false) {
+            throw new UnauthorizedError();            
+        } 
         
         return jwtGenerator(loginLdap);
     }
