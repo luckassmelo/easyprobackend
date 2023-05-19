@@ -3,8 +3,8 @@ import { GetStockInformationUseCase } from '../usecases/get-stock-information.us
 import { GetStockInformationRepository } from '../repository/get-stock-information.repository';
 import { httpSapAdapter } from '../adapters/http-sap.adapter';
 
-describe('SAP get stock information', () => {
-  const TIMEOUT_IN_MILLISECONDS = 10000;
+describe('SAP get stock information (need a proxifier configured to work)', () => {
+  const TIMEOUT_IN_MILLISECONDS = 30000;
 
   test('Should be return a material from IM stock (In network)', async () => {
     const getStockInformationRepository = new GetStockInformationRepository(httpSapAdapter);
