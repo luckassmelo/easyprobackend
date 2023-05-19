@@ -2,7 +2,7 @@ import { TriggerRequest } from "../../../core/types/index";
 import { Trigger } from "../../../domain/entities/trigger";
 import { ITriggersRepository } from "../../repositories/ITriggersRepository";
 import { ITriggerTypesRepository } from "../../repositories/ITriggersTypesRepository";
-
+import { NotFoundError } from "../../../../_src/infra/api/errors/not-found-error";
 export class CreateTriggerUseCase {
  
     constructor (
@@ -14,7 +14,7 @@ export class CreateTriggerUseCase {
 
         const triggerType = await this.triggersTypesRepository.findById(request.triggerTypeId);
 
-        if (!triggerType) throw new Error('Trigger type not found.');
+        if (!triggerType) throw new NotFoundError('Trigger type not found.');
         
         const trigger = new Trigger({
             name: request.name,

@@ -7,11 +7,8 @@ export class LoginController {
         
         
     async handle(body: any): Promise<any | void> {
-        const { windowsuser, password} = body;
-
-       
+        const { windowsuser, password} = body;  
         
-        try {
             const tokenResponse = await this
                                             .LoginUseCase
                                             .execute({
@@ -23,10 +20,5 @@ export class LoginController {
 
             return tokenResponse;
             
-        } catch(error: any) {
-            return ({
-                message: error.message || 'Unexpected error.'
-            });
-        }        
     }
 }

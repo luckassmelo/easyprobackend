@@ -1,6 +1,7 @@
 import { MachineEventProps, WorkOrderMap } from "../../../core/types";
 import { MachineEventsRepository } from "../../../infra/repository/MachineEventsRepository";
 import { WorkOrderDetailsRepository } from '../../../infra/repository/WorkOrderDetailsRepository';
+import { BadRequestError } from "../../../../_src/infra/api/errors/bad-request-error";
 
 type MachineEventsAndWorkOrderDetailsResponse = {
     machineEvents: MachineEventProps[],
@@ -12,6 +13,9 @@ export class GetMachineEventByDateAndMachineUseCase {
               private workOrderDetailsRepository: WorkOrderDetailsRepository) {}
 
   async execute(date: Date, machine: String): Promise<MachineEventsAndWorkOrderDetailsResponse> {
+    
+    if (!date || !machine ) throw new BadRequestError
+
     const machineEventsResponse = await this.machineEventsRepository.getMachineEventsByDateAndMachine(date, machine);
 
     const workOrders: string[] = [];

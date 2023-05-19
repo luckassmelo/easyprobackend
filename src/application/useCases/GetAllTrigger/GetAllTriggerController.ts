@@ -6,12 +6,6 @@ export class GetAllTriggerController {
     ){}
 
     async handle() {
-        try {
-            return await this.getAllTriggerUseCase.execute();
-        } catch (error: any) {
-            return ({
-                message: error.message || "Unexpected error."
-            });
-        }
+        return await this.getAllTriggerUseCase.execute();
     }
 }
