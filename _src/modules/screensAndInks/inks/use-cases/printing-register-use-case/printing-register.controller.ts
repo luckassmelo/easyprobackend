@@ -15,14 +15,14 @@ export class PrintingRegisterController implements Controller{
 
         return{
             statusCode: 201,
-            body: true
+            response: true
         }
         
         }catch (err: any) {
             
             return {
                 statusCode: 500,
-                body: err.message,
+                response: err.message,
             }
         }
     }

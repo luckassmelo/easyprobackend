@@ -19,7 +19,7 @@ export class LdapRepository implements ILdapRepository {
             });
             this.adapter.connection.bind(`${loginLdap.props.windowsuser}@schott.org`, `${loginLdap.props.password}`, (error: any) => {
                 if (error) {
-                    reject(false);
+                    resolve(false);
                     this.adapter.connection.destroy(error);
                 }
                 resolve(true);
