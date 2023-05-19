@@ -2,7 +2,7 @@ import { PostMaterialSAPIM } from '../models/post-material-sap-im.model';
 import { sapConnectionConfigurationRfc } from '../../../../../config/config';
 import { RfcAdapter } from '../../../../../infra/SAP/adapters/rfc.adapter';
 
-describe('SAP post materials', () => {
+describe('SAP post materials (need a proxifier configured to work)', () => {
   const TIMEOUT_IN_MILLISECONDS = 40000;
   const rfcConnection = new RfcAdapter({ ...sapConnectionConfigurationRfc });
 
