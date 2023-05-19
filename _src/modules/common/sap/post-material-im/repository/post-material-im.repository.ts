@@ -4,7 +4,6 @@ import { IPostMaterialIMRepository } from '../interfaces/post-material-im-reposi
 import { PostMaterialSAPIM } from '../models/post-material-sap-im.model';
 import { ResponseMaterialIM } from '../../../../../infra/SAP/models/response-material.model';
 import { SapPostError } from '../../../../../infra/SAP/errors/sap-post.error';
-import { GenericError } from '../../../../../infra/api/errors/generic.error';
 
 export class PostMaterialIMRepository implements IPostMaterialIMRepository {
 

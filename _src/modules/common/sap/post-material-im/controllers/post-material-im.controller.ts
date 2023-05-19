@@ -1,9 +1,6 @@
-import { SapPostError } from '../../../../../infra/SAP/errors/sap-post.error';
-import { GenericError } from '../../../../../infra/api/errors/generic.error';
 import { Controller } from '../../../../../presentation/protocols/controller';
 import { HttpResponse } from '../../../../../presentation/protocols/http';
 import { PostMaterialSAPIM } from '../models/post-material-sap-im.model';
-import { ResponseMaterialIM } from '../../../../../infra/SAP/models/response-material.model';
 import { PostMaterialIMUseCase } from '../usecases/post-material-im.usecase';
 
 type MaterialProps = {
