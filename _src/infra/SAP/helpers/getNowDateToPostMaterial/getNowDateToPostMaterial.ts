@@ -1,6 +1,6 @@
 
 /**
- *Function responsible to post material SAP
+ *Function responsible to get date format to post material on SAP
  * @returns {string} - Date in format YYYYMMDD
  */
 export function getNowDateToPostMaterial(): string {
