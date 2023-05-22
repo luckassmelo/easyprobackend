@@ -26,3 +26,5 @@ export const sapConnectionConfigurationRfc = {
   'saprouter': process.env.SAP_SAPROUTER,
   'lang': 'EN',
 }
+
+export const pgBossConnectionString = process.env.PGBOSS_CONNECTION_STRING;
