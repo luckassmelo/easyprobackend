@@ -50,6 +50,7 @@
     "ldapjs": "^2.3.3",
     "node-rfc": "^2.7.1",
     "pg": "^8.7.3",
+    "pg-boss": "^9.0.1",
     "reflect-metadata": "^0.1.13",
     "socket.io": "^4.5.4",
     "swagger-ui-express": "^4.6.0",

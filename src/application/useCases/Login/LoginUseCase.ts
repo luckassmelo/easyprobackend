@@ -1,7 +1,7 @@
 import { ILdapRepository } from "../../repositories/ILdapRepository";
 import { User } from "../../../domain/entities/user";
-import {jwtGenerator} from "../../../infra/api/helpers/jwt"
-import { UnauthorizedError } from "../../../../_src/infra/api/errors/unauthorized-error";
+import { jwtGenerator } from "../../../infra/api/helpers/jwt"
+import { UnauthorizedError } from "../../../../_src/infra/api/errors/unauthorized.error";
 
 type LoginTyped = {
     windowsuser: string;
@@ -10,27 +10,27 @@ type LoginTyped = {
     description?: string;
 }
 
-export class LoginUseCase{
+export class LoginUseCase {
 
     constructor(
-        private ILdapRepository : ILdapRepository
-    ){}
-    
-    async execute({windowsuser, password} : LoginTyped){
-        
+        private ILdapRepository: ILdapRepository
+    ) { }
+
+    async execute({ windowsuser, password }: LoginTyped) {
+
         const loginLdap = new User({
             windowsuser,
-            password        
-        }); 
-    
+            password
+        });
+
         const response = await this.ILdapRepository.login(loginLdap);
 
         if (response === false) {
-            throw new UnauthorizedError();            
-        } 
-        
+            throw new UnauthorizedError();
+        }
+
         return jwtGenerator(loginLdap);
     }
 
-  
+
 }
