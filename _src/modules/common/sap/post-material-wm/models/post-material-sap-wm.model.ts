@@ -7,7 +7,7 @@ type SAPProps = {
   plantCode: string;
   warehouseCode: string;
   quantity: number;
-  unitOfMeasure: string;
+  unityOfMeasurement: string;
   storageLocationOrigin: string;
   storageLocationTypeOrigin: string;
   positionOrigin: string;
