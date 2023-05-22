@@ -72,7 +72,7 @@ export class RfcAdapter {
         'I_WERKS': material.props.plantCode,
         'I_LGORT': material.props.warehouseCode,
         'I_ANFME': material.props.quantity,
-        'I_ALTME': material.props.unitOfMeasure,
+        'I_ALTME': material.props.unityOfMeasurement,
         'I_VLTYP': material.props.storageLocationOrigin,
         'I_VLBER': material.props.storageLocationTypeOrigin,
         'I_VLPLA': material.props.positionOrigin,
