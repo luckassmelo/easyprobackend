@@ -15,7 +15,7 @@ type MaterialProps = {
   storageLocationTypeDestination: string;
   UDDestination: string;
   UDOrigin: string;
-  unitOfMeasure: string;
+  unityOfMeasurement: string;
   warehouseCode: string;
   warehouseNumber: string;
   language: string;

@@ -34,7 +34,7 @@ describe('SAP post materials (need a proxifier configured to work)', () => {
       storageLocationTypeDestination: '001',
       UDDestination: '4503599392000001',
       UDOrigin: '4503565559000002',
-      unitOfMeasure: 'ST',
+      unityOfMeasurement: 'ST',
       warehouseCode: '0603',
       warehouseNumber: '603',
       language: 'PT'
