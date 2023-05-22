@@ -27,6 +27,7 @@ import { getEasyROParameterController } from '../../../_src/modules/common/get-e
 import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
 import { postMaterialIMController } from "../../../_src/modules/common/sap/post-material-im/implementations/post-material-im.impl";
 import { postMaterialWMController } from "../../../_src/modules/common/sap/post-material-wm/implementation/post-material-wm.impl";
+import { warehouseUpdateController } from "../../../_src/modules/warehouse/usecases/update-warehouse-use-case/index"
 import { createJobController } from "../../../_src/modules/common/queue/create-job/implementation/create-job.impl";
 ;export default class Router {
     constructor(
@@ -108,6 +109,10 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
             return printRegisterController.handle(body, params)
         });
 
+        this.httpServer.on('put', '/api/warehouseUpdate/:idReq', async(params:any, body:any)=>{
+            return warehouseUpdateController.handle(body, params);
+        });
+
 
         this.httpServer.on('post','/api/zebraPrinting',async (params: any, body:any) => {
             return zebraPrintingController.handle(body)
@@ -127,10 +132,9 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 
         this.httpServer.on("post", "/api/common/sap/post-material-wm", (params: any, body: any) => {          
           return postMaterialWMController.handle(body);
-        });
+        })
 
         this.httpServer.on("post", "/api/queue/create-job", (params: any, body: any) => {
           return createJobController.handle(body);
         });
-    }
 }
