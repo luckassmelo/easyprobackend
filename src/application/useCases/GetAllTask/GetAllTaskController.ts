@@ -6,12 +6,6 @@ export class GetAllTaskController {
     ){}
 
     async handle() {
-        try{
-            return await this.getAllTaskUseCase.execute();
-        } catch(err: any) {
-            return ({
-                message: err.message || "Unexpected error."
-            })
-        }
+        return await this.getAllTaskUseCase.execute();
     }
 }

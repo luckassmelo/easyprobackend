@@ -6,28 +6,21 @@ export class CreateTriggerController {
     ){}
 
     async handle(body: any): Promise<any> {
-        try {
-            const { name, statusValue, piecesValue, status, groupId, oeeId, userId, triggerTypeId, isProductiveTime } = body;
+        const { name, statusValue, piecesValue, status, groupId, oeeId, userId, triggerTypeId, isProductiveTime } = body;
             
-            const triggerResponse = await this
-                                              .createTriggerUseCase
-                                              .execute({ name,
-                                                        statusValue,
-                                                        piecesValue,
-                                                        status,
-                                                        groupId,
-                                                        oeeId,
-                                                        userId,
-                                                        triggerTypeId,
-                                                        isProductiveTime
-                                                });
+        const triggerResponse = await this
+                                        .createTriggerUseCase
+                                        .execute({ name,
+                                            statusValue,
+                                            piecesValue,
+                                            status,
+                                            groupId,
+                                            oeeId,
+                                            userId,
+                                            triggerTypeId,
+                                            isProductiveTime
+                                        });
 
             return (triggerResponse);
-
-        } catch (error: any) {
-            return ({
-                message: error.message || 'Unexpected error.'
-            });
-        }
     }
 }
