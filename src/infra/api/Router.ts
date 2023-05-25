@@ -22,10 +22,13 @@ import { registerInkController } from "../../../_src/modules/screensAndInks/inks
 import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
 import { printRegisterController} from "../../../_src/modules/screensAndInks/inks/use-cases/printing-register-use-case/index"
 import {zebraPrintingController} from "../../../_src/modules/screensAndInks/inks/use-cases/zebra-printing-label-use-case/index"
-import { ParameterDTO } from '../../../_src/modules/common/GetEasyProParameter/types/param.types';
-import { getEasyROParameterController } from '../../../_src/modules/common/GetEasyProParameter/implementation/get-easypro-parameter.impl';
-
-export default class Router {
+import { ParameterDTO } from '../../../_src/modules/common/get-easypro-parameter/types/param.types';
+import { getEasyROParameterController } from '../../../_src/modules/common/get-easypro-parameter/implementation/get-easypro-parameter.impl';
+import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
+import { postMaterialIMController } from "../../../_src/modules/common/sap/post-material-im/implementations/post-material-im.impl";
+import { postMaterialWMController } from "../../../_src/modules/common/sap/post-material-wm/implementation/post-material-wm.impl";
+import { createJobController } from "../../../_src/modules/common/queue/create-job/implementation/create-job.impl";
+;export default class Router {
     constructor(
         private httpServer: HttpServer,
         private socketServer: SocketAdapter
@@ -100,7 +103,7 @@ export default class Router {
         this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
             return findByIdController.handle(params)
         });
-        
+
         this.httpServer.on('post', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
             return printRegisterController.handle(body, params)
         });
@@ -110,8 +113,24 @@ export default class Router {
             return zebraPrintingController.handle(body)
         });
 
-        this.httpServer.on("get", "/api/common/get-easypro-parameter/:name/:filter/:idSite", (params: ParameterDTO) => {
+        this.httpServer.on("get", "/api/common/get-easypro-parameter", (params: ParameterDTO) => {
           return getEasyROParameterController.handle(params);
+        });
+
+        this.httpServer.on("get", "/api/common/sap/get-stock-information", (params: any) => {
+          return getStockInformationController.handle(params);
+        });
+
+        this.httpServer.on("post", "/api/common/sap/post-material-im", (params: any, body: any) => {          
+          return postMaterialIMController.handle(body);
+        });
+
+        this.httpServer.on("post", "/api/common/sap/post-material-wm", (params: any, body: any) => {          
+          return postMaterialWMController.handle(body);
+        });
+
+        this.httpServer.on("post", "/api/queue/create-job", (params: any, body: any) => {
+          return createJobController.handle(body);
         });
     }
 }

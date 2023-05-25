@@ -2,6 +2,7 @@ export abstract class CustomError<T> extends Error {
   public statusCode: number = 500;
   public message: string = 'Unexpected error';
   public name: string = 'InternError';
+  public stack?: string;
   readonly errorProps: T;
 
 
@@ -15,5 +16,5 @@ export abstract class CustomError<T> extends Error {
     Object.setPrototypeOf(this, CustomError.prototype);
   }
 
-  abstract get errorInfo(): T;
+  abstract errorInfo(): T;
 }

@@ -2,7 +2,6 @@ import express, { NextFunction, Express, Request, Response, Router } from "expre
 import { HttpServer } from "./HttpServer";
 import compression from "compression";
 import "express-async-errors";
-import ErrorHandler from "./middlewares/ErrorHandler";
 import NotFound from "./middlewares/NotFound";
 import swaggerUi from "swagger-ui-express";
 import Auth from "./middlewares/Authentication";
@@ -22,9 +21,9 @@ export class ExpressAdapter implements HttpServer {
 		this.app.use(cors());
 		this.app.use("/api/task/closed", new Auth().authmiddleware);
 		this.app.use('/', this.router)
-    this.app.use(CustomErrorHandler.handleError)
+    	this.app.use(CustomErrorHandler.handleError)
+		this.app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));		
 		this.app.use(new NotFound().notFoundHandler);
-		this.app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));		
 	}
 
 	on(method: string, url: string, callback: Function): void {

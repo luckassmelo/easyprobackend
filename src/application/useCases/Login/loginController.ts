@@ -8,13 +8,8 @@ export class LoginController {
         
     @GenericLog({info: { message: "Token return"}, process: "Token response"}, saveGenericLoggin)   
     async handle(body: any): Promise<any | void> {
-        console.log(body);
-        const { windowsuser, password} = body;
+        const { windowsuser, password} = body;  
         
-        
-       
-        
-        try {
             const tokenResponse = await this
                                             .LoginUseCase
                                             .execute({
@@ -26,10 +21,5 @@ export class LoginController {
 
             return tokenResponse;
             
-        } catch(error: any) {
-            return ({
-                message: error.message || 'Unexpected error.'
-            });
-        }        
     }
 }
