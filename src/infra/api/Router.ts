@@ -27,8 +27,9 @@ import { getEasyROParameterController } from '../../../_src/modules/common/get-e
 import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
 import { postMaterialIMController } from "../../../_src/modules/common/sap/post-material-im/implementations/post-material-im.impl";
 import { postMaterialWMController } from "../../../_src/modules/common/sap/post-material-wm/implementation/post-material-wm.impl";
-import { warehouseUpdateController } from "../../../_src/modules/warehouse/usecases/update-warehouse-use-case/index"
 import { createJobController } from "../../../_src/modules/common/queue/create-job/implementation/create-job.impl";
+import { updateItemController } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/implementation/update-item.impl"
+import { UpdateItemProp } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/models/update-item.model";
 ;export default class Router {
     constructor(
         private httpServer: HttpServer,
@@ -90,7 +91,7 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 
         this.socketServer.appSocket.on("connection", (socket: Socket) => {
           getTasksEvent.execute(socket);
-      });
+        });
 
         this.httpServer.on("post", "/api/registerInks", async(params: any, body: any) => {
             return registerInkController.handle(body);
@@ -100,7 +101,6 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
             return getAllInksController.handle();
         });
 
-
         this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
             return findByIdController.handle(params)
         });
@@ -108,11 +108,6 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
         this.httpServer.on('post', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
             return printRegisterController.handle(body, params)
         });
-
-        this.httpServer.on('put', '/api/warehouseUpdate/:idReq', async(params:any, body:any)=>{
-            return warehouseUpdateController.handle(body, params);
-        });
-
 
         this.httpServer.on('post','/api/zebraPrinting',async (params: any, body:any) => {
             return zebraPrintingController.handle(body)
@@ -137,4 +132,9 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
         this.httpServer.on("post", "/api/queue/create-job", (params: any, body: any) => {
           return createJobController.handle(body);
         });
+
+        this.httpServer.on('put', '/api/warehouse/spare-parts/update-item-requisition/:idReq', async(params:any, body:UpdateItemProp)=>{
+            return updateItemController.handle(body, params);
+        });
+    }
 }
