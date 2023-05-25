@@ -12,13 +12,14 @@ export class UpdateItemRepository implements IUpdateItemRepository {
         const result = await this.adapter.connection('supply.tbl_item_requisition')
         .where('id_req', updateProps.id['idReq'])
         .update({
-            date_response_item: updateProps.props.date_response_item,
+            ...(updateProps.props.status_requisition === 'C' ? { date_response_item: new Date() } : {}),
             resp_response_item: updateProps.props.resp_response_item,
             status_requisition: updateProps.props.status_requisition,
             item_disponible: updateProps.props.item_disponible,
             qtd_provided: updateProps.props.qtd_provided,
             id_reason: updateProps.props.id_reason
-        })     
+        });
+    
         
         return result 
     }
