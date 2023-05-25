@@ -7,20 +7,13 @@ export class ClosedTaskController {
 
     async handle(body: any): Promise<any> {
         const { id, windowsuser, description} = body;      
-
-        try {
-            const closeResponse = await this
-                                            .closedTaskUseCase
-                                            .execute({
-                                                id,
-                                                windowsuser,
-                                                description
-                                            });
-            return (closeResponse);
-        } catch (error: any) {
-            return ({
-                message:error.message || 'Unexpected error'
-            })
-        }
+        const closeResponse = await this
+                                        .closedTaskUseCase
+                                        .execute({
+                                            id,
+                                            windowsuser,
+                                            description
+                                        });
+        return (closeResponse);
     }
 }

@@ -8,12 +8,6 @@ export class GetAllServiceInformationController {
     ){}
 
     async handle(): Promise<any> {
-        try {
-            return await this.getAllServiceInformationUseCase.execute();
-        } catch (error: any) {
-            return({
-                message: error.message || 'Unexpected error.' 
-            });
-        }
+        return await this.getAllServiceInformationUseCase.execute();
     }
 }
