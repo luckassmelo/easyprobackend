@@ -5,7 +5,7 @@ export class CreateLogUseCase {
 
   constructor(private repository: CreateLogRepository) { }
 
-  async execute(log: LogModel): Promise<any> {
+  async execute(log: LogModel): Promise<void> {
     return await this.repository.save(log);
   }
 
