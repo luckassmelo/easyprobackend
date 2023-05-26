@@ -28,6 +28,7 @@ import { getStockInformationController } from "../../../_src/modules/common/sap/
 import { postMaterialIMController } from "../../../_src/modules/common/sap/post-material-im/implementations/post-material-im.impl";
 import { postMaterialWMController } from "../../../_src/modules/common/sap/post-material-wm/implementation/post-material-wm.impl";
 import { createJobController } from "../../../_src/modules/common/queue/create-job/implementation/create-job.impl";
+import { createLogController } from "../../../_src/modules/common/log/create-log/implementation/create-log.imp";
 ;export default class Router {
     constructor(
         private httpServer: HttpServer,
@@ -131,6 +132,10 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 
         this.httpServer.on("post", "/api/queue/create-job", (params: any, body: any) => {
           return createJobController.handle(body);
+        });
+
+        this.httpServer.on("post", "/api/common/log/create-log", (params: any, body: any) => {
+          return createLogController.handle(body);
         });
     }
 }
