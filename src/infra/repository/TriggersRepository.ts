@@ -63,6 +63,7 @@ export class PrismaTriggersRepository implements ITriggersRepository  {
                         trigger.tbl_trigger.id,
                         trigger.tbl_trigger.name,
                         trigger.tbl_trigger.id_site,
+                        trigger.tbl_trigger.description_trigger,
                         pieces_value,
                         status_value,
                         initial_value,
