@@ -7,14 +7,14 @@ type SAPProps = {
   plantCode: string;
   warehouseCode: string;
   quantity: number;
-  unitOfMeasure: string;
-  storageLocationOrigin: string;
-  storageLocationTypeOrigin: string;
-  positionOrigin: string;
+  unityOfMeasurement: string;
+  storageSectionOrigin: string;
+  storageTypeOrigin: string;
+  binOrigin: string;
   UDOrigin: string;
-  storageLocationDestination: string;
-  storageLocationTypeDestination: string;
-  positionDestination: string;
+  storageSectionDestination: string;
+  storageTypeDestination: string;
+  binDestination: string;
   UDDestination: string;
   language: string;
 }

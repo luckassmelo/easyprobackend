@@ -1,4 +1,4 @@
-import { Entity } from "../../../../domain/Entity/entity"
+import { Entity } from "../../../../domain/entity/Entity"
 import { PrintingProp } from "../types/printing.types";
 
 
