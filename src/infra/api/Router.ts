@@ -17,11 +17,6 @@ import { getTasksByIdOeeController } from "../../application/useCases/GetTasksBy
 import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
 import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from "../../application/useCases/GetMachineEventByDateAndMachineWithWorkOrderDetails";
 
-import { findByIdController } from "../../../_src/modules/screensAndInks/inks/use-cases/find-by-id-process-use-case/index"
-import { registerInkController } from "../../../_src/modules/screensAndInks/inks/use-cases/register-ink-use-case/index"
-import { getAllInksController } from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
-import { printRegisterController } from "../../../_src/modules/screensAndInks/inks/use-cases/printing-register-use-case/index"
-import { zebraPrintingController } from "../../../_src/modules/screensAndInks/inks/use-cases/zebra-printing-label-use-case/index"
 import { ParameterDTO } from '../../../_src/modules/common/get-easypro-parameter/types/param.types';
 import { getEasyROParameterController } from '../../../_src/modules/common/get-easypro-parameter/implementation/get-easypro-parameter.impl';
 import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
@@ -92,26 +87,6 @@ import { createLogController } from "../../../_src/modules/common/log/create-log
 
     this.socketServer.appSocket.on("connection", (socket: Socket) => {
       getTasksEvent.execute(socket);
-    });
-
-    this.httpServer.on("post", "/api/registerInks", async (params: any, body: any) => {
-      return registerInkController.handle(body);
-    });
-
-    this.httpServer.on("get", "/api/getAllInks", async (params: any, body: any) => {
-      return getAllInksController.handle();
-    });
-
-    this.httpServer.on('get', '/api/getInkById/:idProcess', async (params: any, body: any) => {
-      return findByIdController.handle(params)
-    });
-
-    this.httpServer.on('post', '/api/printingRegister/:idProcess', async (params: any, body: any) => {
-      return printRegisterController.handle(body, params)
-    });
-
-    this.httpServer.on('post', '/api/zebraPrinting', async (params: any, body: any) => {
-      return zebraPrintingController.handle(body)
     });
 
     this.httpServer.on("get", "/api/common/get-easypro-parameter", (params: ParameterDTO) => {
