@@ -17,6 +17,7 @@ export class PgBossConnectionSingleton {
           data: error
         }
       });
+      this.close();
     });
   }
 
