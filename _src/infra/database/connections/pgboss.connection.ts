@@ -1,14 +1,23 @@
 import PgBoss from "pg-boss";
 import { pgBossConnectionString } from "../../../config/config";
+import { createLogController } from '../../../modules/common/log/create-log/implementation/create-log.imp';
 
 export class PgBossConnectionSingleton {
   private static instance: PgBossConnectionSingleton;
   public pgBoss: PgBoss;
 
   private constructor(connectionString: string) {
-    console.log(connectionString);
 
     this.pgBoss = new PgBoss(connectionString);
+    this.pgBoss.on('error', (error) => {
+      createLogController.handle({
+        processName: 'PgBossConnectionSingleton',
+        infoLog: {
+          message: 'Error to connect with pgBoss',
+          data: error
+        }
+      });
+    });
   }
 
   public static async getInstance(): Promise<PgBossConnectionSingleton> {
