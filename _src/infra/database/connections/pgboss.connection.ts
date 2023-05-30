@@ -38,7 +38,15 @@ export class PgBossConnectionSingleton {
   }
 
   private async close() {
-    await this.pgBoss.stop();
+    await this.pgBoss.stop().catch((error) => {
+      createLogController.handle({
+        processName: 'PgBossConnectionSingleton',
+        infoLog: {
+          message: 'Error to close pgBoss connection',
+          data: error
+        }
+      });
+    });
   }
 
   async deleteQueue(name: string): Promise<void> {
