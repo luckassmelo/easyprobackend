@@ -26,7 +26,8 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 import { updateItemController } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/implementation/update-item.impl"
 import { UpdateItemProp } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/models/update-item.model";
 import { createLogController } from "../../../_src/modules/common/log/create-log/implementation/create-log.imp";
-; export default class Router {
+import { getErrorInfoController} from '../../../_src/modules/common/sap/get-error/implementation/get-error-info.implementation'
+ export default class Router {
   constructor(
     private httpServer: HttpServer,
     private socketServer: SocketAdapter
@@ -116,5 +117,9 @@ import { createLogController } from "../../../_src/modules/common/log/create-log
     this.httpServer.on("post", "/api/common/log/create-log", (params: any, body: any) => {
       return createLogController.handle(body);
     });
+
+    this.httpServer.on("get", "/api/common/sap/get-error", (params: any, body: any)=> {
+      return getErrorInfoController.handle(body);
+    })
   }
 }
