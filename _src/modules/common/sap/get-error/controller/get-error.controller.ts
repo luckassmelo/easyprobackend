@@ -11,6 +11,7 @@ type parameterToGetError = {
 export class GetErrorController implements Controller {
     constructor(private readonly getErrorInfoUseCase: GetErrorUseCase){}
         async handle(request: parameterToGetError): Promise<HttpResponse> {
+                
             const {id} = request;
 
             if (!id){
@@ -21,9 +22,6 @@ export class GetErrorController implements Controller {
             
             const response = await this.getErrorInfoUseCase.execute(getErrorReq);
 
-            if(!response){
-                throw new NotFoundError('Nothing to show');
-            }
 
             return {
                 statusCode: 200,

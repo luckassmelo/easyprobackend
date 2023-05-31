@@ -118,8 +118,8 @@ import { getErrorInfoController} from '../../../_src/modules/common/sap/get-erro
       return createLogController.handle(body);
     });
 
-    this.httpServer.on("get", "/api/common/sap/get-error", (params: any, body: any)=> {
-      return getErrorInfoController.handle(body);
+    this.httpServer.on("get", "/api/common/sap/get-error", (params: any)=> {
+      return getErrorInfoController.handle(params);
     })
   }
 }

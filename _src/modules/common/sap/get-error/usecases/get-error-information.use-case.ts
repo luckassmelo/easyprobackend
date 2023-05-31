@@ -11,9 +11,6 @@ export class GetErrorUseCase {
     async execute(requisition: GetError): Promise<responseErrorinfo>{
         const response = await this.getErrorRepo.findError(requisition);
 
-        if(!response){
-            throw new GenericError('Error Log', 'Error not found', 404)
-        };
 
         return response;
     }
