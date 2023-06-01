@@ -17,120 +17,104 @@ import { getTasksByIdOeeController } from "../../application/useCases/GetTasksBy
 import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
 import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from "../../application/useCases/GetMachineEventByDateAndMachineWithWorkOrderDetails";
 
-import {findByIdController} from "../../../_src/modules/screensAndInks/inks/use-cases/find-by-id-process-use-case/index"
-import { registerInkController } from "../../../_src/modules/screensAndInks/inks/use-cases/register-ink-use-case/index"
-import { getAllInksController} from "../../../_src/modules/screensAndInks/inks/use-cases/get-all-inks-use-case/index"
-import { printRegisterController} from "../../../_src/modules/screensAndInks/inks/use-cases/printing-register-use-case/index"
-import {zebraPrintingController} from "../../../_src/modules/screensAndInks/inks/use-cases/zebra-printing-label-use-case/index"
 import { ParameterDTO } from '../../../_src/modules/common/get-easypro-parameter/types/param.types';
 import { getEasyROParameterController } from '../../../_src/modules/common/get-easypro-parameter/implementation/get-easypro-parameter.impl';
 import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
 import { postMaterialIMController } from "../../../_src/modules/common/sap/post-material-im/implementations/post-material-im.impl";
 import { postMaterialWMController } from "../../../_src/modules/common/sap/post-material-wm/implementation/post-material-wm.impl";
 import { createJobController } from "../../../_src/modules/common/queue/create-job/implementation/create-job.impl";
-;export default class Router {
-    constructor(
-        private httpServer: HttpServer,
-        private socketServer: SocketAdapter
-    ){}
+import { updateItemController } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/implementation/update-item.impl"
+import { UpdateItemProp } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/models/update-item.model";
+import { createLogController } from "../../../_src/modules/common/log/create-log/implementation/create-log.imp";
+; export default class Router {
+  constructor(
+    private httpServer: HttpServer,
+    private socketServer: SocketAdapter
+  ) { }
 
-    async init() {
-        this.httpServer.on("post", "/api/trigger",  async (params: any, body: any) => {
-            return createTriggerController.handle(body);
-        });
+  async init() {
+    this.httpServer.on("post", "/api/trigger", async (params: any, body: any) => {
+      return createTriggerController.handle(body);
+    });
 
-        this.httpServer.on("get", "/api/trigger/:triggerId", async (params: any, body: any) => {
-            return findTriggerController.handle(params)
-        });
+    this.httpServer.on("get", "/api/trigger/:triggerId", async (params: any, body: any) => {
+      return findTriggerController.handle(params)
+    });
 
-        this.httpServer.on("get", "/api/trigger", async (params: any, body: any) => {
-            return getAllTriggerController.handle();
-        });
+    this.httpServer.on("get", "/api/trigger", async (params: any, body: any) => {
+      return getAllTriggerController.handle();
+    });
 
-        this.httpServer.on("post", "/api/task", async (params: any, body: any) => {
-            return createTaskController.handle(body);
-        });
+    this.httpServer.on("post", "/api/task", async (params: any, body: any) => {
+      return createTaskController.handle(body);
+    });
 
-        this.httpServer.on("get", "/api/task", async (params: any, body: any) => {
-            return getAllTaskController.handle();
-        });
+    this.httpServer.on("get", "/api/task", async (params: any, body: any) => {
+      return getAllTaskController.handle();
+    });
 
-        this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params: any, body: any) => { //wc workCenter ou group
-            return findTaskMachineController.handle(params)
-        });
+    this.httpServer.on("get", "/api/task/:type/:paramId/:isClosed", async (params: any, body: any) => { //wc workCenter ou group
+      return findTaskMachineController.handle(params)
+    });
 
-        this.httpServer.on("post", "/api/task/closed", async (params: any, body: any) => {
-            return closedTaskController.handle(body);
-        });
+    this.httpServer.on("post", "/api/task/closed", async (params: any, body: any) => {
+      return closedTaskController.handle(body);
+    });
 
-        this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {
-           return getAllMachineEventController.handle();
-        });
+    this.httpServer.on("get", "/api/pass/machineEvent", async (params: any, body: any) => {
+      return getAllMachineEventController.handle();
+    });
 
-        this.httpServer.on("post", "/api/token", async (params: any, body: any) => {
-            return loginController.handle(body)
-        });
+    this.httpServer.on("post", "/api/token", async (params: any, body: any) => {
+      return loginController.handle(body)
+    });
 
-        this.httpServer.on("get", "/api/cronetwork/workOrderDetails", async(params: any, body: any) => {
-            return getAllWorkOrderDetailsController.handle();
-        });
+    this.httpServer.on("get", "/api/cronetwork/workOrderDetails", async (params: any, body: any) => {
+      return getAllWorkOrderDetailsController.handle();
+    });
 
-        this.httpServer.on("post", "/api/cronetwork/workOrderDetails", async(params: any, body: any) => {
-            return getWorkOrderDetailsByArrayController.handle(body);
-        });
+    this.httpServer.on("post", "/api/cronetwork/workOrderDetails", async (params: any, body: any) => {
+      return getWorkOrderDetailsByArrayController.handle(body);
+    });
 
-        this.httpServer.on("get", "/api/allServiceInformation", async(params: any, body: any) => {
-            return getAllServiceInformationController.handle();
-        });
+    this.httpServer.on("get", "/api/allServiceInformation", async (params: any, body: any) => {
+      return getAllServiceInformationController.handle();
+    });
 
-        this.httpServer.on("get", "/api/getMachineEventByDateAndMachine", async(params: any, body: any) => {
-          return getMachineEventByDateAndMachineWithWorkOrderDetailsController.handle(params);
-        });
+    this.httpServer.on("get", "/api/getMachineEventByDateAndMachine", async (params: any, body: any) => {
+      return getMachineEventByDateAndMachineWithWorkOrderDetailsController.handle(params);
+    });
 
-        this.socketServer.appSocket.on("connection", (socket: Socket) => {
-          getTasksEvent.execute(socket);
-      });
+    this.socketServer.appSocket.on("connection", (socket: Socket) => {
+      getTasksEvent.execute(socket);
+    });
 
-        this.httpServer.on("post", "/api/registerInks", async(params: any, body: any) => {
-            return registerInkController.handle(body);
-        });
+    this.httpServer.on("get", "/api/common/get-easypro-parameter", (params: ParameterDTO) => {
+      return getEasyROParameterController.handle(params);
+    });
 
-        this.httpServer.on("get", "/api/getAllInks", async(params: any, body: any) => {
-            return getAllInksController.handle();
-        });
+    this.httpServer.on("get", "/api/common/sap/get-stock-information", (params: any) => {
+      return getStockInformationController.handle(params);
+    });
 
+    this.httpServer.on("post", "/api/common/sap/post-material-im", (params: any, body: any) => {
+      return postMaterialIMController.handle(body);
+    });
 
-        this.httpServer.on('get', '/api/getInkById/:idProcess', async(params:any, body:any)=>{
-            return findByIdController.handle(params)
-        });
+    this.httpServer.on("post", "/api/common/sap/post-material-wm", (params: any, body: any) => {
+      return postMaterialWMController.handle(body);
+    })
 
-        this.httpServer.on('post', '/api/printingRegister/:idProcess', async(params:any, body:any)=>{
-            return printRegisterController.handle(body, params)
-        });
+    this.httpServer.on("post", "/api/queue/create-job", (params: any, body: any) => {
+      return createJobController.handle(body);
+    });
 
+    this.httpServer.on('put', '/api/warehouse/spare-parts/update-item-requisition/:idReq', async (params: any, body: UpdateItemProp) => {
+      return updateItemController.handle(body, params);
+    });
 
-        this.httpServer.on('post','/api/zebraPrinting',async (params: any, body:any) => {
-            return zebraPrintingController.handle(body)
-        });
-
-        this.httpServer.on("get", "/api/common/get-easypro-parameter", (params: ParameterDTO) => {
-          return getEasyROParameterController.handle(params);
-        });
-
-        this.httpServer.on("get", "/api/common/sap/get-stock-information", (params: any) => {
-          return getStockInformationController.handle(params);
-        });
-
-        this.httpServer.on("post", "/api/common/sap/post-material-im", (params: any, body: any) => {          
-          return postMaterialIMController.handle(body);
-        });
-
-        this.httpServer.on("post", "/api/common/sap/post-material-wm", (params: any, body: any) => {          
-          return postMaterialWMController.handle(body);
-        });
-
-        this.httpServer.on("post", "/api/queue/create-job", (params: any, body: any) => {
-          return createJobController.handle(body);
-        });
-    }
+    this.httpServer.on("post", "/api/common/log/create-log", (params: any, body: any) => {
+      return createLogController.handle(body);
+    });
+  }
 }

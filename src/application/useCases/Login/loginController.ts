@@ -5,7 +5,7 @@ export class LoginController {
         private LoginUseCase: LoginUseCase
     ){}
         
-        
+
     async handle(body: any): Promise<any | void> {
         const { windowsuser, password} = body;  
         
