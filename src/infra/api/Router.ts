@@ -26,6 +26,8 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 import { updateItemController } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/implementation/update-item.impl"
 import { UpdateItemProp } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/models/update-item.model";
 import { createLogController } from "../../../_src/modules/common/log/create-log/implementation/create-log.imp";
+import {getDateTaskController} from '../../../_src/modules/configurations/submodules/triggers/get-date-task/implementation/get-date-task.impl';
+
 ; export default class Router {
   constructor(
     private httpServer: HttpServer,
@@ -116,5 +118,11 @@ import { createLogController } from "../../../_src/modules/common/log/create-log
     this.httpServer.on("post", "/api/common/log/create-log", (params: any, body: any) => {
       return createLogController.handle(body);
     });
+
+    this.httpServer.on("get", "/api/configuration/triggers/get-date-task", (params: any) => {
+      console.log(params);
+      
+      return getDateTaskController.handle(params)
+    })
   }
 }
