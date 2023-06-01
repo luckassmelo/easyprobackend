@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Unit tests for get the last date of task should return an error when id is not providade: RequestError: Parameter id not found 1`] = `"Parameter id not found"`;
