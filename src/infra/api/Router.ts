@@ -26,6 +26,8 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 import { updateItemController } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/implementation/update-item.impl"
 import { UpdateItemProp } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/models/update-item.model";
 import { createLogController } from "../../../_src/modules/common/log/create-log/implementation/create-log.imp";
+import { getInksColorsController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-colors/implementation/get-inks-colors.implementation"
+
 ; export default class Router {
   constructor(
     private httpServer: HttpServer,
@@ -115,6 +117,10 @@ import { createLogController } from "../../../_src/modules/common/log/create-log
 
     this.httpServer.on("post", "/api/common/log/create-log", (params: any, body: any) => {
       return createLogController.handle(body);
+    });
+
+    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-colors/:idSite", (params: any, body: any) => {
+      return getInksColorsController.handle(params);
     });
   }
 }
