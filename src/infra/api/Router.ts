@@ -120,8 +120,6 @@ import {getDateTaskController} from '../../../_src/modules/configurations/submod
     });
 
     this.httpServer.on("get", "/api/configuration/triggers/get-date-task", (params: any) => {
-      console.log(params);
-      
       return getDateTaskController.handle(params)
     })
   }

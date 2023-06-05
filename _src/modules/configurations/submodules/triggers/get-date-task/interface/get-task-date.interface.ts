@@ -1,6 +1,5 @@
-import { GetDateOfTask } from "../models/get-date.model";
-import { ResponseDateType } from "../types/response-date.type";
+import {  GetTriggerTask } from "../models/get-date.model";
 
 export interface IGetTaskDate {
-    findDateById (id: GetDateOfTask): Promise<ResponseDateType>
+    findDateById (id:  GetTriggerTask): Promise< GetTriggerTask>
 }
