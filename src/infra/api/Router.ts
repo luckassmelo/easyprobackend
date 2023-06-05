@@ -119,7 +119,6 @@ import { createLogController } from "../../../_src/modules/common/log/create-log
     });
 
     this.httpServer.on("post", "/api/screens-and-inks/inks/insert-formula", (params:any, body: any) =>{
-      console.log(body);
       
       return insertFormulaInfoController.handle(body);
     });
