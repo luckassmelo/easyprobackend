@@ -119,7 +119,7 @@ import { getInksColorsController } from "../../../_src/modules/screens-and-inks/
       return createLogController.handle(body);
     });
 
-    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-colors/:idSite", (params: any, body: any) => {
+    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-colors", (params: any) => {
       return getInksColorsController.handle(params);
     });
   }

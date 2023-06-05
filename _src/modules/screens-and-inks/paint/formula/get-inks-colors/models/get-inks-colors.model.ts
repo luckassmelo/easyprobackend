@@ -1,6 +1,6 @@
-import { Entity } from "../../../../../../domain/entity/entity"
+import { Entity } from "../../../../../../domain/entity/Entity"
 
-export type GetInksColorsProp = {
+type GetInksColorsProp = {
     idSite: number
 }
 
