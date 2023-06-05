@@ -125,8 +125,6 @@ import { getInksColorsController } from "../../../_src/modules/screens-and-inks/
     });
 
     this.httpServer.on("post", "/api/screens-and-inks/inks/insert-formula", (params:any, body: any) =>{
-      console.log(body);
-      
       return insertFormulaInfoController.handle(body);
     });
 
