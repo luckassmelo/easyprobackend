@@ -17,7 +17,7 @@ import { getTasksByIdOeeController } from "../../application/useCases/GetTasksBy
 import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
 import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from "../../application/useCases/GetMachineEventByDateAndMachineWithWorkOrderDetails";
 
-import { insertFormulaInfoController} from '../../../_src/modules/screens-and-inks/paint/formula/insert-formula/implementation/insert-formula.impl'
+import {updateFormulaController} from '../../../_src/modules/screens-and-inks/paint/formula/update-formula/implementation/update-formula.impl';
 import { ParameterDTO } from '../../../_src/modules/common/get-easypro-parameter/types/param.types';
 import { getEasyROParameterController } from '../../../_src/modules/common/get-easypro-parameter/implementation/get-easypro-parameter.impl';
 import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
@@ -27,7 +27,6 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 import { updateItemController } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/implementation/update-item.impl"
 import { UpdateItemProp } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/models/update-item.model";
 import { createLogController } from "../../../_src/modules/common/log/create-log/implementation/create-log.imp";
-import { getInksColorsController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-colors/implementation/get-inks-colors.implementation"
 
 ; export default class Router {
   constructor(
@@ -120,14 +119,8 @@ import { getInksColorsController } from "../../../_src/modules/screens-and-inks/
       return createLogController.handle(body);
     });
 
-    this.httpServer.on("post", "/api/screens-and-inks/inks/insert-formula", (params:any, body: any) =>{
-      
-      return insertFormulaInfoController.handle(body);
-    });
-
-
-    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-colors", (params: any) => {
-      return getInksColorsController.handle(params);
-    });
+    this.httpServer.on("put", "/api/screens-and-inks/paint/formula/update-formula", (params: any, body: any)=>{ 
+      return updateFormulaController.handle(params, body);
+    })
   }
 }
