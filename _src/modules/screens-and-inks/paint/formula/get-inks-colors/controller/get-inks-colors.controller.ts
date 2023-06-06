@@ -20,7 +20,7 @@ export class GetInksColorsController implements Controller {
 
         const response = await this.getInksColorsUseCase.execute(modalInstance);
 
-         if (response.length === 0) { 
+        if (response.length === 0) { 
             throw new GenericError('No Content', 'No content in request', 204);
         }
 
