@@ -11,7 +11,7 @@ export class GetInksColorsRepository implements IGetInksColorsRepository {
         const result = await this.adapter.connection
         .select("*")
         .from("paint.tbl_ink_color")   
-        .where("site", getInksColorsProps.props.idSite)   
+        .where("site", getInksColorsProps.idSite)   
         
         return result
     }
