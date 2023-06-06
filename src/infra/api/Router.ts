@@ -119,7 +119,7 @@ import {getDateTaskController} from '../../../_src/modules/configurations/submod
       return createLogController.handle(body);
     });
 
-    this.httpServer.on("get", "/api/configuration/triggers/get-date-task", (params: any) => {
+    this.httpServer.on("get", "/api/configuration/triggers/get-task", (params: any) => {
       return getDateTaskController.handle(params)
     })
   }
