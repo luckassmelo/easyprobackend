@@ -1,20 +1,23 @@
-import { GetTaskDateUseCase } from "../usecases/get-task.usecase";
+import { GetTaskDateUseCase } from "../usecases/get-task-most-recent.usecase";
 import {Controller} from '../../../../../../presentation/protocols/controller';
 import { HttpResponse } from "../../../../../../presentation/protocols/http";
-import {  GetTriggerTask} from "../models/get-task.model";
+import {  GetTriggerTask} from "../models/get-task-most-recent.model";
 
 type RequestProps = {
-    id: number
+    idTrigger: number
+    idOee: number
 }
 
 export class GetTaskDateController implements Controller{
     constructor(private usecase: GetTaskDateUseCase){}
 
     async handle (request: RequestProps): Promise<HttpResponse>{
-        const { id }  = request;
+        const { idTrigger, idOee }  = request;
         
         const getTriggerTask = new GetTriggerTask()
-        getTriggerTask.idTrigger = Number(id)
+        getTriggerTask.idTrigger = Number(idTrigger);
+        getTriggerTask.idOee = Number(idOee);
+        
         const getDate =  await this.usecase.execute(getTriggerTask);
         
             
