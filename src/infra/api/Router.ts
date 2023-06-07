@@ -118,7 +118,7 @@ import { createLogController } from "../../../_src/modules/common/log/create-log
       return createLogController.handle(body);
     });
 
-    this.httpServer.on("post", "/api/screens-and-inks/inks/insert-formula", (params:any, body: any) =>{
+    this.httpServer.on("post", "/api/screens-and-inks/paint/insert-formula", (params:any, body: any) =>{
       
       return insertFormulaInfoController.handle(body);
     });
