@@ -10,7 +10,7 @@ export class GetDateOfTaskRepository implements IGetTaskDate {
     async findDateById(props:  GetTriggerTask): Promise< GetTriggerTask> {
         const response = await this.adapter.connection('trigger.tbl_trigger_task')
         .select<GetTriggerTask>('*')
-        .where('id_trigger', '=', props.idTrigger)
+        .where('id_trigger', '=', props.idTrigger).andWhere('id_oee', '=', props.idOee)
         .orderBy('created_at', 'desc')
         .limit(1);
 
