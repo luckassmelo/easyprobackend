@@ -23,7 +23,13 @@ export class GetTriggerTask {
         this._idTrigger = id
     };
 
+    public set idOee(id: number){
+        if(!Number.isInteger(id)){
+            throw new ParameterWrongTypeError('idOee', 'integer');
+        };
 
+        this._idOee = id
+    }
     
     public get createTaskDate() : Date {
         return this._createDate;

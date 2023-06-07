@@ -1,6 +1,6 @@
-import {GetTaskDateController} from '../controller/get-task.controller';
-import { GetDateOfTaskRepository } from '../repository/get-task.repository';
-import { GetTaskDateUseCase } from '../usecases/get-task.usecase';
+import {GetTaskDateController} from '../controller/get-task-most-recent.controller';
+import { GetDateOfTaskRepository } from '../repository/get-task-most-recent.repository';
+import { GetTaskDateUseCase } from '../usecases/get-task-most-recent.usecase';
 import {connectionProductionManager} from '../../../../../../../src/infra/database/index';
 
 

@@ -1,4 +1,4 @@
-import { GetTriggerTask } from '../models/get-task.model';
+import { GetTriggerTask } from '../models/get-task-most-recent.model';
 
 
 

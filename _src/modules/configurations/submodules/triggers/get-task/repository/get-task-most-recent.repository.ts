@@ -1,6 +1,6 @@
-import { IGetTaskDate } from "../interface/get-task.interface";
+import { IGetTaskDate } from "../interface/get-task-most-recent.interface";
 import PostgresSQLAdapter from '../../../../../../../src/infra/database/PostgreSQLAdapter'
-import {  GetTriggerTask} from "../models/get-task.model";
+import {  GetTriggerTask} from "../models/get-task-most-recent.model";
 
 
 export class GetDateOfTaskRepository implements IGetTaskDate {

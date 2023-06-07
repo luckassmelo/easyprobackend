@@ -1,5 +1,5 @@
-import { IGetTaskDate } from "../interface/get-task.interface";
-import {  GetTriggerTask } from "../models/get-task.model";
+import { IGetTaskDate } from "../interface/get-task-most-recent.interface";
+import {  GetTriggerTask } from "../models/get-task-most-recent.model";
 
 
 export class GetTaskDateUseCase {
