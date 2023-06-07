@@ -26,13 +26,25 @@ export class InsertFormulaInfoController implements Controller {
     constructor(private usecase: InsertFormulaUseCase){}
 
     async handle(props: FormulaProps): Promise<HttpResponse>{
-        const formulaProps =  new FormulaInfos({
-            ...props
-        });
+        const { description, sapNumber, vendorDesc, mediumDesc, usageType, color, inkWeight, mediumWeight, minViscosity, maxViscosity, minDensity, maxDensity, status, site } = props
+        const formulaModel = new FormulaInfos();
 
-        if(formulaProps.props == null) throw new BadRequestError();
-
-        const response = await this.usecase.execute(formulaProps);
+        formulaModel.description = description
+        formulaModel.sapNumber = sapNumber;
+        formulaModel.vendorDesc = vendorDesc;
+        formulaModel.mediumDesc = mediumDesc;
+        formulaModel.usageType = usageType;
+        formulaModel.color = color;
+        formulaModel.inkWeight = inkWeight;
+        formulaModel.mediumWeight = mediumWeight;
+        formulaModel.minViscosity = minViscosity;
+        formulaModel.maxViscosity = maxViscosity;
+        formulaModel.minDensity = minDensity;
+        formulaModel.maxDensity = maxDensity;
+        formulaModel.status = status;
+        formulaModel.site = site;
+        
+        const response = await this.usecase.execute(formulaModel);
 
         return {
             statusCode: 200,

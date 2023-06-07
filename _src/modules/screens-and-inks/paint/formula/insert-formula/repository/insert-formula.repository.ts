@@ -14,25 +14,25 @@ export class InsertFormulaRepository implements IinsertFormulaRepository{
         try{
             await this.adapter.connection('paint.tbl_formula')
                 .insert({
-                    description: formula.descriptionGetter,
-                    sap_material_number: formula.sapNumberGetter,
-                    vendor_description: formula.vendorDescGetter,
-                    medium_description: formula.mediumDescGetter,
-                    id_type: formula.usageTypeGetter,
-                    id_color: formula.colorGetter,
-                    ink_weight: formula.inkWeightGetter,
-                    medium_weight: formula.mediumWeightGetter,
-                    min_viscosity: formula.minViscosityGetter,
-                    max_viscosity: formula.maxViscosityGetter,
-                    min_density: formula.minDensityGetter,
-                    max_density: formula.maxDensityGetter,
-                    status: formula.statusGetter,
-                    site: formula.siteGetter
+                    description: formula.description,
+                    sap_material_number: formula.sapNumber,
+                    vendor_description: formula.vendorDesc,
+                    medium_description: formula.mediumDesc,
+                    id_type: formula.usageType,
+                    id_color: formula.color,
+                    ink_weight: formula.inkWeight,
+                    medium_weight: formula.mediumWeight,
+                    min_viscosity: formula.minViscosity,
+                    max_viscosity: formula.maxViscosity,
+                    min_density: formula.minDensity,
+                    max_density: formula.maxDensity,
+                    status: formula.status,
+                    site: formula.site
                 });
 
 
             return {
-                description: `Success with save ${formula.descriptionGetter}` 
+                description: `Success with save ${formula.description}` 
             }
     }catch(error){
         throw new BadRequestError();

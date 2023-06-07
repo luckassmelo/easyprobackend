@@ -9,8 +9,6 @@ export class InsertFormulaUseCase {
 
     async execute(formula: FormulaInfos): Promise<ResponseFormula | BadRequestError>{
         const response = await this.insertFormulaRepository.insertFormulaInfo(formula);
-        
-        
         return response;
     }
 }
