@@ -1,25 +1,24 @@
-import { GetTaskDateUseCase } from "../usecases/get-task-date.usecase";
+import { GetTaskDateUseCase } from "../usecases/get-task-most-recent.usecase";
 import {Controller} from '../../../../../../presentation/protocols/controller';
 import { HttpResponse } from "../../../../../../presentation/protocols/http";
-import { GetDateOfTask } from "../models/get-date.model";
-import {ParameterNotFoundError} from '../../../../../../infra/api/errors/parameter-not-found.error'
+import {  GetTriggerTask} from "../models/get-task-most-recent.model";
 
 type RequestProps = {
-    id: string
+    idTrigger: number
+    idOee: number
 }
 
 export class GetTaskDateController implements Controller{
     constructor(private usecase: GetTaskDateUseCase){}
 
     async handle (request: RequestProps): Promise<HttpResponse>{
-        const {id} = request;
+        const { idTrigger, idOee }  = request;
         
-        if (!id) throw new ParameterNotFoundError('id');
-
-
-        const getDate =  await this.usecase.execute(new GetDateOfTask({
-            id
-        }));
+        const getTriggerTask = new GetTriggerTask()
+        getTriggerTask.idTrigger = Number(idTrigger);
+        getTriggerTask.idOee = Number(idOee);
+        
+        const getDate =  await this.usecase.execute(getTriggerTask);
         
             
         return {
