@@ -7,6 +7,7 @@ type CreateTaskRequest = {
     userId?: number | null;
     triggerId: number;
     name: string;
+    description: string;
     closed: boolean;
     idOee: number;
     idSite: number;
@@ -19,7 +20,7 @@ export class CreateTaskUseCase {
         private tasksRepository: ITasksRepository
     ) { }
 
-    async execute({ triggerId, name, closed, idOee, idSite }: CreateTaskRequest) {
+    async execute({ triggerId, name, description, closed, idOee, idSite, }: CreateTaskRequest) {
 
         const trigger = await this.triggersRepository.findById(triggerId);
         if (!trigger) throw new NotFoundError('Trigger does not exists.');
@@ -27,6 +28,7 @@ export class CreateTaskUseCase {
         const task = new Task({
             triggerId,
             name,
+            description,
             closed,
             idOee,
             idSite

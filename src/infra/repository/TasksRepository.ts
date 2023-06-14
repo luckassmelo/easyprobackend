@@ -14,6 +14,7 @@ export class PrismaTasksRepository implements ITasksRepository {
         name: task.props.name,
         closed: task.props.closed,
         id_oee: task.props.idOee,
+        description: task.props.description,
         id_site: task.props.idSite,
       });
 
