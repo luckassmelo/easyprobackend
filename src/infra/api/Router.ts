@@ -131,10 +131,13 @@ import { getInksColorsController } from "../../../_src/modules/screens-and-inks/
 
     this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-all-formulas", (params: any) => {
       return getAllFormulasController.handle(params);
+    })
+    this.httpServer.on("post", "/api/screens-and-inks/paint/insert-formula", (params:any, body: any) =>{
+      
+      return insertFormulaInfoController.handle(body);
     });
 
     this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-colors", (params: any) => {
       return getInksColorsController.handle(params);
     });
   }
-}
