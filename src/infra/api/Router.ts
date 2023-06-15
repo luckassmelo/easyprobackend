@@ -26,8 +26,10 @@ import { createJobController } from "../../../_src/modules/common/queue/create-j
 import { updateItemController } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/implementation/update-item.impl"
 import { UpdateItemProp } from "../../../_src/modules/warehouse/spare-parts/update-item-requisition/models/update-item.model";
 import { createLogController } from "../../../_src/modules/common/log/create-log/implementation/create-log.imp";
-import {getDateTaskController} from '../../../_src/modules/configurations/submodules/triggers/get-date-task/implementation/get-date-task.impl';
-
+import {getDateTaskController} from '../../../_src/modules/configurations/submodules/triggers/get-task/implementation/get-task-most-recent.impl';
+import { getInksUsagesController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-usages/implementation/get-inks-usages.impl"
+import { getAllFormulasController } from "../../../_src/modules/screens-and-inks/paint/formula/get-all-formulas/implementation/get-all-formulas.impl";
+import { getInksColorsController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-colors/implementation/get-inks-colors.implementation";
 ; export default class Router {
   constructor(
     private httpServer: HttpServer,
@@ -119,10 +121,20 @@ import {getDateTaskController} from '../../../_src/modules/configurations/submod
       return createLogController.handle(body);
     });
 
-    this.httpServer.on("get", "/api/configuration/triggers/get-date-task", (params: any) => {
-      console.log(params);
-      
+    this.httpServer.on("get", "/api/configuration/triggers/get-task-most-recent", (params: any) => {
       return getDateTaskController.handle(params)
     })
+
+    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-usages", (params: any) => {
+      return getInksUsagesController.handle(params);
+    });
+
+    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-all-formulas", (params: any) => {
+      return getAllFormulasController.handle(params);
+    });
+
+    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-colors", (params: any) => {
+      return getInksColorsController.handle(params);
+    });
   }
 }

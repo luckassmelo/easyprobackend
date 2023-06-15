@@ -1,4 +1,4 @@
-import { Entity } from "../../../../../domain/entity/entity";
+import { Entity } from "../../../../../domain/entity/Entity";
 
 
 type SAPProps = {
