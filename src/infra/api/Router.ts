@@ -126,14 +126,9 @@ import { getAllFormulasController } from "../../../_src/modules/screens-and-inks
       return getDateTaskController.handle(params)
     })
 
-
-
     this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-usages", (params: any) => {
       return getInksUsagesController.handle(params);
     });
-
-
-
 
     this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-all-formulas", (params: any) => {
       return getAllFormulasController.handle(params);
