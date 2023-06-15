@@ -30,7 +30,7 @@ import {getDateTaskController} from '../../../_src/modules/configurations/submod
 
 import { getInksUsagesController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-usages/implementation/get-inks-usages.impl"
 
-
+import { getAllFormulasController } from "../../../_src/modules/screens-and-inks/paint/formula/get-all-formulas/implementation/get-all-formulas.impl";
 ; export default class Router {
   constructor(
     private httpServer: HttpServer,
@@ -134,5 +134,9 @@ import { getInksUsagesController } from "../../../_src/modules/screens-and-inks/
 
 
 
+
+    this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-all-formulas", (params: any) => {
+      return getAllFormulasController.handle(params);
+    });
   }
 }
