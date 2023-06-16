@@ -6,6 +6,7 @@ import { GenericError } from "../../../../../../infra/api/errors/generic.error";
 
 type GetFormulaDTO = {
     idSite: number
+    idFormula: number
 }
 
 export class GetAllFormulasController implements Controller {
@@ -14,10 +15,11 @@ export class GetAllFormulasController implements Controller {
     ){}
 
     async handle(props: GetFormulaDTO): Promise<HttpResponse>{
-        const { idSite } = props
+        const { idSite, idFormula } = props
 
         const modalInstance = new GetAllFormulasModal
         modalInstance.idSite = Number(idSite)
+        modalInstance.idFormula = Number(idFormula)
 
         const response = await this.getAllColorsUseCase.execute(modalInstance);
 

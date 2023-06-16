@@ -12,6 +12,7 @@ export class GetAllFormulasRepository implements IGetAllFormulasRepository {
         .select("*")
         .from("paint.tbl_formula")
         .where("site", getAllFormulasProps.idSite)
+        .andWhere(builder => getAllFormulasProps.idFormula !== 0 ? builder.where("id", getAllFormulasProps.idFormula) : builder);
 
         return result 
     }

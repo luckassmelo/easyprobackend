@@ -3,6 +3,7 @@ import { ParameterWrongTypeError } from "../../../../../../infra/api/errors/para
 
 export class GetAllFormulasModal {
     private _idSite: number;
+    private _idFormula: number;
 
     public set idSite(idSite: number) {
         if (typeof idSite !== 'number') {
@@ -17,5 +18,17 @@ export class GetAllFormulasModal {
 
     public get idSite(): number {
         return this._idSite;
+    }
+
+    public set idFormula(idFormula: number ) {
+        if (typeof idFormula !== 'number') {
+            throw new ParameterWrongTypeError('idFormula', 'number');
+        }
+        
+        idFormula ? this._idFormula = idFormula : this._idFormula = 0
+    }
+
+    public get idFormula(): number {
+        return this._idFormula
     }
 }
