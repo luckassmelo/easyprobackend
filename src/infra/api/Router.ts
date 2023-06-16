@@ -30,7 +30,8 @@ import {getDateTaskController} from '../../../_src/modules/configurations/submod
 import { getInksUsagesController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-usages/implementation/get-inks-usages.impl"
 import { getAllFormulasController } from "../../../_src/modules/screens-and-inks/paint/formula/get-all-formulas/implementation/get-all-formulas.impl";
 import { getInksColorsController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-colors/implementation/get-inks-colors.implementation";
-; export default class Router {
+import {insertFormulaInfoController} from '../../../_src/modules/screens-and-inks/paint/formula/insert-formula/implementation/insert-formula.impl'
+export default class Router {
   constructor(
     private httpServer: HttpServer,
     private socketServer: SocketAdapter
@@ -141,3 +142,4 @@ import { getInksColorsController } from "../../../_src/modules/screens-and-inks/
       return getInksColorsController.handle(params);
     });
   }
+}
