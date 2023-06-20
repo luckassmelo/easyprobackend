@@ -1,45 +1,102 @@
-import { Entity } from "../../../../../../domain/entity/entity";
+import { ParameterNotFoundError } from "../../../../../../infra/api/errors/parameter-not-found.error";
+import { ParameterWrongTypeError } from "../../../../../../infra/api/errors/parameter-wrong-type.error";
 
-type UpdateProps = {
-    weightInk: number;
-    weightMedium: number;
-    maxViscosity: number;
-    minViscosity: number;
-    maxDensity: number;
-    minDensity: number;
-    status: boolean;
+export class UpdateFormula {
+    private _idFormula: number ;
+    private _weightInk: number | undefined;
+    private _weightMedium: number | undefined;
+    private _maxViscosity: number | undefined;
+    private _minViscosity: number | undefined;
+    private _maxDensity: number | undefined;
+    private _minDensity: number | undefined;
+    private _status: boolean | undefined;
+
+public set idFormula(id: number) {
+    if(!Number.isInteger(id)) throw new ParameterWrongTypeError('idFormula', 'integer'); 
+
+    this._idFormula = id;
+};
+
+public set inkWeight(inkWeight: number | undefined) {
+    if(typeof inkWeight !== 'number' && typeof inkWeight !== 'undefined'){
+        throw new ParameterWrongTypeError('inkWeight', 'number')
+    };
+         this._weightInk = inkWeight;
+};
+
+public set mediumWeight(mediumWeight: number | undefined) {
+    if(typeof mediumWeight !== 'number' && typeof mediumWeight !== 'undefined'){
+        throw new ParameterWrongTypeError('mediumWeight', 'number')
+    };
+         this._weightMedium = mediumWeight;
+};
+
+public set minViscosity(minViscosity: number | undefined) {
+    if(typeof minViscosity !== 'number' && typeof minViscosity !== 'undefined'){
+        throw new ParameterWrongTypeError('minViscosity', 'number')
+    };
+         this._minViscosity = minViscosity;
+};
+
+public set maxViscosity(maxViscosity: number | undefined) {
+    if(typeof maxViscosity !== 'number' && typeof maxViscosity !== 'undefined'){
+        throw new ParameterWrongTypeError('maxViscosity', 'number')
+    };
+         this._maxViscosity = maxViscosity;
+};
+
+public set minDensity(minDensity: number | undefined) {
+    if(typeof minDensity !== 'number' && typeof minDensity !== 'undefined'){
+        throw new ParameterWrongTypeError('minDensity', 'number')
+    };
+         this._minDensity = minDensity;
+};
+
+public set maxDensity(maxDensity: number | undefined) {
+    if(typeof maxDensity !== 'number' && typeof maxDensity !== 'undefined'){
+        throw new ParameterWrongTypeError('maxDensity', 'number')
+    };
+         this._maxDensity = maxDensity;
+};
+
+public set status(status: boolean | undefined) {
+    if(typeof status !== 'boolean' && typeof status !== 'undefined'){
+        throw new ParameterWrongTypeError('status', 'boolean')
+    };
+
+        this._status = status;
+};
+
+
+public get idFormula(): number {
+    return this._idFormula;
 }
-export class UpdateFormula extends Entity<UpdateProps>{
-    constructor(props: UpdateProps, id:number){
-        super(props, id);
+
+public get inkWeight(): number {
+        return this._weightInk;
     };
 
-
-    get inkWeightGetter(): number {
-        return this.props.weightInk;
+public get mediumWeight(): number {
+        return this._weightMedium;
     };
 
-    get mediumWeightGetter(): number {
-        return this.props.weightMedium;
+public get minViscosity(): number {
+        return this._minViscosity;
     };
 
-    get minViscosityGetter(): number {
-        return this.props.minViscosity;
+public get maxViscosity(): number {
+        return this._maxViscosity;
     };
 
-    get maxViscosityGetter(): number {
-        return this.props.maxViscosity;
+public get minDensity(): number {
+        return this._minDensity;
     };
 
-    get minDensityGetter(): number {
-        return this.props.minDensity;
+public get maxDensity(): number {
+        return this._maxDensity;
     };
 
-    get maxDensityGetter(): number {
-        return this.props.maxDensity;
-    };
-
-    get statusGetter(): boolean {
-        return this.props.status;
+public get status(): boolean {
+        return this._status;
     };
 }

@@ -31,6 +31,7 @@ import { getInksUsagesController } from "../../../_src/modules/screens-and-inks/
 import { getAllFormulasController } from "../../../_src/modules/screens-and-inks/paint/formula/get-all-formulas/implementation/get-all-formulas.impl";
 import { getInksColorsController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-colors/implementation/get-inks-colors.implementation";
 import {insertFormulaInfoController} from '../../../_src/modules/screens-and-inks/paint/formula/insert-formula/implementation/insert-formula.impl'
+import {updateFormulaController} from '../../../_src/modules/screens-and-inks/paint/formula/update-formula/implementation/update-formula.impl'
 export default class Router {
   constructor(
     private httpServer: HttpServer,
@@ -141,5 +142,9 @@ export default class Router {
     this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-colors", (params: any) => {
       return getInksColorsController.handle(params);
     });
+
+    this.httpServer.on("put", "/api/screens-and-inks/paint/update-formula", (params: any, body:any) =>{
+      return updateFormulaController.handle(params, body);
+    })
   }
 }
