@@ -7,6 +7,7 @@ type TaskProps = {
     closed: boolean;
     createdAt?: Date;
     idOee: number;
+    description: string;
     idSite: number;
 }
 
