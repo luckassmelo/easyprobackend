@@ -26,23 +26,7 @@ describe("Insert formula into repository", () => {
                 site: 2
             };
         
-        const initialProps = new FormulaInfos();
-
-            initialProps.description = formulaProps.description;
-            initialProps.sapNumber = formulaProps.sapNumber;
-            initialProps.vendorDesc = formulaProps.vendorDesc;
-            initialProps.mediumDesc = formulaProps.mediumDesc;
-            initialProps.usageType = formulaProps.usageType;
-            initialProps.color = formulaProps.color;
-            initialProps.inkWeight = formulaProps.inkWeight;
-            initialProps.mediumWeight = formulaProps.mediumWeight;
-            initialProps.minViscosity = formulaProps.minViscosity;
-            initialProps.maxViscosity = formulaProps.maxViscosity;
-            initialProps.minDensity = formulaProps.minDensity;
-            initialProps.maxDensity = formulaProps.maxDensity;
-            initialProps.status = formulaProps.status;
-            initialProps.site = formulaProps.site;
-            
+        const initialProps = new FormulaInfos(formulaProps);
         insertFormulaRepository["formulaBase"].push(initialProps);
 
         const result = insertFormulaRepository.insertFormulaInfo(initialProps);
