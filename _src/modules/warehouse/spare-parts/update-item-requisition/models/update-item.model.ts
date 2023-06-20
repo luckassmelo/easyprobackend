@@ -1,4 +1,4 @@
-import { Entity } from "../../../../../domain/Entity/entity"
+import { Entity } from "../../../../../domain/entity/Entity"
 
 export type UpdateItemProp = {
     date_response_item: string, 
