@@ -17,6 +17,7 @@ import { getTasksByIdOeeController } from "../../application/useCases/GetTasksBy
 import { getTasksEvent, triggerTaskInsertDataEvent } from "./events";
 import { getMachineEventByDateAndMachineWithWorkOrderDetailsController } from "../../application/useCases/GetMachineEventByDateAndMachineWithWorkOrderDetails";
 
+import { insertFormulaInfoController} from '../../../_src/modules/screens-and-inks/paint/formula/insert-formula/implementation/insert-formula.impl'
 import { ParameterDTO } from '../../../_src/modules/common/get-easypro-parameter/types/param.types';
 import { getEasyROParameterController } from '../../../_src/modules/common/get-easypro-parameter/implementation/get-easypro-parameter.impl';
 import { getStockInformationController } from "../../../_src/modules/common/sap/get-stock-information/implementation/get-stock-information.impl"
@@ -124,6 +125,11 @@ import { getInksColorsController } from "../../../_src/modules/screens-and-inks/
     this.httpServer.on("get", "/api/configuration/triggers/get-task-most-recent", (params: any) => {
       return getDateTaskController.handle(params)
     })
+
+    this.httpServer.on("post", "/api/screens-and-inks/paint/insert-formula", (params:any, body: any) =>{
+      
+      return insertFormulaInfoController.handle(body);
+    });
 
     this.httpServer.on("get", "/api/screens-and-inks/paint/formula/get-inks-usages", (params: any) => {
       return getInksUsagesController.handle(params);
