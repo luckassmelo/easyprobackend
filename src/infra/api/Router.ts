@@ -32,7 +32,8 @@ import {getDateTaskController} from '../../../_src/modules/configurations/submod
 import { getInksUsagesController } from "../../../_src/modules/screens-and-inks/paint/formula/get-inks-usages/implementation/get-inks-usages.impl"
 import { getAllFormulasController } from "../../../_src/modules/screens-and-inks/paint/formula/get-all-formulas/implementation/get-all-formulas.impl";
 import { getInksColorsController } from '../../../_src/modules/screens-and-inks/paint/formula/get-inks-colors/implementation/get-inks-colors.implementation';
-; export default class Router {
+import { getErrorInfoController} from '../../../_src/modules/common/sap/get-error/implementation/get-error-info.implementation'
+ export default class Router {
   constructor(
     private httpServer: HttpServer,
     private socketServer: SocketAdapter
@@ -122,6 +123,10 @@ import { getInksColorsController } from '../../../_src/modules/screens-and-inks/
     this.httpServer.on("post", "/api/common/log/create-log", (params: any, body: any) => {
       return createLogController.handle(body);
     });
+
+    this.httpServer.on("get", "/api/common/sap/get-error", (params: any)=> {
+      return getErrorInfoController.handle(params);
+    })
 
     this.httpServer.on("get", "/api/configuration/triggers/get-task-most-recent", (params: any) => {
       return getDateTaskController.handle(params)
