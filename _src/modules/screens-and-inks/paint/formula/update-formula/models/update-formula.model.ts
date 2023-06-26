@@ -33,9 +33,6 @@ public set remark(remark: string) {
 };
 
 public set inkWeight(inkWeight: number) {
-
-    console.log(inkWeight);
-    
     if(typeof inkWeight !== 'number' && typeof inkWeight !== 'undefined'){
         throw new ParameterWrongTypeError('inkWeight', 'number')
     };
