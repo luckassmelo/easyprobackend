@@ -17,11 +17,21 @@ export class FormulaInfos {
     private _maxDensity: number;
     private _status: boolean;
     private _site: number;
+    private _idUser: number;
+
+
+    public set idUser(idUser: number){
+      this._idUser = idUser;
+    };
+
+    public get idUser(): number{
+      return this._idUser;
+    }
 
     public get description(): string {
         return this._description;
       }
-    
+
     public set description(value: string) {
         this._description = value;
     }

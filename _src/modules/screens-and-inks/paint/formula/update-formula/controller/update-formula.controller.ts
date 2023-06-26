@@ -12,6 +12,8 @@ type Updateprops = {
     maxDensity: number;
     minDensity: number;
     status: boolean;
+    remark: string;
+    idUser: number;
 };
 
 type params = {
@@ -23,7 +25,7 @@ export class UpdateFormulaController implements Controller {
         
         async handle(params: params, body: Updateprops): Promise<HttpResponse>{
             const {idFormula} = params;
-            const {weightInk, weightMedium, maxViscosity, minViscosity, maxDensity, minDensity, status} = body;
+            const {weightInk, weightMedium, maxViscosity, minViscosity, maxDensity, minDensity, status, remark, idUser} = body;
             const updateFormula = new UpdateFormula();
             updateFormula.idFormula = Number(idFormula);
             updateFormula.inkWeight = weightInk;
@@ -33,7 +35,10 @@ export class UpdateFormulaController implements Controller {
             updateFormula.maxDensity = maxDensity;
             updateFormula.minDensity = minDensity;
             updateFormula.status = status;
-
+            updateFormula.remark = remark;
+            updateFormula.idUser = idUser;
+            
+            
             const response = await this.usecase.execute(updateFormula);
         return {
             statusCode: 200,

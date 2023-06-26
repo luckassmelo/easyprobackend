@@ -19,14 +19,15 @@ type FormulaProps = {
     minDensity: number,
     maxDensity: number,
     status: boolean,
-    site: number
+    site: number,
+    idUser: number
 }
 
 export class InsertFormulaInfoController implements Controller {
     constructor(private usecase: InsertFormulaUseCase){}
 
     async handle(props: FormulaProps): Promise<HttpResponse>{
-        const { description, sapNumber, vendorDesc, mediumDesc, usageType, color, inkWeight, mediumWeight, minViscosity, maxViscosity, minDensity, maxDensity, status, site } = props
+        const { description, sapNumber, vendorDesc, mediumDesc, usageType, color, inkWeight, mediumWeight, minViscosity, maxViscosity, minDensity, maxDensity, status, site, idUser } = props
         const formulaModel = new FormulaInfos();
 
         formulaModel.description = description
@@ -43,6 +44,7 @@ export class InsertFormulaInfoController implements Controller {
         formulaModel.maxDensity = maxDensity;
         formulaModel.status = status;
         formulaModel.site = site;
+        formulaModel.idUser = idUser;
         
         const response = await this.usecase.execute(formulaModel);
 
