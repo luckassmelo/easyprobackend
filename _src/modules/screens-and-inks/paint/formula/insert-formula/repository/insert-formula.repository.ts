@@ -27,9 +27,9 @@ export class InsertFormulaRepository implements IinsertFormulaRepository{
                     min_density: formula.minDensity,
                     max_density: formula.maxDensity,
                     status: formula.status,
-                    site: formula.site
+                    site: formula.site,
+                    id_user: formula.idUser
                 });
-
 
             return {
                 description: `Success with save ${formula.description}` 
