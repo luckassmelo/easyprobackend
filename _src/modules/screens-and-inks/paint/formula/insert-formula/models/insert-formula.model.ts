@@ -15,7 +15,7 @@ export class FormulaInfos {
     private _maxViscosity: number;
     private _minDensity: number;
     private _maxDensity: number;
-    private _status: boolean;
+    private _status: string;
     private _site: number;
     private _idUser: number;
 
@@ -124,11 +124,11 @@ export class FormulaInfos {
         this._maxDensity = value;
       }
     
-      public get status(): boolean {
+      public get status(): string {
         return this._status;
       }
     
-      public set status(value: boolean) {
+      public set status(value: string) {
         this._status = value;
       }
     

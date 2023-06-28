@@ -18,7 +18,7 @@ type FormulaProps = {
     maxViscosity: number,
     minDensity: number,
     maxDensity: number,
-    status: boolean,
+    status: string,
     site: number,
     idUser: number
 }
