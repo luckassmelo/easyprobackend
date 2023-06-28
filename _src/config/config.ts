@@ -27,4 +27,12 @@ export const sapConnectionConfigurationRfc = {
   'lang': 'EN',
 }
 
+export const easyTecConfiguration = {
+  host: process.env.EASYTEC_HOST,
+  port: process.env.EASYTEC_PORT,
+  user: process.env.EASYTEC_USER,
+  password: process.env.EASYTEC_PASS,
+  database: process.env.EASYTEC_DATABASE,
+}
+
 export const pgBossConnectionString = process.env.PGBOSS_CONNECTION_STRING;
