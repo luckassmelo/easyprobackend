@@ -11,7 +11,7 @@ type Updateprops = {
     minViscosity: number;
     maxDensity: number;
     minDensity: number;
-    status: boolean;
+    status: string;
     remark: string;
     idUser: number;
 };

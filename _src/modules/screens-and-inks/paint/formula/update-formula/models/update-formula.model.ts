@@ -9,7 +9,7 @@ export class UpdateFormula {
     private _minViscosity: number | null;
     private _maxDensity: number | null;
     private _minDensity: number | null;
-    private _status: boolean | null;
+    private _status: string | null;
     private _remark: string | null;
     private _idUser: number;
 
@@ -74,9 +74,9 @@ public set maxDensity(maxDensity: number | null) {
          this._maxDensity = maxDensity;
 };
 
-public set status(status: boolean | null) {
-    if(typeof status !== 'boolean' && typeof status !== 'undefined'){
-        throw new ParameterWrongTypeError('status', 'boolean')
+public set status(status: string | null) {
+    if(typeof status !== 'string' && typeof status !== 'undefined'){
+        throw new ParameterWrongTypeError('status', 'string')
     };
 
         this._status = status;
@@ -118,7 +118,7 @@ public get maxDensity(): number {
         return this._maxDensity;
     };
 
-public get status(): boolean {
+public get status(): string {
         return this._status;
     };
 }
