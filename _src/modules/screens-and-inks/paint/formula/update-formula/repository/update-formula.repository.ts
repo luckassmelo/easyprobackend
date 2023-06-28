@@ -18,7 +18,7 @@ export class UpdateFormulaRepository implements IUpdateFormulaRepository {
             max_density: infos.maxDensity,
             status: infos.status,
             remark: infos.remark,
-            id_user: infos.idUser
+            id_user_edited: infos.idUser
         })
 
         return result;
