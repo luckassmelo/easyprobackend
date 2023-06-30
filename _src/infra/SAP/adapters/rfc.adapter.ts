@@ -20,6 +20,10 @@ type OutputIM = {
   BATCH: string;
 }
 
+type OutputCommitIM = {
+  RETURN: ReturnProp
+};
+
 type OutputWM = {
   E_TANUM: string;
   I_MATNR: string;
@@ -131,22 +135,31 @@ export class RfcAdapter {
       }
     }) as OutputIM;
 
-    if (output.RETURN.length === 0) {
-      await this.invoke('BAPI_TRANSACTION_COMMIT', {});
-
-      return {
-        document: `${output.MATERIALDOCUMENT.trim()}`,
-        year: `${output.MATDOCUMENTYEAR.trim()}`,
-        materialNumber: material.props.materialNumber,
-      }
-
-    } else {
+    if(output.RETURN.length > 0){
       await this.invoke('BAPI_TRANSACTION_ROLLBACK', {});
 
       return new SapPostError(output['RETURN'][0].MESSAGE, '', {
         data: input,
       });
     }
+
+
+      const outputCommit: OutputCommitIM = await this.invoke('BAPI_TRANSACTION_COMMIT', {
+        WAIT: 'X'
+      }) as OutputCommitIM;
+
+      if(outputCommit['RETURN']['MESSAGE'] === ''){
+        return {
+          document: `${output.MATERIALDOCUMENT.trim()}`,
+          year: `${output.MATDOCUMENTYEAR.trim()}`,
+          materialNumber: material.props.materialNumber,
+        }
+      }else{
+        await this.invoke('BAPI_TRANSACTION_ROLLBACK', {});
+        return new SapPostError(outputCommit['RETURN'].MESSAGE, '', {
+          data: input,
+        });
+      }
   }
 
   getInstance(): rfc.Client {
